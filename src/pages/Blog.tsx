@@ -118,8 +118,6 @@ const Blog: React.FC = () => {
         return localStorage.getItem('soke_blog_registered') === 'true';
     });
 
-    const [showGate, setShowGate] = useState(false); // Default hidden, shown on interaction if not registered
-
     const [gateData, setGateData] = useState({ name: '', email: '', role: '' });
     const [submittingGate, setSubmittingGate] = useState(false);
 
@@ -137,7 +135,6 @@ const Blog: React.FC = () => {
             });
             localStorage.setItem('soke_blog_registered', 'true');
             setIsRegistered(true);
-            setShowGate(false);
         } catch (error) {
             console.error("Error saving lead:", error);
             alert("Something went wrong. Please try again.");
@@ -147,95 +144,83 @@ const Blog: React.FC = () => {
     };
 
     const handleReadMore = (postId: string) => {
-        if (!isRegistered) {
-            setShowGate(true);
-            return;
-        }
         navigate(`/blog/${postId}`);
     };
+
+    if (!isRegistered) {
+        return (
+            <div className="bg-slate-950 min-h-screen flex items-center justify-center p-4">
+                <motion.div
+                    initial={{ scale: 0.9, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ duration: 0.5 }}
+                    className="max-w-md w-full"
+                >
+                    <div className="text-center mb-10">
+                        <span className="inline-block py-1 px-3 rounded-md bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] font-bold uppercase tracking-[0.2em] mb-6">
+                            Soke Insights
+                        </span>
+                        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">
+                            Unlock Strategic Intelligence.
+                        </h2>
+                        <p className="text-slate-400 text-sm leading-relaxed max-w-xs mx-auto">
+                            Join 5,000+ African founders accessing our premium operational frameworks and market analysis.
+                        </p>
+                    </div>
+
+                    <form onSubmit={handleGateSubmit} className="space-y-5">
+                        <div className="space-y-1">
+                            <label className="text-[10px] font-bold text-slate-500 uppercase tracking-widest pl-1">Full Name</label>
+                            <input
+                                required
+                                value={gateData.name}
+                                onChange={e => setGateData({ ...gateData, name: e.target.value })}
+                                className="w-full bg-slate-900 border border-slate-800 rounded-lg px-4 py-3 text-white placeholder-slate-600 focus:border-blue-500 focus:outline-none transition-colors"
+                                placeholder="e.g. Adeboye Bello"
+                            />
+                        </div>
+                        <div className="space-y-1">
+                            <label className="text-[10px] font-bold text-slate-500 uppercase tracking-widest pl-1">Work Email</label>
+                            <input
+                                required
+                                type="email"
+                                value={gateData.email}
+                                onChange={e => setGateData({ ...gateData, email: e.target.value })}
+                                className="w-full bg-slate-900 border border-slate-800 rounded-lg px-4 py-3 text-white placeholder-slate-600 focus:border-blue-500 focus:outline-none transition-colors"
+                                placeholder="name@company.com"
+                            />
+                        </div>
+                        <div className="space-y-1">
+                            <label className="text-[10px] font-bold text-slate-500 uppercase tracking-widest pl-1">Role / Interest</label>
+                            <input
+                                required
+                                value={gateData.role}
+                                onChange={e => setGateData({ ...gateData, role: e.target.value })}
+                                className="w-full bg-slate-900 border border-slate-800 rounded-lg px-4 py-3 text-white placeholder-slate-600 focus:border-blue-500 focus:outline-none transition-colors"
+                                placeholder="e.g. Founder, Investor"
+                            />
+                        </div>
+
+                        <button
+                            type="submit"
+                            disabled={submittingGate}
+                            className="w-full bg-white text-slate-950 font-bold py-4 rounded-lg hover:bg-slate-100 transition-all hover:scale-[1.01] active:scale-[0.99] mt-4 shadow-xl shadow-white/5"
+                        >
+                            {submittingGate ? 'Unlocking Access...' : 'Read Articles'}
+                        </button>
+
+                        <p className="text-center text-[10px] text-slate-600 mt-6">
+                            Professional insights for professional builders. No spam.
+                        </p>
+                    </form>
+                </motion.div>
+            </div>
+        );
+    }
 
     return (
         <PageTransition>
             <div className="bg-white min-h-screen relative font-sans selection:bg-blue-100">
-
-                {/* ---------------------------------------------------------------------------
-                   REGISTRATION GATE MODAL (DARK THEME)
-                   --------------------------------------------------------------------------- */}
-                {showGate && (
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-950/98 backdrop-blur-md"
-                    >
-                        <motion.div
-                            initial={{ scale: 0.9, opacity: 0 }}
-                            animate={{ scale: 1, opacity: 1 }}
-                            transition={{ duration: 0.3 }}
-                            className="max-w-md w-full relative"
-                        >
-                            {/* Modal Content */}
-                            <div className="text-center mb-10">
-                                <span className="inline-block py-1 px-3 rounded-md bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] font-bold uppercase tracking-[0.2em] mb-6">
-                                    Soke Insights
-                                </span>
-                                <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">
-                                    Unlock Strategic Intelligence.
-                                </h2>
-                                <p className="text-slate-400 text-sm leading-relaxed max-w-xs mx-auto">
-                                    Join 5,000+ African founders accessing our premium operational frameworks and market analysis.
-                                </p>
-                            </div>
-
-                            <form onSubmit={handleGateSubmit} className="space-y-5">
-                                <div className="space-y-1">
-                                    <label className="text-[10px] font-bold text-slate-500 uppercase tracking-widest pl-1">Full Name</label>
-                                    <input
-                                        required
-                                        value={gateData.name}
-                                        onChange={e => setGateData({ ...gateData, name: e.target.value })}
-                                        className="w-full bg-slate-900 border border-slate-800 rounded-lg px-4 py-3 text-white placeholder-slate-600 focus:border-blue-500 focus:outline-none transition-colors"
-                                        placeholder="e.g. Adeboye Bello"
-                                    />
-                                </div>
-                                <div className="space-y-1">
-                                    <label className="text-[10px] font-bold text-slate-500 uppercase tracking-widest pl-1">Work Email</label>
-                                    <input
-                                        required
-                                        type="email"
-                                        value={gateData.email}
-                                        onChange={e => setGateData({ ...gateData, email: e.target.value })}
-                                        className="w-full bg-slate-900 border border-slate-800 rounded-lg px-4 py-3 text-white placeholder-slate-600 focus:border-blue-500 focus:outline-none transition-colors"
-                                        placeholder="name@company.com"
-                                    />
-                                </div>
-                                <div className="space-y-1">
-                                    <label className="text-[10px] font-bold text-slate-500 uppercase tracking-widest pl-1">Role / Interest</label>
-                                    <input
-                                        required
-                                        value={gateData.role}
-                                        onChange={e => setGateData({ ...gateData, role: e.target.value })}
-                                        className="w-full bg-slate-900 border border-slate-800 rounded-lg px-4 py-3 text-white placeholder-slate-600 focus:border-blue-500 focus:outline-none transition-colors"
-                                        placeholder="e.g. Founder, Investor"
-                                    />
-                                </div>
-
-                                <button
-                                    type="submit"
-                                    disabled={submittingGate}
-                                    className="w-full bg-white text-slate-950 font-bold py-4 rounded-lg hover:bg-slate-100 transition-all hover:scale-[1.01] active:scale-[0.99] mt-4 shadow-xl shadow-white/5"
-                                >
-                                    {submittingGate ? 'Unlocking Access...' : 'Read Articles'}
-                                </button>
-
-                                <p className="text-center text-[10px] text-slate-600 mt-6">
-                                    Professional insights for professional builders. No spam.
-                                </p>
-                            </form>
-                        </motion.div>
-                    </motion.div>
-                )}
-
 
                 {/* ---------------------------------------------------------------------------
                    MAIN CONTENT

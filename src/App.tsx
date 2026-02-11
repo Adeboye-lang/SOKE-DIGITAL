@@ -32,12 +32,24 @@ const SubdomainRedirect = () => {
 
   useEffect(() => {
     const hostname = window.location.hostname;
+    const pathname = window.location.pathname;
+
+    // Admin Route Check
+    if (pathname.startsWith('/admin') || hostname.startsWith('admin.')) {
+      document.title = 'Soke Digital | Admin Portal';
+      // Optionally update favicon here if you had a separate admin icon
+      // const link = document.querySelector("link[rel~='icon']") as HTMLLinkElement;
+      // if (link) link.href = '/admin-icon.png'; 
+    } else {
+      document.title = 'SOKE DIGITAL';
+    }
+
     // Check if subdomain is 'admin' (e.g., admin.sokedigital.com.ng)
     // If so, redirect to admin login if not already on an admin route
-    if (hostname.startsWith('admin.') && !window.location.pathname.startsWith('/admin')) {
+    if (hostname.startsWith('admin.') && !pathname.startsWith('/admin')) {
       navigate('/admin/login');
     }
-  }, [navigate]);
+  }, [navigate]); // No dependency on location.pathname to avoid loop, but might need it for title update on nav
 
   return null;
 };

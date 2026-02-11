@@ -177,12 +177,12 @@ const CaseStudies: React.FC = () => {
                                             </p>
 
                                             <div className="pt-6">
-                                                <button className="inline-flex items-center gap-3 text-white border-b border-transparent hover:border-blue-500 pb-1 transition-all text-sm font-bold uppercase tracking-widest group/btn">
+                                                <Link to={`/our-portfolio/${project.id}`} className="inline-flex items-center gap-3 text-white border-b border-transparent hover:border-blue-500 pb-1 transition-all text-sm font-bold uppercase tracking-widest group/btn">
                                                     View Case Study
                                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform">
                                                         <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
                                                     </svg>
-                                                </button>
+                                                </Link>
                                             </div>
                                         </div>
                                     </div>

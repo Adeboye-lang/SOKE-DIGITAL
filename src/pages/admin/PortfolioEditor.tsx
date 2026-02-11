@@ -16,6 +16,7 @@ const PortfolioEditor: React.FC = () => {
     const [title, setTitle] = useState('');
     const [category, setCategory] = useState('');
     const [description, setDescription] = useState('');
+    const [content, setContent] = useState('');
     const [imageUrl, setImageUrl] = useState('');
     const [imageFile, setImageFile] = useState<File | null>(null);
     const [previewUrl, setPreviewUrl] = useState<string | null>(null);
@@ -35,6 +36,7 @@ const PortfolioEditor: React.FC = () => {
                         setDescription(data.description || '');
                         setImageUrl(data.imageUrl || '');
                         setPreviewUrl(data.imageUrl || '');
+                        setContent(data.content || '');
                     } else {
                         alert('Project not found!');
                         navigate('/admin/portfolio');
@@ -76,6 +78,7 @@ const PortfolioEditor: React.FC = () => {
                 title,
                 category,
                 description,
+                content,
                 imageUrl: finalImageUrl,
                 updatedAt: new Date(),
             };
@@ -192,6 +195,19 @@ const PortfolioEditor: React.FC = () => {
                                 )}
                             </div>
                         </div>
+                    </div>
+
+                    {/* Content (Markdown) */}
+                    <div className="space-y-2">
+                        <label className="text-sm font-bold text-slate-700 uppercase tracking-wider">Full Case Study (Markdown)</label>
+                        <p className="text-xs text-slate-500">You can use Markdown for formatting (e.g., # for headers, ** for bold, - for lists).</p>
+                        <textarea
+                            rows={15}
+                            value={content}
+                            onChange={(e) => setContent(e.target.value)}
+                            className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-600 focus:bg-white transition-all font-mono text-sm"
+                            placeholder="# Project Overview...&#10;&#10;## Challenge...&#10;&#10;## Solution..."
+                        />
                     </div>
 
                     <div className="pt-8 border-t border-slate-100 flex justify-end">

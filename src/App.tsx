@@ -25,6 +25,7 @@ import PortfolioManager from './pages/admin/PortfolioManager';
 import PortfolioEditor from './pages/admin/PortfolioEditor';
 import BlogManager from './pages/admin/BlogManager';
 import BlogEditor from './pages/admin/BlogEditor';
+import ProjectDetail from './pages/ProjectDetail';
 
 // Subdomain Redirect Component
 const SubdomainRedirect = () => {
@@ -84,6 +85,7 @@ function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/our-portfolio" element={<CaseStudies />} />
+          <Route path="/our-portfolio/:id" element={<ProjectDetail />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/privacy" element={<Privacy />} />

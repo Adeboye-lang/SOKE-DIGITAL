@@ -180,17 +180,17 @@ const ProjectDetail: React.FC = () => {
                         {/* Sidebar / Meta */}
                         <div className="md:col-span-4 space-y-8">
                             <div>
-                                <h3 className="text-white font-bold uppercase tracking-widest text-sm mb-2">Service</h3>
-                                <p className="text-slate-400">{project.category}</p>
+                                <h3 className="text-white font-bold uppercase tracking-widest text-base mb-3 border-b border-gray-700 pb-1">Service</h3>
+                                <p className="text-slate-300 text-lg">{project.category}</p>
                             </div>
                             {project.client && (
                                 <div>
-                                    <h3 className="text-white font-bold uppercase tracking-widest text-sm mb-2">Client</h3>
-                                    <p className="text-slate-400">{project.client}</p>
+                                    <h3 className="text-white font-bold uppercase tracking-widest text-base mb-3 border-b border-gray-700 pb-1">Client</h3>
+                                    <p className="text-slate-300 text-lg">{project.client}</p>
                                 </div>
                             )}
                             <div>
-                                <h3 className="text-white font-bold uppercase tracking-widest text-sm mb-2">Description</h3>
+                                <h3 className="text-white font-bold uppercase tracking-widest text-base mb-3 border-b border-gray-700 pb-1">Overview</h3>
                                 <p className="text-white text-sm leading-relaxed">{project.description}</p>
                             </div>
                         </div>

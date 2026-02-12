@@ -60,6 +60,9 @@ const Contact: React.FC = () => {
             ? `Other: ${formData.otherServiceDetails}`
             : formData.service;
 
+        console.log("Preparing to send email with params:", { SERVICE_ID, TEMPLATE_ID, PUBLIC_KEY });
+
+
         const templateParams = {
             to_name: "Adeboye",
             from_name: formData.name,

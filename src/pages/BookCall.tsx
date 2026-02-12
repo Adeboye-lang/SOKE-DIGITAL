@@ -139,6 +139,7 @@ const BookCall: React.FC = () => {
         const PUBLIC_KEY = "w_h6JEy_O4e1xuYFB";
 
         try {
+            console.log("Preparing to send booking email:", { SERVICE_ID, TEMPLATE_ID, PUBLIC_KEY });
             const templateParams = {
                 to_name: "Adeboye",
                 from_name: formData.fullName,

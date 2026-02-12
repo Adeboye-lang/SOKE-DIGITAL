@@ -136,7 +136,7 @@ const BookCall: React.FC = () => {
 
         const SERVICE_ID = "service_qicgo0k";
         const TEMPLATE_ID = "template_kixzs9s";
-        const PUBLIC_KEY = "w_h6JEy_O4e1xuYFB";
+        const PUBLIC_KEY = "FCuESDuZa_P1O7Lb3";
 
         try {
             console.log("Preparing to send booking email:", { SERVICE_ID, TEMPLATE_ID, PUBLIC_KEY });

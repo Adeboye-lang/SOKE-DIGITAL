@@ -191,13 +191,13 @@ const ProjectDetail: React.FC = () => {
                             )}
                             <div>
                                 <h3 className="text-white font-bold uppercase tracking-widest text-sm mb-2">Description</h3>
-                                <p className="text-slate-400 text-sm leading-relaxed">{project.description}</p>
+                                <p className="text-slate-300 text-sm leading-relaxed">{project.description}</p>
                             </div>
                         </div>
 
                         {/* Main Content */}
                         <div className="md:col-span-8">
-                            <article className="prose prose-lg prose-invert prose-headings:font-bold prose-headings:text-white prose-p:text-slate-400 prose-p:leading-relaxed prose-a:text-blue-400 prose-img:rounded-2xl prose-blockquote:border-l-4 prose-blockquote:border-blue-500 prose-blockquote:bg-blue-900/20 prose-blockquote:py-2 prose-blockquote:px-6 prose-blockquote:not-italic prose-blockquote:font-medium prose-blockquote:text-blue-100">
+                            <article className="prose prose-lg prose-invert prose-headings:font-bold prose-headings:text-white prose-p:text-slate-300 prose-li:text-slate-300 prose-strong:text-white prose-p:leading-relaxed prose-a:text-blue-400 prose-img:rounded-2xl prose-blockquote:border-l-4 prose-blockquote:border-blue-500 prose-blockquote:bg-blue-900/20 prose-blockquote:py-2 prose-blockquote:px-6 prose-blockquote:not-italic prose-blockquote:font-medium prose-blockquote:text-blue-100">
                                 <ReactMarkdown>{project.content || project.description}</ReactMarkdown>
                             </article>
                         </div>

@@ -111,7 +111,7 @@ const Contact: React.FC = () => {
                             </motion.div>
                             <h2 className="text-3xl font-bold text-slate-900 mb-4 tracking-tight">Message Received</h2>
                             <p className="text-slate-600 mb-10 text-lg leading-relaxed">
-                                Thanks for reaching out, <span className="font-semibold text-slate-900">{formData.name}</span>. We'll be in touch within 24 hours.
+                                Thanks for reaching out, <span className="font-semibold text-slate-900">{formData.name}</span>We'll be in touch within 24 hours.
                             </p>
                             <button
                                 onClick={() => setStatus('idle')}

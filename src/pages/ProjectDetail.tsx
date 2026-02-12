@@ -190,7 +190,7 @@ const ProjectDetail: React.FC = () => {
                                 </div>
                             )}
                             <div>
-                                <h3 className="text-white font-bold uppercase tracking-widest text-base mb-3 border-b border-gray-700 pb-1">Overview</h3>
+                                <h3 className="text-white font-bold uppercase tracking-widest text-base mb-3 border-b border-gray-700 pb-1">Description</h3>
                                 <p className="text-white text-lg leading-relaxed">{project.description}</p>
                             </div>
                         </div>

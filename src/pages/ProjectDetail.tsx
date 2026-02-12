@@ -174,7 +174,7 @@ const ProjectDetail: React.FC = () => {
                     initial={{ opacity: 0, y: 40 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" as const }}
-                    className="max-w-4xl mx-auto px-6 md:px-12 py-24"
+                    className="max-w-4xl mx-auto px-6 md:px-12 py-16 md:py-24"
                 >
                     <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
                         {/* Sidebar / Meta */}
@@ -204,7 +204,7 @@ const ProjectDetail: React.FC = () => {
                     </div>
 
                     {/* CTA */}
-                    <div className="mt-32 p-12 bg-blue-900/20 rounded-3xl border border-blue-900/50 text-center">
+                    <div className="mt-20 md:mt-32 p-8 md:p-12 bg-blue-900/20 rounded-3xl border border-blue-900/50 text-center">
                         <h3 className="text-3xl font-bold text-white mb-6">Inspired by this project?</h3>
                         <p className="text-slate-400 mb-8 max-w-lg mx-auto">Let's collaborate to build something extraordinary for your brand.</p>
                         <Link to="/book-call" className="inline-block bg-white text-blue-950 px-8 py-4 rounded-full font-bold uppercase tracking-widest hover:bg-blue-50 transition-all hover:scale-105">

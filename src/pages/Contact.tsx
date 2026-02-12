@@ -61,14 +61,13 @@ const Contact: React.FC = () => {
             : formData.service;
 
         const templateParams = {
-            to_name: "Soke Team",
+            to_name: "Adeboye",
             from_name: formData.name,
-            user_email: formData.email,
-            phone: formData.whatsApp || "Not Provided", // Using WhatsApp as the phone number
-            date: new Date().toLocaleDateString(),
-            time: new Date().toLocaleTimeString(),
-            message: `Service Interest: ${serviceText}\n\nMessage: ${formData.message}`,
-            slots_info: "Contact Form Inquiry"
+            from_email: formData.email,
+            phone_number: formData.whatsApp || "Not Provided",
+            service_interest: serviceText,
+            message: formData.message,
+            reply_to: formData.email
         };
 
         try {

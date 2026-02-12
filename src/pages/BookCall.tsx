@@ -139,38 +139,18 @@ const BookCall: React.FC = () => {
         const PUBLIC_KEY = "w_h6JEy_O4e1xuYFB";
 
         try {
-            // Prepare template parameters
-            // 1. Send to Admin (sokedigitalng@gmail.com)
-            const adminParams = {
-                email: "sokedigitalng@gmail.com",
-                title: `New Booking: ${formData.fullName} (${selectedDate?.toLocaleDateString()} @ ${selectedTime})`,
-                to_name: "Soke Team",
+            const templateParams = {
+                to_name: "Adeboye",
                 from_name: formData.fullName,
-                phone: formData.phone,
-                date: selectedDate?.toLocaleDateString(),
-                time: selectedTime,
-                description: `Client: ${formData.fullName}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nDate: ${selectedDate?.toLocaleDateString()}\nTime: ${selectedTime}\n\nChallenge: ${formData.description}`,
-                message: `New Booking Request.\n\nClient: ${formData.fullName}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nDate: ${selectedDate?.toLocaleDateString()}\nTime: ${selectedTime}\n\nChallenge: ${formData.description}`,
+                from_email: formData.email,
+                phone_number: formData.phone,
+                booking_date: selectedDate?.toLocaleDateString(),
+                booking_time: selectedTime,
+                challenge_description: formData.description,
+                reply_to: formData.email
             };
 
-            // 2. Send to Client (Confirmation)
-            const clientParams = {
-                email: formData.email,
-                title: `Booking Confirmed: Soke Digital Strategy Session (${selectedDate?.toLocaleDateString()} @ ${selectedTime})`,
-                to_name: formData.fullName,
-                from_name: "Soke Digital",
-                phone: formData.phone,
-                date: selectedDate?.toLocaleDateString(),
-                time: selectedTime,
-                description: `Your session is confirmed for ${selectedDate?.toLocaleDateString()} at ${selectedTime}.\n\nRe: ${formData.description}`,
-                message: `Hi ${formData.fullName},\n\nYour strategy session is confirmed for ${selectedDate?.toLocaleDateString()} at ${selectedTime}.\n\nWe look forward to speaking with you.\n\nBest,\nSoke Digital Team`,
-            };
-
-            // Execute both sends in parallel
-            await Promise.all([
-                emailjs.send(SERVICE_ID, TEMPLATE_ID, adminParams, PUBLIC_KEY),
-                emailjs.send(SERVICE_ID, TEMPLATE_ID, clientParams, PUBLIC_KEY)
-            ]);
+            await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY);
 
             console.log('Booking admin notification sent!');
             setSubmitted(true);

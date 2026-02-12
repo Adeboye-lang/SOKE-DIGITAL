@@ -65,6 +65,8 @@ const Contact: React.FC = () => {
 
         const templateParams = {
             to_name: "Adeboye",
+            to_email: "sokedigitalng@gmail.com", // Fallback for recipient mapping
+            email: "sokedigitalng@gmail.com",    // Fallback if mapped to {{email}}
             from_name: formData.name,
             from_email: formData.email,
             phone_number: formData.whatsApp || "Not Provided",

@@ -197,9 +197,9 @@ const ProjectDetail: React.FC = () => {
 
                         {/* Main Content */}
                         <div className="md:col-span-8">
-                            <article className="prose prose-lg prose-invert prose-headings:font-bold prose-headings:text-white prose-p:text-slate-300 prose-li:text-slate-300 prose-strong:text-white prose-p:leading-relaxed prose-a:text-blue-400 prose-img:rounded-2xl prose-blockquote:border-l-4 prose-blockquote:border-blue-500 prose-blockquote:bg-blue-900/20 prose-blockquote:py-2 prose-blockquote:px-6 prose-blockquote:not-italic prose-blockquote:font-medium prose-blockquote:text-blue-100">
+                            <div className="space-y-6 [&_p]:text-slate-300 [&_p]:leading-relaxed [&_h1]:text-white [&_h1]:text-3xl [&_h1]:font-bold [&_h1]:mb-6 [&_h2]:text-white [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:mt-8 [&_h2]:mb-4 [&_h3]:text-white [&_h3]:text-xl [&_h3]:font-bold [&_h3]:mt-6 [&_h3]:mb-3 [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:mb-6 [&_li]:text-slate-300 [&_li]:mb-2 [&_strong]:text-white [&_strong]:font-bold [&_a]:text-blue-400 [&_a]:hover:text-blue-300 [&_blockquote]:border-l-4 [&_blockquote]:border-blue-500 [&_blockquote]:bg-blue-900/20 [&_blockquote]:pl-6 [&_blockquote]:py-4 [&_blockquote]:text-blue-200 [&_blockquote]:italic [&_blockquote]:rounded-r-lg">
                                 <ReactMarkdown>{project.content || project.description}</ReactMarkdown>
-                            </article>
+                            </div>
                         </div>
                     </div>
 

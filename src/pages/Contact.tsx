@@ -79,6 +79,8 @@ const Contact: React.FC = () => {
             // Send to Admin
             const p1 = emailjs.send(SERVICE_ID, TEMPLATE_ID, {
                 ...templateParams,
+                subject: `New Contact Inquiry: ${formData.service}`,
+                form_title: "New Contact Form Submission",
                 to_email: "sokestudiong@gmail.com",
                 email: "sokestudiong@gmail.com"
             }, PUBLIC_KEY);
@@ -86,6 +88,8 @@ const Contact: React.FC = () => {
             // Send to Client Service
             const p2 = emailjs.send(SERVICE_ID, TEMPLATE_ID, {
                 ...templateParams,
+                subject: `New Contact Inquiry: ${formData.service}`,
+                form_title: "New Contact Form Submission",
                 to_email: "clientservice@sokedigital.com.ng",
                 email: "clientservice@sokedigital.com.ng"
             }, PUBLIC_KEY);

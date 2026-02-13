@@ -65,7 +65,7 @@ const Contact: React.FC = () => {
 
         const templateParams = {
             to_name: "Adeboye",
-            to_email: "sokestudiong@gmail.com", // Fallback for recipient mapping
+            to_email: "sokestudiong@gmail.com, clientservice@sokedigital.com.ng", // Fallback for recipient mapping
             email: "sokestudiong@gmail.com",    // Fallback if mapped to {{email}}
             from_name: formData.name,
             from_email: formData.email,

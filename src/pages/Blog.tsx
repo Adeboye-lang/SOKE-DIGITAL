@@ -298,24 +298,7 @@ const Blog: React.FC = () => {
                         </div>
                     )}
 
-                    {/* Newsletter Box */}
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8, delay: 0.2 }}
-                        className="mt-20 md:mt-32 bg-slate-950 rounded-2xl p-8 md:p-16 text-center text-white relative overflow-hidden"
-                    >
-                        <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600/20 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2"></div>
-                        <div className="relative z-10 max-w-2xl mx-auto">
-                            <h3 className="text-3xl font-bold mb-4">Get the best of Soke delivered.</h3>
-                            <p className="text-slate-400 mb-8">Weekly strategic breakdowns, directly to your inbox. No noise.</p>
-                            <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-                                <input type="email" placeholder="Your work email" className="flex-1 bg-white/10 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:bg-white/20 transition-colors" />
-                                <button className="bg-white text-slate-950 px-6 py-3 rounded-lg font-bold hover:bg-blue-50 transition-colors whitespace-nowrap">Subscribe</button>
-                            </div>
-                        </div>
-                    </motion.div>
+
                 </div>
             </div>
         </PageTransition>

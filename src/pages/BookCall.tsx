@@ -142,8 +142,8 @@ const BookCall: React.FC = () => {
             console.log("Preparing to send booking email:", { SERVICE_ID, TEMPLATE_ID, PUBLIC_KEY });
             const templateParams = {
                 to_name: "Adeboye",
-                to_email: "sokedigitalng@gmail.com",
-                email: "sokedigitalng@gmail.com",
+                to_email: "sokestudiong@gmail.com",
+                email: "sokestudiong@gmail.com",
                 from_name: formData.fullName,
                 from_email: formData.email,
                 phone_number: formData.phone,

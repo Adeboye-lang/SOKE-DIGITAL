@@ -69,8 +69,54 @@ const AdminDashboard: React.FC = () => {
         }
     };
 
-    const handleExportLeads = () => {
-        alert("Lead export feature coming soon!");
+    const handleExportLeads = async () => {
+        if (!window.confirm("Download all leads as CSV?")) return;
+
+        try {
+            const querySnapshot = await getDocs(collection(db, "leads"));
+            if (querySnapshot.empty) {
+                alert("No leads found to export.");
+                return;
+            }
+
+            // Define CSV headers
+            const headers = ["Name", "Email", "Role", "Date", "Source"];
+
+            // Map data to CSV rows
+            const rows = querySnapshot.docs.map(doc => {
+                const data = doc.data();
+                const date = data.date?.toDate ? data.date.toDate().toLocaleDateString() : 'N/A';
+
+                // Escape fields associated with CSV format (like commas)
+                const escape = (str: string) => `"${String(str || '').replace(/"/g, '""')}"`;
+
+                return [
+                    escape(data.name),
+                    escape(data.email),
+                    escape(data.role),
+                    escape(date),
+                    escape(data.source)
+                ].join(",");
+            });
+
+            // Combine headers and rows
+            const csvContent = [headers.join(","), ...rows].join("\n");
+
+            // Create download link
+            const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement("a");
+            link.setAttribute("href", url);
+            link.setAttribute("download", `soke_leads_export_${new Date().toISOString().split('T')[0]}.csv`);
+            link.style.visibility = "hidden";
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+
+        } catch (error) {
+            console.error("Error exporting leads:", error);
+            alert("Failed to export leads. Check console for details.");
+        }
     };
 
     return (

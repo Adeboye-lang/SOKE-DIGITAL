@@ -76,7 +76,22 @@ const Contact: React.FC = () => {
         };
 
         try {
-            await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY);
+            // Send to Admin
+            const p1 = emailjs.send(SERVICE_ID, TEMPLATE_ID, {
+                ...templateParams,
+                to_email: "sokestudiong@gmail.com",
+                email: "sokestudiong@gmail.com"
+            }, PUBLIC_KEY);
+
+            // Send to Client Service
+            const p2 = emailjs.send(SERVICE_ID, TEMPLATE_ID, {
+                ...templateParams,
+                to_email: "clientservice@sokedigital.com.ng",
+                email: "clientservice@sokedigital.com.ng"
+            }, PUBLIC_KEY);
+
+            await Promise.all([p1, p2]);
+
             setStatus('success');
             setFormData({ name: '', email: '', whatsApp: '', service: '', otherServiceDetails: '', message: '' });
         } catch (error) {

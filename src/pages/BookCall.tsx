@@ -152,7 +152,8 @@ const BookCall: React.FC = () => {
                 challenge_description: formData.description,
                 reply_to: formData.email,
                 subject: `New Booking Request: ${formData.fullName}`,
-                form_title: "New Call Booking Confirmed"
+                form_title: "New Call Booking Confirmed",
+                message: `Booking Request Details:\nDate: ${selectedDate?.toLocaleDateString()}\nTime: ${selectedTime}\nChallenge: ${formData.description}`
             };
 
             await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY);

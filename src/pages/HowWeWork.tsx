@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import MethodologyHero from '../components/how-we-work/MethodologyHero';
 import ServiceTiers from '../components/how-we-work/ServiceTiers';
 import ProcessSteps from '../components/how-we-work/ProcessSteps';
@@ -61,28 +61,28 @@ const HowWeWork: React.FC = () => {
                     <div className="absolute top-0 right-0 w-96 h-96 bg-blue-600/20 blur-3xl rounded-full -mr-32 -mt-32"></div>
                     <div className="absolute bottom-0 left-0 w-80 h-80 bg-purple-600/20 blur-3xl rounded-full -ml-32 -mb-32"></div>
 
-                    <motion.div
+                    <m.div
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true }}
                         variants={fadeInUp}
                         className="relative z-10 text-center max-w-2xl mx-auto px-6"
                     >
-                        <motion.span variants={fadeInUp} className="inline-block py-1 px-3 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-300 text-xs font-bold uppercase tracking-widest mb-6">
+                        <m.span variants={fadeInUp} className="inline-block py-1 px-3 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-300 text-xs font-bold uppercase tracking-widest mb-6">
                             Partnership | Business Development
-                        </motion.span>
-                        <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+                        </m.span>
+                        <m.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
                             Ready to build something <span className="text-blue-400">sustainable?</span>
-                        </motion.h2>
-                        <motion.p variants={fadeInUp} className="text-slate-400 text-lg mb-10 font-light">
+                        </m.h2>
+                        <m.p variants={fadeInUp} className="text-slate-400 text-lg mb-10 font-light">
                             We don't work with everyone. But if you're ready to build a real business with real systems, we should talk.
-                        </motion.p>
-                        <motion.div variants={fadeInUp}>
+                        </m.p>
+                        <m.div variants={fadeInUp}>
                             <Link to="/book-call" className="bg-white text-slate-900 px-10 py-4 rounded-full font-bold hover:bg-blue-50 hover:shadow-xl hover:-translate-y-1 transition-all inline-block text-sm uppercase tracking-wide">
                                 Book a Discovery Call
                             </Link>
-                        </motion.div>
-                    </motion.div>
+                        </m.div>
+                    </m.div>
                 </div>
             </div>
         </PageTransition>

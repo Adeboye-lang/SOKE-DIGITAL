@@ -1,17 +1,17 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 
 const ProcessSteps: React.FC = () => {
     return (
         <div className="space-y-0 relative">
             {/* Timeline Connector */}
-            <motion.div
+            <m.div
                 initial={{ height: 0 }}
                 whileInView={{ height: '100%' }}
                 viewport={{ once: true }}
                 transition={{ duration: 1.5, ease: "easeInOut" }}
                 className="hidden md:block absolute left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-transparent via-slate-200 to-transparent z-10 transform -translate-x-1/2"
-            ></motion.div>
+            ></m.div>
 
 
             {/* 1. Discover */}
@@ -21,7 +21,7 @@ const ProcessSteps: React.FC = () => {
                     <div className="w-2.5 h-2.5 bg-blue-600 rounded-full"></div>
                 </div>
 
-                <motion.div
+                <m.div
                     initial={{ opacity: 0, x: -50 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
@@ -54,7 +54,7 @@ const ProcessSteps: React.FC = () => {
                             </li>
                         </ul>
                     </div>
-                </motion.div>
+                </m.div>
                 <div className="flex-1 relative min-h-[400px] overflow-hidden">
                     <img
                         src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=1200"
@@ -72,7 +72,7 @@ const ProcessSteps: React.FC = () => {
                     <div className="w-2.5 h-2.5 bg-purple-600 rounded-full"></div>
                 </div>
 
-                <motion.div
+                <m.div
                     initial={{ opacity: 0, x: 50 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
@@ -105,7 +105,7 @@ const ProcessSteps: React.FC = () => {
                             </li>
                         </ul>
                     </div>
-                </motion.div>
+                </m.div>
                 <div className="flex-1 relative min-h-[400px] overflow-hidden">
                     <img
                         src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1200"
@@ -123,7 +123,7 @@ const ProcessSteps: React.FC = () => {
                     <div className="w-2.5 h-2.5 bg-emerald-600 rounded-full"></div>
                 </div>
 
-                <motion.div
+                <m.div
                     initial={{ opacity: 0, x: -50 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
@@ -156,7 +156,7 @@ const ProcessSteps: React.FC = () => {
                             </li>
                         </ul>
                     </div>
-                </motion.div>
+                </m.div>
                 <div className="flex-1 relative min-h-[400px] overflow-hidden">
                     <img
                         src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200"
@@ -174,7 +174,7 @@ const ProcessSteps: React.FC = () => {
                     <div className="w-2.5 h-2.5 bg-indigo-600 rounded-full"></div>
                 </div>
 
-                <motion.div
+                <m.div
                     initial={{ opacity: 0, x: 50 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
@@ -207,7 +207,7 @@ const ProcessSteps: React.FC = () => {
                             </li>
                         </ul>
                     </div>
-                </motion.div>
+                </m.div>
                 <div className="flex-1 relative min-h-[400px] overflow-hidden">
                     <img
                         src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1200"

@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 
 interface PillarCardProps {
     title: string;
@@ -8,7 +8,7 @@ interface PillarCardProps {
 }
 
 const PillarCard: React.FC<PillarCardProps> = ({ title, description, icon }) => (
-    <motion.div
+    <m.div
         variants={{
             hidden: { opacity: 0, y: 30 },
             visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
@@ -20,14 +20,14 @@ const PillarCard: React.FC<PillarCardProps> = ({ title, description, icon }) => 
         </div>
         <h3 className="text-xl font-bold text-slate-900 mb-3">{title}</h3>
         <p className="text-slate-600 text-sm leading-relaxed">{description}</p>
-    </motion.div>
+    </m.div>
 );
 
 const PillarsSection: React.FC = () => {
     return (
         <section className="py-24 bg-white px-6 md:px-12 lg:px-24">
             <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-                <motion.div
+                <m.div
                     initial={{ opacity: 0, x: -30 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
@@ -41,8 +41,8 @@ const PillarsSection: React.FC = () => {
                     <p className="text-slate-500 text-lg font-light">
                         We don't rely on luck. We build on structure.
                     </p>
-                </motion.div>
-                <motion.div
+                </m.div>
+                <m.div
                     initial={{ scaleX: 0, originX: 0 }}
                     whileInView={{ scaleX: 1 }}
                     viewport={{ once: true }}
@@ -50,10 +50,10 @@ const PillarsSection: React.FC = () => {
                     className="hidden md:block"
                 >
                     <div className="h-1 w-24 bg-slate-200 rounded-full"></div>
-                </motion.div>
+                </m.div>
             </div>
 
-            <motion.div
+            <m.div
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, margin: "-50px" }}
@@ -89,7 +89,7 @@ const PillarsSection: React.FC = () => {
                         </svg>
                     }
                 />
-            </motion.div>
+            </m.div>
         </section>
     );
 };

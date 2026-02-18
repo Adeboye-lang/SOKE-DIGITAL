@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 
 const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
@@ -41,40 +41,40 @@ const MethodologyHero: React.FC = () => {
             </div>
 
             {/* Content */}
-            <motion.div
+            <m.div
                 initial="hidden"
                 animate="visible"
                 variants={staggerContainer}
                 className="relative z-10 text-white max-w-4xl mx-auto"
             >
                 <div className="flex flex-col items-center">
-                    <motion.div variants={fadeInUp} className="inline-block p-[1px] rounded-full bg-gradient-to-r from-blue-500/50 via-purple-500/50 to-blue-500/50 mb-8 backdrop-blur-md">
+                    <m.div variants={fadeInUp} className="inline-block p-[1px] rounded-full bg-gradient-to-r from-blue-500/50 via-purple-500/50 to-blue-500/50 mb-8 backdrop-blur-md">
                         <span className="block py-2 px-6 rounded-full bg-slate-900/80 text-blue-100 text-xs font-bold uppercase tracking-[0.2em] shadow-lg">
                             Our Methodology
                         </span>
-                    </motion.div>
+                    </m.div>
 
-                    <motion.h1 variants={fadeInUp} className="text-6xl md:text-7xl lg:text-8xl font-black mb-8 leading-[1.1] tracking-tight drop-shadow-2xl">
+                    <m.h1 variants={fadeInUp} className="text-6xl md:text-7xl lg:text-8xl font-black mb-8 leading-[1.1] tracking-tight drop-shadow-2xl">
                         Vision to <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-300 to-white">Reality.</span>
-                    </motion.h1>
+                    </m.h1>
 
-                    <motion.p variants={fadeInUp} className="max-w-2xl text-lg md:text-xl text-slate-300 font-light leading-relaxed mb-12 drop-shadow-md">
+                    <m.p variants={fadeInUp} className="max-w-2xl text-lg md:text-xl text-slate-300 font-light leading-relaxed mb-12 drop-shadow-md">
                         We don't just advise. We build. Bridging the gap between ambitious strategy and flawless execution with precision and speed.
-                    </motion.p>
+                    </m.p>
 
-                    <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4">
+                    <m.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4">
                         <button className="bg-blue-600 text-white px-8 py-4 rounded-full text-sm font-bold uppercase tracking-wide hover:bg-blue-500 hover:shadow-[0_0_20px_rgba(37,99,235,0.5)] hover:-translate-y-1 transition-all duration-300">
                             Discover Our Process
                         </button>
                         <button className="px-8 py-4 rounded-full text-sm font-bold uppercase tracking-wide border border-slate-600 hover:bg-white/5 hover:border-white transition-all duration-300">
                             View Case Studies
                         </button>
-                    </motion.div>
+                    </m.div>
                 </div>
-            </motion.div>
+            </m.div>
 
             {/* Scroll Indicator */}
-            <motion.div
+            <m.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 0.6, y: [0, 10, 0] }}
                 transition={{ delay: 1, duration: 2, repeat: Infinity, ease: "easeInOut" }}
@@ -84,7 +84,7 @@ const MethodologyHero: React.FC = () => {
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
                 </svg>
-            </motion.div>
+            </m.div>
         </section>
     );
 };

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { collection, getDocs, query } from 'firebase/firestore';
 import { db } from '../firebase';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import PageTransition from '../components/PageTransition';
 
 interface Project {
@@ -101,27 +101,27 @@ const CaseStudies: React.FC = () => {
                 <section className="relative px-6 py-32 md:py-48 max-w-7xl mx-auto flex flex-col justify-end min-h-[50vh]">
                     <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/20 rounded-full blur-[120px] pointer-events-none -translate-y-1/2 translate-x-1/2"></div>
 
-                    <motion.div
+                    <m.div
                         initial="hidden"
                         animate="visible"
                         variants={staggerContainer}
                         className="relative z-10"
                     >
-                        <motion.h1
+                        <m.h1
                             variants={fadeInUp}
                             className="text-6xl md:text-8xl font-bold tracking-tighter mb-8 leading-none"
                         >
                             Selected <br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-white">Works.</span>
-                        </motion.h1>
-                        <motion.p
+                        </m.h1>
+                        <m.p
                             variants={fadeInUp}
                             className="text-xl text-slate-400 max-w-2xl leading-relaxed font-light border-l border-slate-800 pl-6"
                         >
                             We don't just design brands; we engineer growth. <br className="hidden md:block" />
                             Explore how we've helped ambitious African founders scale.
-                        </motion.p>
-                    </motion.div>
+                        </m.p>
+                    </m.div>
                 </section>
 
                 {/* PROJECT GRID */}
@@ -137,7 +137,7 @@ const CaseStudies: React.FC = () => {
                     ) : (
                         <div className="flex flex-col gap-24 max-w-[1600px] mx-auto">
                             {projects.map((project, index) => (
-                                <motion.div
+                                <m.div
                                     key={project.id}
                                     initial="hidden"
                                     whileInView="visible"
@@ -186,7 +186,7 @@ const CaseStudies: React.FC = () => {
                                             </div>
                                         </div>
                                     </div>
-                                </motion.div>
+                                </m.div>
                             ))}
                         </div>
                     )}
@@ -195,25 +195,25 @@ const CaseStudies: React.FC = () => {
                 {/* CTA SECTION */}
                 <section className="py-32 bg-blue-950 relative overflow-hidden">
                     <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'radial-gradient(circle at center, #3b82f6 1px, transparent 1px)', backgroundSize: '24px 24px' }}></div>
-                    <motion.div
+                    <m.div
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true }}
                         variants={fadeInUp}
                         className="max-w-4xl mx-auto px-6 text-center relative z-10"
                     >
-                        <motion.h2 variants={fadeInUp} className="text-4xl md:text-6xl font-bold text-white mb-8 tracking-tight">
+                        <m.h2 variants={fadeInUp} className="text-4xl md:text-6xl font-bold text-white mb-8 tracking-tight">
                             Ready to be our next <br />success story?
-                        </motion.h2>
-                        <motion.p variants={fadeInUp} className="text-blue-200 text-xl mb-12 max-w-xl mx-auto font-light">
+                        </m.h2>
+                        <m.p variants={fadeInUp} className="text-blue-200 text-xl mb-12 max-w-xl mx-auto font-light">
                             We only partner with founders ready to scale. If that's you, let's talk.
-                        </motion.p>
-                        <motion.div variants={fadeInUp}>
+                        </m.p>
+                        <m.div variants={fadeInUp}>
                             <Link to="/book-call" className="inline-block bg-white text-blue-950 px-10 py-5 rounded-full font-bold uppercase tracking-widest hover:bg-blue-50 transition-all hover:scale-105 shadow-2xl shadow-blue-900/50">
                                 Start Your Project
                             </Link>
-                        </motion.div>
-                    </motion.div>
+                        </m.div>
+                    </m.div>
                 </section>
             </div>
         </PageTransition>

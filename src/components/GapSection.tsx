@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 
 interface GapSectionProps {
     category: string;
@@ -25,7 +25,7 @@ const GapSection: React.FC<GapSectionProps> = ({
     return (
         <section className={`flex flex-col ${reverse ? 'md:flex-row-reverse' : 'md:flex-row'} min-h-[600px]`}>
             {/* Text Side */}
-            <motion.div
+            <m.div
                 initial={{ opacity: 0, x: reverse ? 50 : -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
@@ -43,10 +43,10 @@ const GapSection: React.FC<GapSectionProps> = ({
                 <p className="text-slate-600 leading-relaxed text-lg font-light max-w-lg">
                     {description}
                 </p>
-            </motion.div>
+            </m.div>
 
             {/* Image Side */}
-            <motion.div
+            <m.div
                 initial={{ opacity: 0, x: reverse ? -50 : 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
@@ -70,7 +70,7 @@ const GapSection: React.FC<GapSectionProps> = ({
                         </div>
                     </div>
                 )}
-            </motion.div>
+            </m.div>
         </section>
     );
 };

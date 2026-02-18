@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 
 const cardVariant = {
     hidden: { opacity: 0, y: 30 },
@@ -13,7 +13,7 @@ const PartnershipSection: React.FC = () => {
             {/* Background Accents */}
             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[100px] -mr-32 -mt-32 pointer-events-none"></div>
 
-            <motion.div
+            <m.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -29,9 +29,9 @@ const PartnershipSection: React.FC = () => {
                 <p className="text-slate-400 text-lg max-w-2xl mx-auto">
                     Whether you need advice, execution, or a full-scale partner, we have a model that fits your growth stage.
                 </p>
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, margin: "-50px" }}
@@ -41,7 +41,7 @@ const PartnershipSection: React.FC = () => {
                 className="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10"
             >
                 {/* Card 1: Consulting */}
-                <motion.div variants={cardVariant} className="group relative rounded-3xl p-1 bg-gradient-to-b from-white/10 to-transparent hover:from-blue-500/50 hover:to-blue-900/50 transition-all duration-500">
+                <m.div variants={cardVariant} className="group relative rounded-3xl p-1 bg-gradient-to-b from-white/10 to-transparent hover:from-blue-500/50 hover:to-blue-900/50 transition-all duration-500">
                     <div className="bg-slate-800/50 backdrop-blur-xl h-full rounded-[20px] p-8 flex flex-col overflow-hidden relative">
                         <div className="w-12 h-12 bg-slate-700/50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors duration-300">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 text-white">
@@ -61,10 +61,10 @@ const PartnershipSection: React.FC = () => {
                         {/* Hover Gradient */}
                         <div className="absolute inset-0 bg-blue-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
                     </div>
-                </motion.div>
+                </m.div>
 
                 {/* Card 2: Project */}
-                <motion.div variants={cardVariant} className="group relative rounded-3xl p-1 bg-gradient-to-b from-white/10 to-transparent hover:from-blue-500/50 hover:to-blue-900/50 transition-all duration-500">
+                <m.div variants={cardVariant} className="group relative rounded-3xl p-1 bg-gradient-to-b from-white/10 to-transparent hover:from-blue-500/50 hover:to-blue-900/50 transition-all duration-500">
                     <div className="bg-slate-800/50 backdrop-blur-xl h-full rounded-[20px] p-8 flex flex-col overflow-hidden relative">
                         <div className="w-12 h-12 bg-slate-700/50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors duration-300">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 text-white">
@@ -81,10 +81,10 @@ const PartnershipSection: React.FC = () => {
                             </Link>
                         </div>
                     </div>
-                </motion.div>
+                </m.div>
 
                 {/* Card 3: Partnership */}
-                <motion.div variants={cardVariant} className="group relative rounded-3xl p-1 bg-gradient-to-b from-blue-500 to-blue-900 shadow-xl shadow-blue-900/20 transform md:-translate-y-4">
+                <m.div variants={cardVariant} className="group relative rounded-3xl p-1 bg-gradient-to-b from-blue-500 to-blue-900 shadow-xl shadow-blue-900/20 transform md:-translate-y-4">
                     <div className="bg-slate-900 h-full rounded-[20px] p-8 flex flex-col overflow-hidden relative">
                         <div className="absolute top-0 right-0 bg-blue-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-wider">
                             Most Popular
@@ -106,8 +106,8 @@ const PartnershipSection: React.FC = () => {
                         {/* Shine Effect */}
                         <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     </div>
-                </motion.div>
-            </motion.div>
+                </m.div>
+            </m.div>
         </section>
     );
 };

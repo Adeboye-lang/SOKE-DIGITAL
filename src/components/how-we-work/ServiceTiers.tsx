@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 
 const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
@@ -28,7 +28,7 @@ const ServiceTiers: React.FC = () => {
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-100/40 rounded-full blur-[100px] pointer-events-none"></div>
 
             <div className="max-w-7xl mx-auto relative z-10">
-                <motion.div
+                <m.div
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true }}
@@ -38,9 +38,9 @@ const ServiceTiers: React.FC = () => {
                     <h2 className="text-sm font-bold tracking-widest text-blue-600 uppercase mb-3">Engagement Models</h2>
                     <h3 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">Choose how we build together.</h3>
                     <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 mx-auto rounded-full"></div>
-                </motion.div>
+                </m.div>
 
-                <motion.div
+                <m.div
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, margin: "-100px" }}
@@ -48,7 +48,7 @@ const ServiceTiers: React.FC = () => {
                     className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start"
                 >
                     {/* Consulting */}
-                    <motion.div variants={fadeInUp} className="bg-white rounded-3xl p-10 shadow-xl border border-slate-100 hover:shadow-2xl hover:border-blue-200 transition-all duration-500 group relative overflow-hidden">
+                    <m.div variants={fadeInUp} className="bg-white rounded-3xl p-10 shadow-xl border border-slate-100 hover:shadow-2xl hover:border-blue-200 transition-all duration-500 group relative overflow-hidden">
                         {/* Shine Effect */}
                         <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/50 to-transparent translate-x-[-150%] group-hover:translate-x-[150%] transition-transform duration-1000 ease-in-out pointer-events-none"></div>
 
@@ -64,10 +64,10 @@ const ServiceTiers: React.FC = () => {
                         <p className="text-slate-500 leading-relaxed text-sm mb-8">
                             We guide, you execute. Get the blueprint, strategy, and accountability you need to build with confidence.
                         </p>
-                    </motion.div>
+                    </m.div>
 
                     {/* Partnership */}
-                    <motion.div variants={fadeInUp} className="bg-slate-900 text-white rounded-3xl p-10 shadow-2xl relative overflow-hidden transform md:-translate-y-6 hover:scale-105 transition-all duration-500 border border-slate-800 ring-4 ring-blue-500/10">
+                    <m.div variants={fadeInUp} className="bg-slate-900 text-white rounded-3xl p-10 shadow-2xl relative overflow-hidden transform md:-translate-y-6 hover:scale-105 transition-all duration-500 border border-slate-800 ring-4 ring-blue-500/10">
                         {/* Blob */}
                         <div className="absolute top-0 right-0 w-80 h-80 bg-blue-600 opacity-20 blur-[80px] rounded-full -mr-20 -mt-20 pointer-events-none"></div>
                         <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-600 opacity-20 blur-[60px] rounded-full -ml-10 -mb-10 pointer-events-none"></div>
@@ -101,10 +101,10 @@ const ServiceTiers: React.FC = () => {
                                 </li>
                             </ul>
                         </div>
-                    </motion.div>
+                    </m.div>
 
                     {/* Premium */}
-                    <motion.div variants={fadeInUp} className="bg-white rounded-3xl p-10 shadow-xl border border-slate-100 hover:shadow-2xl hover:border-blue-200 transition-all duration-500 group relative overflow-hidden">
+                    <m.div variants={fadeInUp} className="bg-white rounded-3xl p-10 shadow-xl border border-slate-100 hover:shadow-2xl hover:border-blue-200 transition-all duration-500 group relative overflow-hidden">
                         {/* Shine Effect */}
                         <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/50 to-transparent translate-x-[-150%] group-hover:translate-x-[150%] transition-transform duration-1000 ease-in-out pointer-events-none"></div>
 
@@ -120,8 +120,8 @@ const ServiceTiers: React.FC = () => {
                         <p className="text-slate-500 leading-relaxed text-sm mb-8">
                             We build and run it. You set the vision, we deliver the business. Strategy, execution, and ops from one place.
                         </p>
-                    </motion.div>
-                </motion.div>
+                    </m.div>
+                </m.div>
             </div>
         </section>
     );

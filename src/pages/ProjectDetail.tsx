@@ -3,7 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../firebase';
 import ReactMarkdown from 'react-markdown';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import PageTransition from '../components/PageTransition';
 
 interface Project {
@@ -124,7 +124,7 @@ const ProjectDetail: React.FC = () => {
             <div className="min-h-screen bg-slate-950 font-sans selection:bg-blue-500 selection:text-white pb-32">
                 {/* Header / Hero */}
                 <div className="relative h-[70vh] w-full overflow-hidden">
-                    <motion.img
+                    <m.img
                         initial={{ scale: 1.1 }}
                         animate={{ scale: 1 }}
                         transition={{ duration: 1.5, ease: "easeOut" as const }}
@@ -135,7 +135,7 @@ const ProjectDetail: React.FC = () => {
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent"></div>
 
                     <div className="absolute inset-0 flex items-end">
-                        <motion.div
+                        <m.div
                             initial="hidden"
                             animate="visible"
                             variants={{
@@ -143,13 +143,13 @@ const ProjectDetail: React.FC = () => {
                             }}
                             className="max-w-7xl mx-auto px-6 md:px-12 pb-24 w-full"
                         >
-                            <motion.div variants={fadeInUp}>
+                            <m.div variants={fadeInUp}>
                                 <Link to="/our-portfolio" className="inline-block text-white/60 hover:text-white mb-8 transition-colors text-sm font-bold uppercase tracking-widest border-b border-white/20 pb-1 hover:border-white">
                                     ← Back to Work
                                 </Link>
-                            </motion.div>
+                            </m.div>
 
-                            <motion.div variants={fadeInUp} className="flex flex-col md:flex-row md:items-end justify-between gap-8">
+                            <m.div variants={fadeInUp} className="flex flex-col md:flex-row md:items-end justify-between gap-8">
                                 <div>
                                     <div className="flex items-center gap-4 text-sm font-bold uppercase tracking-widest text-blue-400 mb-6">
                                         <span>{project.category}</span>
@@ -164,13 +164,13 @@ const ProjectDetail: React.FC = () => {
                                         {project.title}
                                     </h1>
                                 </div>
-                            </motion.div>
-                        </motion.div>
+                            </m.div>
+                        </m.div>
                     </div>
                 </div>
 
                 {/* Content Body */}
-                <motion.div
+                <m.div
                     initial={{ opacity: 0, y: 40 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" as const }}
@@ -211,7 +211,7 @@ const ProjectDetail: React.FC = () => {
                             Start Your Project
                         </Link>
                     </div>
-                </motion.div>
+                </m.div>
             </div>
         </PageTransition>
     );

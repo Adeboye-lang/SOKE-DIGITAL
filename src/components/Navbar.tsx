@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence } from 'framer-motion';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -57,25 +57,25 @@ const Navbar: React.FC = () => {
         aria-label="Toggle Menu"
       >
         <div className="w-6 h-5 flex flex-col justify-between">
-          <motion.span
+          <m.span
             animate={isOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
             className="w-full h-0.5 bg-white origin-left transition-all"
-          ></motion.span>
-          <motion.span
+          ></m.span>
+          <m.span
             animate={isOpen ? { opacity: 0 } : { opacity: 1 }}
             className="w-full h-0.5 bg-white transition-all"
-          ></motion.span>
-          <motion.span
+          ></m.span>
+          <m.span
             animate={isOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }}
             className="w-full h-0.5 bg-white origin-left transition-all"
-          ></motion.span>
+          ></m.span>
         </div>
       </button>
 
       {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
@@ -84,7 +84,7 @@ const Navbar: React.FC = () => {
           >
             <div className="flex flex-col gap-6 text-2xl font-bold text-white uppercase tracking-tight">
               {navLinks.map((link, i) => (
-                <motion.div
+                <m.div
                   key={link.name}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -96,11 +96,11 @@ const Navbar: React.FC = () => {
                   >
                     {link.name}
                   </Link>
-                </motion.div>
+                </m.div>
               ))}
             </div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
@@ -109,8 +109,8 @@ const Navbar: React.FC = () => {
               <p className="text-slate-500 text-sm mb-4">Get in touch</p>
               <a href="mailto:clientservice@sokedigital.com.ng" className="block text-lg text-white mb-2">clientservice@sokedigital.com.ng</a>
               <a href="tel:09118172903" className="block text-lg text-white">0911 817 2903</a>
-            </motion.div>
-          </motion.div>
+            </m.div>
+          </m.div>
         )}
       </AnimatePresence>
     </nav>

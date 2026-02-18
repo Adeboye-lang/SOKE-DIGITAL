@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import ServicesHero from '../components/services/ServicesHero';
 import ServiceCategory from '../components/services/ServiceCategory';
 import PageTransition from '../components/PageTransition';
@@ -112,28 +112,28 @@ const Services: React.FC = () => {
                 />
 
                 {/* CTA Section */}
-                <motion.div
+                <m.div
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true }}
                     variants={fadeInUp}
                     className="py-32 bg-white text-center border-t border-slate-100"
                 >
-                    <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+                    <m.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
                         Ready to Build a Business
-                    </motion.h2>
-                    <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-bold text-blue-900 mb-8">
+                    </m.h2>
+                    <m.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-bold text-blue-900 mb-8">
                         That Scales?
-                    </motion.h2>
-                    <motion.p variants={fadeInUp} className="text-sm font-bold uppercase tracking-widest text-slate-500 mb-10 max-w-md mx-auto">
+                    </m.h2>
+                    <m.p variants={fadeInUp} className="text-sm font-bold uppercase tracking-widest text-slate-500 mb-10 max-w-md mx-auto">
                         Schedule a consultation to discuss your specific needs.
-                    </motion.p>
-                    <motion.div variants={fadeInUp}>
+                    </m.p>
+                    <m.div variants={fadeInUp}>
                         <Link to="/book-call" className="bg-blue-900 text-white px-10 py-4 rounded-full font-bold uppercase tracking-wide hover:bg-blue-800 transition-all inline-block shadow-xl hover:shadow-2xl hover:shadow-blue-900/20 hover:-translate-y-1">
                             Book a Discovery Call
                         </Link>
-                    </motion.div>
-                </motion.div>
+                    </m.div>
+                </m.div>
             </div>
         </PageTransition>
     );

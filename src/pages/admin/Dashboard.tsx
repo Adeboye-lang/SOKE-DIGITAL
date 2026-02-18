@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { collection, getCountFromServer, addDoc, getDocs, query, orderBy, limit, deleteDoc } from 'firebase/firestore';
+import { collection, getCountFromServer, addDoc, getDocs, query, orderBy, limit } from 'firebase/firestore';
 import { db } from '../../firebase';
 import { DEFAULT_POSTS, DEFAULT_PROJECTS } from '../../utils/seedData';
 
@@ -139,30 +139,6 @@ const AdminDashboard: React.FC = () => {
                         </p>
                     </div>
                     <div className="flex gap-3">
-                        <button
-                            onClick={async () => {
-                                if (!window.confirm("Run Firebase Diagnostics? This will attempt to write and delete a test document.")) return;
-                                try {
-                                    alert("Starting checks...");
-                                    const testColl = collection(db, "portfolio");
-                                    const testDoc = await addDoc(testColl, {
-                                        title: "Test Project",
-                                        category: "Diagnostics",
-                                        createdAt: new Date(),
-                                        test: true
-                                    });
-                                    alert(`Write Success! ID: ${testDoc.id}`);
-                                    await deleteDoc(testDoc);
-                                    alert("Delete Success!");
-                                } catch (e: any) {
-                                    console.error("Diagnostic Error:", e);
-                                    alert(`DIAGNOSTIC FAILED:\nCode: ${e.code}\nMessage: ${e.message}`);
-                                }
-                            }}
-                            className="px-5 py-3 rounded-xl bg-red-600 hover:bg-red-500 font-bold text-sm transition-colors text-white shadow-lg shadow-red-900/20"
-                        >
-                            🛠️ Run Diagnostics
-                        </button>
                         <button
                             onClick={handleExportLeads}
                             className="px-5 py-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/10 font-bold text-sm transition-colors flex items-center gap-2"

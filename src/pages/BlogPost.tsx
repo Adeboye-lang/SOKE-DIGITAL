@@ -3,7 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../firebase';
 import ReactMarkdown from 'react-markdown';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import PageTransition from '../components/PageTransition';
 
 interface BlogPost {
@@ -75,7 +75,7 @@ const BlogPost: React.FC = () => {
             <div className="min-h-screen bg-white font-sans selection:bg-blue-100 pb-32">
                 {/* Header / Hero */}
                 <div className="relative h-[60vh] w-full overflow-hidden">
-                    <motion.img
+                    <m.img
                         initial={{ scale: 1.1 }}
                         animate={{ scale: 1 }}
                         transition={{ duration: 10, ease: "easeOut" as const }}
@@ -86,7 +86,7 @@ const BlogPost: React.FC = () => {
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/60 to-transparent"></div>
 
                     <div className="absolute inset-0 flex items-end">
-                        <motion.div
+                        <m.div
                             initial="hidden"
                             animate="visible"
                             variants={{
@@ -94,23 +94,23 @@ const BlogPost: React.FC = () => {
                             }}
                             className="max-w-4xl mx-auto px-6 md:px-12 pb-24 w-full"
                         >
-                            <motion.div variants={fadeInUp}>
+                            <m.div variants={fadeInUp}>
                                 <Link to="/blog" className="inline-block text-white/80 hover:text-white mb-8 transition-colors text-sm font-bold uppercase tracking-widest">
                                     ← Back to Insights
                                 </Link>
-                            </motion.div>
+                            </m.div>
 
-                            <motion.div variants={fadeInUp} className="flex items-center gap-4 text-xs font-bold uppercase tracking-widest text-blue-400 mb-6">
+                            <m.div variants={fadeInUp} className="flex items-center gap-4 text-xs font-bold uppercase tracking-widest text-blue-400 mb-6">
                                 <span>{post.category || 'Opinion'}</span>
                                 <span className="w-1 h-1 rounded-full bg-white/30"></span>
                                 <span className="text-white/80">{post.readTime || '5 min read'}</span>
-                            </motion.div>
+                            </m.div>
 
-                            <motion.h1 variants={fadeInUp} className="text-4xl md:text-6xl font-bold text-white mb-8 leading-tight">
+                            <m.h1 variants={fadeInUp} className="text-4xl md:text-6xl font-bold text-white mb-8 leading-tight">
                                 {post.title}
-                            </motion.h1>
+                            </m.h1>
 
-                            <motion.div variants={fadeInUp} className="flex items-center gap-4">
+                            <m.div variants={fadeInUp} className="flex items-center gap-4">
                                 {post.author && (
                                     <div className="flex items-center gap-3">
                                         <div className="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-sm">
@@ -122,13 +122,13 @@ const BlogPost: React.FC = () => {
                                         </div>
                                     </div>
                                 )}
-                            </motion.div>
-                        </motion.div>
+                            </m.div>
+                        </m.div>
                     </div>
                 </div>
 
                 {/* Content Body */}
-                <motion.div
+                <m.div
                     initial={{ opacity: 0, y: 40 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" as const }}
@@ -146,7 +146,7 @@ const BlogPost: React.FC = () => {
                             </button>
                         </div>
                     </div>
-                </motion.div>
+                </m.div>
             </div>
         </PageTransition>
     );

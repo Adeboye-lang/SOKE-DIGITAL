@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 
 const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
@@ -34,24 +34,24 @@ const ServicesHero: React.FC = () => {
                 <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/60 to-slate-50"></div>
             </div>
 
-            <motion.div
+            <m.div
                 initial="hidden"
                 animate="visible"
                 variants={staggerContainer}
                 className="relative z-10 max-w-5xl"
             >
-                <motion.div variants={fadeInUp} className="inline-block px-4 py-1.5 border border-blue-100 rounded-full bg-blue-50/80 backdrop-blur-sm text-xs font-bold tracking-[0.2em] uppercase mb-8 text-blue-900 shadow-sm">
+                <m.div variants={fadeInUp} className="inline-block px-4 py-1.5 border border-blue-100 rounded-full bg-blue-50/80 backdrop-blur-sm text-xs font-bold tracking-[0.2em] uppercase mb-8 text-blue-900 shadow-sm">
                     Our Expertise
-                </motion.div>
-                <motion.h1 variants={fadeInUp} className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight tracking-tight text-slate-900">
+                </m.div>
+                <m.h1 variants={fadeInUp} className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight tracking-tight text-slate-900">
                     Everything Your <br className="hidden md:block" />
                     <span className="text-blue-900">Business Needs to Scale</span>
-                </motion.h1>
-                <motion.div variants={fadeInUp} className="h-1 w-24 bg-blue-900 mx-auto mb-8 rounded-full"></motion.div>
-                <motion.p variants={fadeInUp} className="text-sm md:text-base text-slate-600 font-bold tracking-[0.3em] uppercase">
+                </m.h1>
+                <m.div variants={fadeInUp} className="h-1 w-24 bg-blue-900 mx-auto mb-8 rounded-full"></m.div>
+                <m.p variants={fadeInUp} className="text-sm md:text-base text-slate-600 font-bold tracking-[0.3em] uppercase">
                     Strategy &bull; Marketing &bull; Infrastructure
-                </motion.p>
-            </motion.div>
+                </m.p>
+            </m.div>
         </section>
     );
 };

@@ -52,11 +52,7 @@ const PartnershipSection: React.FC = () => {
                         <p className="text-slate-400 text-sm mb-8 leading-relaxed">
                             Strategic advice and audits for teams who need direction but have the capacity to execute internally.
                         </p>
-                        <div className="mt-auto">
-                            <Link to="/services" className="text-blue-400 font-semibold text-sm flex items-center gap-2 group-hover:gap-4 transition-all">
-                                View Details <span>→</span>
-                            </Link>
-                        </div>
+                        {/* Link Removed */}
 
                         {/* Hover Gradient */}
                         <div className="absolute inset-0 bg-blue-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
@@ -75,11 +71,7 @@ const PartnershipSection: React.FC = () => {
                         <p className="text-slate-400 text-sm mb-8 leading-relaxed">
                             Specific, high-impact deliverables. We build the website, the funnel, or the campaign, then hand you the keys.
                         </p>
-                        <div className="mt-auto">
-                            <Link to="/services" className="text-blue-400 font-semibold text-sm flex items-center gap-2 group-hover:gap-4 transition-all">
-                                View Details <span>→</span>
-                            </Link>
-                        </div>
+                        {/* Link Removed */}
                     </div>
                 </m.div>
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { collection, getCountFromServer, addDoc, getDocs, query, orderBy, limit } from 'firebase/firestore';
+import { collection, getCountFromServer, addDoc, getDocs, query, orderBy, limit, deleteDoc, doc } from 'firebase/firestore';
 import { db } from '../../firebase';
 import { DEFAULT_POSTS, DEFAULT_PROJECTS } from '../../utils/seedData';
 
@@ -66,6 +66,23 @@ const AdminDashboard: React.FC = () => {
             alert("Failed to seed database.");
         } finally {
             setSeeding(false);
+        }
+    };
+
+    const handleDelete = async (id: string) => {
+        if (!window.confirm("Are you sure you want to delete this post? This action cannot be undone.")) return;
+
+        try {
+            await deleteDoc(doc(db, "blog_posts", id));
+
+            // Update local state
+            setRecentItems(prev => prev.filter(item => item.id !== id));
+            setStats(prev => ({ ...prev, blog: prev.blog - 1 }));
+
+            alert("Post deleted successfully.");
+        } catch (error) {
+            console.error("Error deleting post:", error);
+            alert("Failed to delete post.");
         }
     };
 
@@ -224,20 +241,41 @@ const AdminDashboard: React.FC = () => {
                             </div>
                         ) : recentItems.length > 0 ? (
                             recentItems.map(item => (
-                                <div key={item.id} role="button" tabIndex={0} className="flex items-center gap-4 p-4 rounded-xl hover:bg-slate-50 transition-colors border border-transparent hover:border-slate-100 group cursor-pointer" onClick={() => window.location.href = `/admin/blog/edit/${item.id}`} onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); window.location.href = `/admin/blog/edit/${item.id}`; } }}>
-                                    <div className="w-12 h-12 rounded-lg bg-slate-200 overflow-hidden flex-shrink-0">
+                                <div key={item.id} className="flex items-center gap-4 p-4 rounded-xl hover:bg-slate-50 transition-colors border border-transparent hover:border-slate-100 group relative">
+                                    {/* Main Clickable Area */}
+                                    <div
+                                        role="button"
+                                        tabIndex={0}
+                                        className="absolute inset-0 cursor-pointer z-0"
+                                        onClick={() => window.location.href = `/admin/blog/edit/${item.id}`}
+                                        onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); window.location.href = `/admin/blog/edit/${item.id}`; } }}
+                                    ></div>
+
+                                    <div className="w-12 h-12 rounded-lg bg-slate-200 overflow-hidden flex-shrink-0 relative z-10 pointer-events-none">
                                         {item.imageUrl && <img src={item.imageUrl} alt="" className="w-full h-full object-cover" />}
                                     </div>
-                                    <div className="flex-1">
+                                    <div className="flex-1 relative z-10 pointer-events-none">
                                         <h4 className="font-bold text-slate-900 line-clamp-1 group-hover:text-blue-600 transition-colors">{item.title}</h4>
                                         <p className="text-xs text-slate-500">
                                             {item.category} • Posted by {item.author || 'Admin'}
                                         </p>
                                     </div>
-                                    <div className="text-right">
-                                        <span className="text-xs font-medium text-slate-400">
+                                    <div className="text-right flex items-center gap-4 relative z-10">
+                                        <span className="text-xs font-medium text-slate-400 pointer-events-none">
                                             {item.createdAt?.toDate ? item.createdAt.toDate().toLocaleDateString() : 'Recently'}
                                         </span>
+                                        <button
+                                            onClick={(e) => {
+                                                e.stopPropagation();
+                                                handleDelete(item.id);
+                                            }}
+                                            className="p-2 text-slate-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100"
+                                            title="Delete Post"
+                                        >
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
+                                                <path strokeLinecap="round" strokeLinejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+                                            </svg>
+                                        </button>
                                     </div>
                                 </div>
                             ))

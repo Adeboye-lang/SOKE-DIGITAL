@@ -139,10 +139,47 @@ const BlogPost: React.FC = () => {
                     </article>
 
                     <div className="mt-20 pt-10 border-t border-slate-100">
-                        <h3 className="text-2xl font-bold text-slate-900 mb-8">Share this article</h3>
-                        <div className="flex gap-4">
-                            <button onClick={() => navigator.share({ title: post.title, url: window.location.href })} className="px-6 py-3 bg-slate-100 rounded-lg text-slate-900 font-bold hover:bg-slate-200 transition-colors">
-                                Share
+                        {/* 1. Subscribe Section */}
+                        <div className="bg-slate-50 rounded-2xl p-8 md:p-10 mb-12 text-center border border-slate-100">
+                            <span className="text-2xl mb-4 block">📩</span>
+                            <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-2">
+                                Built for founders building in Nigeria.
+                            </h3>
+                            <p className="text-slate-600 mb-6 max-w-md mx-auto">
+                                Get insights like this in your inbox. No fluff, just scalable strategies.
+                            </p>
+                            <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto" onSubmit={(e) => e.preventDefault()}>
+                                <input
+                                    type="email"
+                                    placeholder="Enter your email"
+                                    className="flex-1 px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-600 transition-all"
+                                />
+                                <button className="px-6 py-3 bg-slate-900 text-white font-bold rounded-lg hover:bg-slate-800 transition-colors">
+                                    Subscribe
+                                </button>
+                            </form>
+                        </div>
+
+                        {/* 2. Book Call CTA */}
+                        <div className="flex flex-col md:flex-row items-center justify-between gap-6 bg-blue-600 rounded-2xl p-8 md:p-12 text-white shadow-xl shadow-blue-900/20">
+                            <div>
+                                <h3 className="text-2xl md:text-3xl font-bold mb-2">Ready to scale your systems?</h3>
+                                <p className="text-blue-100 max-w-lg">
+                                    Stop guessing. Let's design the strategy that takes you to the next level.
+                                </p>
+                            </div>
+                            <Link
+                                to="/book-call"
+                                className="px-8 py-4 bg-white text-blue-900 font-bold rounded-full hover:bg-blue-50 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 whitespace-nowrap"
+                            >
+                                Book a Discovery Call
+                            </Link>
+                        </div>
+
+                        <div className="mt-12 flex gap-4">
+                            <h4 className="text-sm font-bold text-slate-400 uppercase tracking-widest pt-3">Share:</h4>
+                            <button onClick={() => navigator.share({ title: post.title, url: window.location.href })} className="px-5 py-2 bg-slate-100 rounded-full text-slate-700 font-bold hover:bg-slate-200 transition-colors text-sm">
+                                Share Article
                             </button>
                         </div>
                     </div>

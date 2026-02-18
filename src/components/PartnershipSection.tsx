@@ -100,7 +100,7 @@ const PartnershipSection: React.FC = () => {
                         </p>
                         <div className="mt-auto">
                             <Link to="/how-we-work" className="text-white font-semibold text-sm flex items-center gap-2 group-hover:gap-4 transition-all">
-                                Learn How It Works <span>→</span>
+                                Learn more <span>→</span>
                             </Link>
                         </div>
                         {/* Shine Effect */}

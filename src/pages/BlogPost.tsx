@@ -5,6 +5,7 @@ import { db } from '../firebase';
 import ReactMarkdown from 'react-markdown';
 import { m } from 'framer-motion';
 import PageTransition from '../components/PageTransition';
+import SubscribeSection from '../components/SubscribeSection';
 
 interface BlogPost {
     id: string;
@@ -140,25 +141,7 @@ const BlogPost: React.FC = () => {
 
                     <div className="mt-20 pt-10 border-t border-slate-100">
                         {/* 1. Subscribe Section */}
-                        <div className="bg-slate-50 rounded-2xl p-8 md:p-10 mb-12 text-center border border-slate-100">
-                            <span className="text-2xl mb-4 block">📩</span>
-                            <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-2">
-                                Built for founders building in Nigeria.
-                            </h3>
-                            <p className="text-slate-600 mb-6 max-w-md mx-auto">
-                                Get insights like this in your inbox. No fluff, just scalable strategies.
-                            </p>
-                            <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto" onSubmit={(e) => e.preventDefault()}>
-                                <input
-                                    type="email"
-                                    placeholder="Enter your email"
-                                    className="flex-1 px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-600 transition-all"
-                                />
-                                <button className="px-6 py-3 bg-slate-900 text-white font-bold rounded-lg hover:bg-slate-800 transition-colors">
-                                    Subscribe
-                                </button>
-                            </form>
-                        </div>
+                        <SubscribeSection />
 
                         {/* 2. Book Call CTA */}
                         <div className="flex flex-col md:flex-row items-center justify-between gap-6 bg-blue-600 rounded-2xl p-8 md:p-12 text-white shadow-xl shadow-blue-900/20">

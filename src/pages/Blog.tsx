@@ -4,6 +4,7 @@ import { db } from '../firebase';
 import { useNavigate, Link } from 'react-router-dom';
 import { m } from 'framer-motion';
 import PageTransition from '../components/PageTransition';
+import SubscribeSection from '../components/SubscribeSection';
 
 // Note: Navbar is rendered in App.tsx layout for public pages, so we only need the content here.
 
@@ -304,32 +305,7 @@ const Blog: React.FC = () => {
                     {/* Permanent Bottom Section: Subscribe & CTA */}
                     <div className="mt-24 border-t border-slate-100 pt-16">
                         {/* 1. Subscribe Section */}
-                        <div className="bg-slate-50 rounded-2xl p-8 md:p-12 text-center border border-slate-100 mb-16 relative overflow-hidden">
-                            <div className="relative z-10">
-                                <span className="text-3xl mb-4 block">📩</span>
-                                <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-3">
-                                    Built for founders building in Nigeria.
-                                </h3>
-                                <p className="text-slate-600 mb-8 max-w-lg mx-auto text-lg">
-                                    Get insights like this in your inbox. No fluff, just scalable strategies.
-                                </p>
-                                <form className="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto" onSubmit={(e) => e.preventDefault()}>
-                                    <input
-                                        type="email"
-                                        placeholder="Enter your email"
-                                        className="flex-1 px-5 py-4 rounded-xl border border-slate-200 focus:outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-600 transition-all shadow-sm"
-                                    />
-                                    <button className="px-8 py-4 bg-slate-900 text-white font-bold rounded-xl hover:bg-slate-800 transition-colors shadow-lg shadow-slate-900/10">
-                                        Subscribe
-                                    </button>
-                                </form>
-                            </div>
-
-                            {/* Decorative BG */}
-                            <div className="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none">
-                                <div className="absolute top-[-50%] left-[-10%] w-[70%] h-[150%] bg-blue-600 rounded-full blur-[100px]"></div>
-                            </div>
-                        </div>
+                        <SubscribeSection />
 
                         {/* 2. Book Call CTA */}
                         <div className="flex flex-col md:flex-row items-center justify-between gap-8 bg-blue-600 rounded-3xl p-8 md:p-16 text-white shadow-2xl shadow-blue-900/30 relative overflow-hidden">

@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
+import { LazyMotion, domAnimation, MotionConfig } from 'framer-motion';
 import PublicLayout from './layout/PublicLayout';
 import ScrollToTop from './components/ScrollToTop';
 
@@ -57,6 +58,8 @@ const SubdomainRedirect = () => {
 
 function App() {
   return (
+    <LazyMotion features={domAnimation} strict>
+    <MotionConfig reducedMotion="user">
     <Router>
       <SubdomainRedirect />
       <ScrollToTop />
@@ -95,6 +98,8 @@ function App() {
         </Route>
       </Routes>
     </Router>
+    </MotionConfig>
+    </LazyMotion>
   );
 }
 

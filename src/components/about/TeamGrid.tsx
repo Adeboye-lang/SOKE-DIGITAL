@@ -39,9 +39,9 @@ const TeamCard = ({ imageSrc, name, role, bio, socials, scale = 1, position = 'o
 
             {/* Socials Overlay on Hover */}
             <div className="absolute bottom-4 right-4 flex gap-2 translate-y-10 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300 delay-100 z-10">
-                {socials && socials.map((social, index) => (
+                {socials && socials.map((social) => (
                     <a
-                        key={index}
+                        key={social.platform}
                         href={social.url}
                         target="_blank"
                         rel="noopener noreferrer"

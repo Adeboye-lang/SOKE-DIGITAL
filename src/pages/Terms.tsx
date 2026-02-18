@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import PageTransition from '../components/PageTransition';
 
 const fadeInUp = {
@@ -31,7 +31,7 @@ const Terms: React.FC = () => {
             }
         };
 
-        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', handleScroll, { passive: true });
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
@@ -69,7 +69,7 @@ const Terms: React.FC = () => {
             <div className="bg-gray-50 min-h-screen">
                 {/* Header */}
                 <div className="bg-blue-900 text-white py-20 px-6 md:px-12 lg:px-24">
-                    <motion.div
+                    <m.div
                         initial="hidden"
                         animate="visible"
                         variants={{
@@ -77,20 +77,20 @@ const Terms: React.FC = () => {
                         }}
                         className="max-w-7xl mx-auto"
                     >
-                        <motion.h1 variants={fadeInUp} className="text-4xl md:text-5xl font-bold mb-4">Terms & Conditions</motion.h1>
-                        <motion.p variants={fadeInUp} className="text-blue-200 text-lg max-w-2xl">Building businesses that work, grow, and last requires a solid foundation. Here is ours.</motion.p>
-                        <motion.div variants={fadeInUp} className="mt-8 inline-flex items-center gap-2 text-sm font-semibold bg-blue-800/50 px-4 py-2 rounded-full border border-blue-700">
+                        <m.h1 variants={fadeInUp} className="text-4xl md:text-5xl font-bold mb-4">Terms & Conditions</m.h1>
+                        <m.p variants={fadeInUp} className="text-blue-200 text-lg max-w-2xl">Building businesses that work, grow, and last requires a solid foundation. Here is ours.</m.p>
+                        <m.div variants={fadeInUp} className="mt-8 inline-flex items-center gap-2 text-sm font-semibold bg-blue-800/50 px-4 py-2 rounded-full border border-blue-700">
                             <span className="w-2 h-2 rounded-full bg-green-400"></span>
                             Last Updated: January 2025
-                        </motion.div>
-                    </motion.div>
+                        </m.div>
+                    </m.div>
                 </div>
 
                 <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 py-16 flex flex-col lg:flex-row gap-16">
 
                     {/* Sidebar Navigation */}
                     <div className="lg:w-1/4 hidden lg:block">
-                        <motion.div
+                        <m.div
                             initial={{ opacity: 0, x: -20 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.8, delay: 0.2 }}
@@ -120,11 +120,11 @@ const Terms: React.FC = () => {
                                 </svg>
                                 Back to top
                             </button>
-                        </motion.div>
+                        </m.div>
                     </div>
 
                     {/* Main Content */}
-                    <motion.div
+                    <m.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.4 }}
@@ -438,7 +438,7 @@ const Terms: React.FC = () => {
                             </div>
 
                         </div>
-                    </motion.div>
+                    </m.div>
                 </div>
             </div>
         </PageTransition>

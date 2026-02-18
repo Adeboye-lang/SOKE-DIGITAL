@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import emailjs from '@emailjs/browser';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import PageTransition from '../components/PageTransition';
 
 // --- Calendar Helpers ---
@@ -65,8 +65,8 @@ const BookCall: React.FC = () => {
     const calendarDays = [];
 
     // Empty cells for days before the 1st
-    for (let i = 0; i < firstDay; i++) {
-        calendarDays.push(<div key={`empty-${i}`} className="h-10 w-10"></div>);
+    for (let pad = 0; pad < firstDay; pad++) {
+        calendarDays.push(<div key={`pad-${year}-${month}-${pad}`} className="h-10 w-10"></div>);
     }
 
     // Actual days
@@ -184,7 +184,7 @@ const BookCall: React.FC = () => {
             <div className="min-h-screen bg-white flex flex-col lg:flex-row font-sans selection:bg-blue-100">
 
                 {/* Left Panel: Executive Briefing & Value */}
-                <motion.div
+                <m.div
                     initial="hidden"
                     animate="visible"
                     variants={staggerContainer}
@@ -193,19 +193,19 @@ const BookCall: React.FC = () => {
                     <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/20 rounded-full blur-[100px] pointer-events-none -translate-y-1/2 translate-x-1/2"></div>
 
                     <div className="relative z-10">
-                        <motion.span variants={fadeInUp} className="inline-block py-1 px-3 rounded-md bg-blue-900/30 border border-blue-800 text-blue-300 text-xs font-bold uppercase tracking-widest mb-8">
+                        <m.span variants={fadeInUp} className="inline-block py-1 px-3 rounded-md bg-blue-900/30 border border-blue-800 text-blue-300 text-xs font-bold uppercase tracking-widest mb-8">
                             Executive Briefing
-                        </motion.span>
-                        <motion.h1 variants={fadeInUp} className="text-4xl md:text-5xl font-bold mb-6 tracking-tight leading-tight">
+                        </m.span>
+                        <m.h1 variants={fadeInUp} className="text-4xl md:text-5xl font-bold mb-6 tracking-tight leading-tight">
                             Strategy. <br />
                             Systems. <br />
                             <span className="text-blue-500">Scale.</span>
-                        </motion.h1>
-                        <motion.p variants={fadeInUp} className="text-slate-400 leading-relaxed mb-12 text-lg max-w-md font-light">
+                        </m.h1>
+                        <m.p variants={fadeInUp} className="text-slate-400 leading-relaxed mb-12 text-lg max-w-md font-light">
                             Book a 30-minute consultation to diagnose your growth blockers and outline a roadmap for scale.
-                        </motion.p>
+                        </m.p>
 
-                        <motion.div variants={fadeInUp} className="space-y-8">
+                        <m.div variants={fadeInUp} className="space-y-8">
                             <div>
                                 <h4 className="font-bold text-white text-sm mb-2">Who this is for:</h4>
                                 <ul className="space-y-3">
@@ -220,17 +220,17 @@ const BookCall: React.FC = () => {
                                     </li>
                                 </ul>
                             </div>
-                        </motion.div>
+                        </m.div>
                     </div>
 
-                    <motion.div variants={fadeInUp} className="mt-16 pt-8 border-t border-slate-800 relative z-10">
+                    <m.div variants={fadeInUp} className="mt-16 pt-8 border-t border-slate-800 relative z-10">
                         <p className="text-xs text-slate-500 uppercase tracking-widest font-bold mb-2">Current Availability</p>
                         <p className="text-white">Limited slots for February 2026.</p>
-                    </motion.div>
-                </motion.div>
+                    </m.div>
+                </m.div>
 
                 {/* Right Panel: Interactive Scheduler */}
-                <motion.div
+                <m.div
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" as const }}
@@ -239,7 +239,7 @@ const BookCall: React.FC = () => {
                     <div className="w-full max-w-2xl bg-white rounded-3xl shadow-xl shadow-slate-200/50 overflow-hidden min-h-[600px] flex flex-col border border-slate-100">
 
                         {submitted ? (
-                            <motion.div
+                            <m.div
                                 initial={{ opacity: 0, scale: 0.95 }}
                                 animate={{ opacity: 1, scale: 1 }}
                                 transition={{ duration: 0.5 }}
@@ -257,7 +257,7 @@ const BookCall: React.FC = () => {
                                 <button onClick={resetForm} className="text-blue-600 font-bold hover:underline uppercase tracking-wide text-sm">
                                     Book another call
                                 </button>
-                            </motion.div>
+                            </m.div>
                         ) : (
                             <div className="flex flex-col h-full">
                                 {/* Header */}
@@ -274,7 +274,7 @@ const BookCall: React.FC = () => {
 
                                 <div className="flex-1 overflow-y-auto bg-white">
                                     {step === 1 && (
-                                        <motion.div
+                                        <m.div
                                             initial={{ opacity: 0 }}
                                             animate={{ opacity: 1 }}
                                             exit={{ opacity: 0 }}
@@ -322,14 +322,14 @@ const BookCall: React.FC = () => {
                                                 )}
 
                                                 {selectedDate && !loadingSlots && (
-                                                    <motion.div
+                                                    <m.div
                                                         initial={{ opacity: 0, y: 10 }}
                                                         animate={{ opacity: 1, y: 0 }}
                                                         transition={{ duration: 0.3 }}
                                                         className="space-y-3 max-h-[300px] overflow-y-auto pr-2 custom-scrollbar"
                                                     >
                                                         {availableSlots.length > 0 ? availableSlots.map((slot, i) => (
-                                                            <motion.button
+                                                            <m.button
                                                                 key={slot}
                                                                 initial={{ opacity: 0, y: 10 }}
                                                                 animate={{ opacity: 1, y: 0 }}
@@ -338,20 +338,20 @@ const BookCall: React.FC = () => {
                                                                 className="w-full text-center py-3 rounded-xl border border-blue-100 text-blue-600 font-bold hover:bg-blue-600 hover:text-white transition-all transform hover:scale-[1.02]"
                                                             >
                                                                 {slot}
-                                                            </motion.button>
+                                                            </m.button>
                                                         )) : (
                                                             <div className="text-center text-sm text-slate-400 py-8">
                                                                 No slots available.
                                                             </div>
                                                         )}
-                                                    </motion.div>
+                                                    </m.div>
                                                 )}
                                             </div>
-                                        </motion.div>
+                                        </m.div>
                                     )}
 
                                     {step === 2 && (
-                                        <motion.div
+                                        <m.div
                                             initial={{ opacity: 0, x: 20 }}
                                             animate={{ opacity: 1, x: 0 }}
                                             transition={{ duration: 0.5, ease: "easeOut" as const }}
@@ -369,8 +369,9 @@ const BookCall: React.FC = () => {
                                             <form onSubmit={handleSubmit} className="space-y-6">
                                                 <div className="grid md:grid-cols-2 gap-6">
                                                     <div className="space-y-2">
-                                                        <label className="text-xs font-bold text-slate-500 uppercase tracking-wider">Full Name</label>
+                                                        <label htmlFor="book-fullname" className="text-xs font-bold text-slate-500 uppercase tracking-wider">Full Name</label>
                                                         <input
+                                                            id="book-fullname"
                                                             required
                                                             name="fullName"
                                                             value={formData.fullName}
@@ -380,8 +381,9 @@ const BookCall: React.FC = () => {
                                                         />
                                                     </div>
                                                     <div className="space-y-2">
-                                                        <label className="text-xs font-bold text-slate-500 uppercase tracking-wider">Email Address</label>
+                                                        <label htmlFor="book-email" className="text-xs font-bold text-slate-500 uppercase tracking-wider">Email Address</label>
                                                         <input
+                                                            id="book-email"
                                                             required
                                                             type="email"
                                                             name="email"
@@ -394,8 +396,9 @@ const BookCall: React.FC = () => {
                                                 </div>
 
                                                 <div className="space-y-2">
-                                                    <label className="text-xs font-bold text-slate-500 uppercase tracking-wider">Phone Number</label>
+                                                    <label htmlFor="book-phone" className="text-xs font-bold text-slate-500 uppercase tracking-wider">Phone Number</label>
                                                     <input
+                                                        id="book-phone"
                                                         required
                                                         type="tel"
                                                         name="phone"
@@ -407,8 +410,9 @@ const BookCall: React.FC = () => {
                                                 </div>
 
                                                 <div className="space-y-2">
-                                                    <label className="text-xs font-bold text-slate-500 uppercase tracking-wider">What's your biggest challenge right now?</label>
+                                                    <label htmlFor="book-description" className="text-xs font-bold text-slate-500 uppercase tracking-wider">What's your biggest challenge right now?</label>
                                                     <textarea
+                                                        id="book-description"
                                                         required
                                                         rows={3}
                                                         name="description"
@@ -427,13 +431,13 @@ const BookCall: React.FC = () => {
                                                     {isSubmitting ? 'Confirming...' : 'Complete Booking'}
                                                 </button>
                                             </form>
-                                        </motion.div>
+                                        </m.div>
                                     )}
                                 </div>
                             </div>
                         )}
                     </div>
-                </motion.div>
+                </m.div>
             </div>
         </PageTransition>
     );

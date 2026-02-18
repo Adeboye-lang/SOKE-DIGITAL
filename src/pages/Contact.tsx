@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import emailjs from '@emailjs/browser';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence } from 'framer-motion';
 import PageTransition from '../components/PageTransition';
 
 // Animation Variants
@@ -112,22 +112,22 @@ const Contact: React.FC = () => {
                         {/* Success Background Elements */}
                         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-green-500/5 rounded-full blur-3xl pointer-events-none"></div>
 
-                        <motion.div
+                        <m.div
                             initial={{ opacity: 0, scale: 0.95 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.6, ease: "easeOut" as const }}
                             className="bg-white p-12 rounded-[2rem] shadow-2xl shadow-slate-200/50 max-w-lg w-full text-center border border-slate-100 relative z-10"
                         >
-                            <motion.div
-                                initial={{ scale: 0 }}
-                                animate={{ scale: 1 }}
+                            <m.div
+                                initial={{ scale: 0.95, opacity: 0 }}
+                                animate={{ scale: 1, opacity: 1 }}
                                 transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
                                 className="w-24 h-24 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-8 shadow-inner"
                             >
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                                 </svg>
-                            </motion.div>
+                            </m.div>
                             <h2 className="text-3xl font-bold text-slate-900 mb-4 tracking-tight">Message Received</h2>
                             <p className="text-slate-600 mb-10 text-lg leading-relaxed">
                                 Thanks for reaching out, <span className="font-semibold text-slate-900">{formData.name}</span>We'll be in touch within 24 hours.
@@ -138,7 +138,7 @@ const Contact: React.FC = () => {
                             >
                                 Send Another
                             </button>
-                        </motion.div>
+                        </m.div>
                     </div>
                 </div>
             </PageTransition>
@@ -155,30 +155,30 @@ const Contact: React.FC = () => {
                     <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[100px] -mr-32 -mt-32 pointer-events-none"></div>
                     <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-purple-600/10 rounded-full blur-[100px] -ml-20 -mb-20 pointer-events-none"></div>
 
-                    <motion.div
+                    <m.div
                         initial="hidden"
                         animate="visible"
                         variants={staggerContainer}
                         className="max-w-7xl mx-auto relative z-10"
                     >
-                        <motion.span variants={fadeInUp} className="inline-block py-1 px-3 rounded-full bg-white/5 border border-white/10 text-xs font-bold text-blue-200 tracking-widest uppercase mb-6 backdrop-blur-sm">
+                        <m.span variants={fadeInUp} className="inline-block py-1 px-3 rounded-full bg-white/5 border border-white/10 text-xs font-bold text-blue-200 tracking-widest uppercase mb-6 backdrop-blur-sm">
                             Contact Us
-                        </motion.span>
-                        <motion.h1 variants={fadeInUp} className="text-5xl md:text-7xl font-bold mb-8 tracking-tight">
+                        </m.span>
+                        <m.h1 variants={fadeInUp} className="text-5xl md:text-7xl font-bold mb-8 tracking-tight">
                             Let's start a <br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">conversation.</span>
-                        </motion.h1>
-                        <motion.p variants={fadeInUp} className="text-slate-300 text-lg md:text-xl max-w-2xl leading-relaxed font-light">
+                        </m.h1>
+                        <m.p variants={fadeInUp} className="text-slate-300 text-lg md:text-xl max-w-2xl leading-relaxed font-light">
                             Ready to transform your vision into reality? We're here to listen, strategize, and build something extraordinary together.
-                        </motion.p>
-                    </motion.div>
+                        </m.p>
+                    </m.div>
                 </div>
 
                 <div className="max-w-7xl mx-auto w-full px-6 md:px-12 lg:px-24 -mt-16 mb-24 relative z-20">
                     <div className="grid lg:grid-cols-12 gap-12 lg:gap-16">
 
                         {/* Left Column: Contact Form */}
-                        <motion.div
+                        <m.div
                             initial={{ opacity: 0, y: 40 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" as const }}
@@ -237,8 +237,8 @@ const Contact: React.FC = () => {
                                     </div>
                                 </div>
 
-                                <div className="space-y-3">
-                                    <label className="text-xs font-bold text-slate-400 uppercase tracking-widest">Interested Service</label>
+                                <fieldset className="space-y-3">
+                                    <legend className="text-xs font-bold text-slate-400 uppercase tracking-widest">Interested Service</legend>
                                     <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                                         {['Strategy', 'Marketing', 'Infrastructure', 'Other'].map((service) => (
                                             <label
@@ -264,7 +264,7 @@ const Contact: React.FC = () => {
                                     {/* Conditional Input for "Other" - with Animation */}
                                     <AnimatePresence>
                                         {formData.service === 'Other' && (
-                                            <motion.div
+                                            <m.div
                                                 initial={{ height: 0, opacity: 0 }}
                                                 animate={{ height: 'auto', opacity: 1 }}
                                                 exit={{ height: 0, opacity: 0 }}
@@ -283,10 +283,10 @@ const Contact: React.FC = () => {
                                                         className="w-full bg-slate-50 border border-slate-200 rounded-xl px-5 py-3 text-sm font-medium text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all duration-300 resize-none"
                                                     />
                                                 </div>
-                                            </motion.div>
+                                            </m.div>
                                         )}
                                     </AnimatePresence>
-                                </div>
+                                </fieldset>
 
                                 <div className="space-y-2 group">
                                     <label htmlFor="message" className="text-xs font-bold text-slate-400 uppercase tracking-widest transition-colors group-focus-within:text-blue-600">Message</label>
@@ -334,10 +334,10 @@ const Contact: React.FC = () => {
                                     )}
                                 </button>
                             </form>
-                        </motion.div>
+                        </m.div>
 
                         {/* Right Column: Contact Info */}
-                        <motion.div
+                        <m.div
                             initial="hidden"
                             animate="visible"
                             variants={{
@@ -346,7 +346,7 @@ const Contact: React.FC = () => {
                             className="lg:col-span-5 lg:pt-10 space-y-8"
                         >
                             {/* Email Card */}
-                            <motion.div variants={fadeInUp} className="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl transition-shadow duration-300">
+                            <m.div variants={fadeInUp} className="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl transition-shadow duration-300">
                                 <div className="flex items-start gap-6">
                                     <div className="w-12 h-12 rounded-2xl bg-blue-50 flex items-center justify-center text-blue-600 flex-shrink-0">
                                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -361,10 +361,10 @@ const Contact: React.FC = () => {
                                         </a>
                                     </div>
                                 </div>
-                            </motion.div>
+                            </m.div>
 
                             {/* Phone Card */}
-                            <motion.div variants={fadeInUp} className="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl transition-shadow duration-300">
+                            <m.div variants={fadeInUp} className="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl transition-shadow duration-300">
                                 <div className="flex items-start gap-6">
                                     <div className="w-12 h-12 rounded-2xl bg-green-50 flex items-center justify-center text-green-600 flex-shrink-0">
                                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -379,10 +379,10 @@ const Contact: React.FC = () => {
                                         </a>
                                     </div>
                                 </div>
-                            </motion.div>
+                            </m.div>
 
                             {/* Office Card */}
-                            <motion.div variants={fadeInUp} className="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl transition-shadow duration-300">
+                            <m.div variants={fadeInUp} className="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl transition-shadow duration-300">
                                 <div className="flex items-start gap-6">
                                     <div className="w-12 h-12 rounded-2xl bg-purple-50 flex items-center justify-center text-purple-600 flex-shrink-0">
                                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -398,10 +398,10 @@ const Contact: React.FC = () => {
                                         </p>
                                     </div>
                                 </div>
-                            </motion.div>
+                            </m.div>
 
                             {/* Socials */}
-                            <motion.div variants={fadeInUp} className="pt-4">
+                            <m.div variants={fadeInUp} className="pt-4">
                                 <h3 className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-6">Connect with us</h3>
                                 <div className="flex gap-4">
                                     <a href="https://www.linkedin.com/in/soke-digital-studio-686793364" target="_blank" rel="noopener noreferrer" className="w-14 h-14 rounded-2xl bg-white border border-slate-200 flex items-center justify-center text-blue-700 hover:bg-blue-600 hover:border-blue-600 hover:text-white transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg">
@@ -417,8 +417,8 @@ const Contact: React.FC = () => {
                                         <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" /></svg>
                                     </a>
                                 </div>
-                            </motion.div>
-                        </motion.div>
+                            </m.div>
+                        </m.div>
                     </div>
                 </div>
             </div>

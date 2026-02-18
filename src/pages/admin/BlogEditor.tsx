@@ -129,8 +129,9 @@ const BlogEditor: React.FC = () => {
                     {/* Basic Info */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <div className="space-y-2">
-                            <label className="text-sm font-bold text-slate-700 uppercase tracking-wider">Article Title</label>
+                            <label htmlFor="blog-title" className="text-sm font-bold text-slate-700 uppercase tracking-wider">Article Title</label>
                             <input
+                                id="blog-title"
                                 required
                                 type="text"
                                 value={title}
@@ -140,8 +141,9 @@ const BlogEditor: React.FC = () => {
                             />
                         </div>
                         <div className="space-y-2">
-                            <label className="text-sm font-bold text-slate-700 uppercase tracking-wider">Category</label>
+                            <label htmlFor="blog-category" className="text-sm font-bold text-slate-700 uppercase tracking-wider">Category</label>
                             <input
+                                id="blog-category"
                                 required
                                 type="text"
                                 value={category}
@@ -154,8 +156,9 @@ const BlogEditor: React.FC = () => {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <div className="space-y-2">
-                            <label className="text-sm font-bold text-slate-700 uppercase tracking-wider">Author Name</label>
+                            <label htmlFor="blog-author" className="text-sm font-bold text-slate-700 uppercase tracking-wider">Author Name</label>
                             <input
+                                id="blog-author"
                                 required
                                 type="text"
                                 value={author}
@@ -165,8 +168,9 @@ const BlogEditor: React.FC = () => {
                             />
                         </div>
                         <div className="space-y-2">
-                            <label className="text-sm font-bold text-slate-700 uppercase tracking-wider">Read Time</label>
+                            <label htmlFor="blog-readtime" className="text-sm font-bold text-slate-700 uppercase tracking-wider">Read Time</label>
                             <input
+                                id="blog-readtime"
                                 required
                                 type="text"
                                 value={readTime}
@@ -179,8 +183,9 @@ const BlogEditor: React.FC = () => {
 
                     {/* Summary */}
                     <div className="space-y-2">
-                        <label className="text-sm font-bold text-slate-700 uppercase tracking-wider">Short Summary</label>
+                        <label htmlFor="blog-summary" className="text-sm font-bold text-slate-700 uppercase tracking-wider">Short Summary</label>
                         <textarea
+                            id="blog-summary"
                             rows={3}
                             value={summary}
                             onChange={(e) => setSummary(e.target.value)}
@@ -191,8 +196,9 @@ const BlogEditor: React.FC = () => {
 
                     {/* Content */}
                     <div className="space-y-2">
-                        <label className="text-sm font-bold text-slate-700 uppercase tracking-wider">Full Content</label>
+                        <label htmlFor="blog-content" className="text-sm font-bold text-slate-700 uppercase tracking-wider">Full Content</label>
                         <textarea
+                            id="blog-content"
                             required
                             rows={12}
                             value={content}
@@ -204,7 +210,7 @@ const BlogEditor: React.FC = () => {
 
                     {/* Image Upload */}
                     <div className="space-y-4">
-                        <label className="text-sm font-bold text-slate-700 uppercase tracking-wider">Cover Image</label>
+                        <span className="text-sm font-bold text-slate-700 uppercase tracking-wider">Cover Image</span>
                         <div className="flex items-start gap-8">
                             <div className="w-64 h-48 bg-slate-100 rounded-xl border-2 border-dashed border-slate-300 flex items-center justify-center overflow-hidden relative group">
                                 {previewUrl ? (

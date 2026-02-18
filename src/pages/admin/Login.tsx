@@ -64,8 +64,9 @@ const AdminLogin: React.FC = () => {
                         )}
 
                         <div className="space-y-1">
-                            <label className="text-[10px] font-bold text-slate-500 uppercase tracking-widest pl-1">Email Address</label>
+                            <label htmlFor="login-email" className="text-[10px] font-bold text-slate-500 uppercase tracking-widest pl-1">Email Address</label>
                             <input
+                                id="login-email"
                                 type="email"
                                 required
                                 value={email}
@@ -76,8 +77,9 @@ const AdminLogin: React.FC = () => {
                         </div>
 
                         <div className="space-y-1">
-                            <label className="text-[10px] font-bold text-slate-500 uppercase tracking-widest pl-1">Password</label>
+                            <label htmlFor="login-password" className="text-[10px] font-bold text-slate-500 uppercase tracking-widest pl-1">Password</label>
                             <input
+                                id="login-password"
                                 type="password"
                                 required
                                 value={password}

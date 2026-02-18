@@ -127,8 +127,9 @@ const PortfolioEditor: React.FC = () => {
                     {/* Basic Info */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <div className="space-y-2">
-                            <label className="text-sm font-bold text-slate-700 uppercase tracking-wider">Project Title</label>
+                            <label htmlFor="portfolio-title" className="text-sm font-bold text-slate-700 uppercase tracking-wider">Project Title</label>
                             <input
+                                id="portfolio-title"
                                 required
                                 type="text"
                                 value={title}
@@ -138,8 +139,9 @@ const PortfolioEditor: React.FC = () => {
                             />
                         </div>
                         <div className="space-y-2">
-                            <label className="text-sm font-bold text-slate-700 uppercase tracking-wider">Category</label>
+                            <label htmlFor="portfolio-category" className="text-sm font-bold text-slate-700 uppercase tracking-wider">Category</label>
                             <input
+                                id="portfolio-category"
                                 required
                                 type="text"
                                 value={category}
@@ -152,8 +154,9 @@ const PortfolioEditor: React.FC = () => {
 
                     {/* Description */}
                     <div className="space-y-2">
-                        <label className="text-sm font-bold text-slate-700 uppercase tracking-wider">Short Description</label>
+                        <label htmlFor="portfolio-description" className="text-sm font-bold text-slate-700 uppercase tracking-wider">Short Description</label>
                         <textarea
+                            id="portfolio-description"
                             rows={4}
                             value={description}
                             onChange={(e) => setDescription(e.target.value)}
@@ -164,7 +167,7 @@ const PortfolioEditor: React.FC = () => {
 
                     {/* Image Upload */}
                     <div className="space-y-4">
-                        <label className="text-sm font-bold text-slate-700 uppercase tracking-wider">Cover Image</label>
+                        <span className="text-sm font-bold text-slate-700 uppercase tracking-wider">Cover Image</span>
 
                         <div className="flex items-start gap-8">
                             <div className="w-64 h-48 bg-slate-100 rounded-xl border-2 border-dashed border-slate-300 flex items-center justify-center overflow-hidden relative group">
@@ -199,9 +202,10 @@ const PortfolioEditor: React.FC = () => {
 
                     {/* Content (Markdown) */}
                     <div className="space-y-2">
-                        <label className="text-sm font-bold text-slate-700 uppercase tracking-wider">Full Case Study (Markdown)</label>
+                        <label htmlFor="portfolio-content" className="text-sm font-bold text-slate-700 uppercase tracking-wider">Full Case Study (Markdown)</label>
                         <p className="text-xs text-slate-500">You can use Markdown for formatting (e.g., # for headers, ** for bold, - for lists).</p>
                         <textarea
+                            id="portfolio-content"
                             rows={15}
                             value={content}
                             onChange={(e) => setContent(e.target.value)}

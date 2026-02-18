@@ -34,7 +34,7 @@ const ServiceCategory: React.FC<ServiceCategoryProps> = ({ title, services }) =>
                     const stepNumber = (index + 1).toString().padStart(2, '0');
 
                     return (
-                        <div key={index} className={`group flex flex-col md:flex-row items-center gap-8 md:gap-24 py-12 md:py-16 ${isEven ? '' : 'md:flex-row-reverse'}`}>
+                        <div key={service.title} className={`group flex flex-col md:flex-row items-center gap-8 md:gap-24 py-12 md:py-16 ${isEven ? '' : 'md:flex-row-reverse'}`}>
 
                             {/* Empty space / Number side */}
                             <div className={`flex-1 hidden md:flex flex-col justify-center ${isEven ? 'items-end pr-16' : 'items-start pl-16'}`}>

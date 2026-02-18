@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { collection, getCountFromServer, addDoc, getDocs, query, orderBy, limit } from 'firebase/firestore';
+import { collection, getCountFromServer, addDoc, getDocs, query, orderBy, limit, deleteDoc } from 'firebase/firestore';
 import { db } from '../../firebase';
 import { DEFAULT_POSTS, DEFAULT_PROJECTS } from '../../utils/seedData';
 
@@ -140,6 +140,30 @@ const AdminDashboard: React.FC = () => {
                     </div>
                     <div className="flex gap-3">
                         <button
+                            onClick={async () => {
+                                if (!window.confirm("Run Firebase Diagnostics? This will attempt to write and delete a test document.")) return;
+                                try {
+                                    alert("Starting checks...");
+                                    const testColl = collection(db, "portfolio");
+                                    const testDoc = await addDoc(testColl, {
+                                        title: "Test Project",
+                                        category: "Diagnostics",
+                                        createdAt: new Date(),
+                                        test: true
+                                    });
+                                    alert(`Write Success! ID: ${testDoc.id}`);
+                                    await deleteDoc(testDoc);
+                                    alert("Delete Success!");
+                                } catch (e: any) {
+                                    console.error("Diagnostic Error:", e);
+                                    alert(`DIAGNOSTIC FAILED:\nCode: ${e.code}\nMessage: ${e.message}`);
+                                }
+                            }}
+                            className="px-5 py-3 rounded-xl bg-red-600 hover:bg-red-500 font-bold text-sm transition-colors text-white shadow-lg shadow-red-900/20"
+                        >
+                            🛠️ Run Diagnostics
+                        </button>
+                        <button
                             onClick={handleExportLeads}
                             className="px-5 py-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/10 font-bold text-sm transition-colors flex items-center gap-2"
                         >
@@ -224,7 +248,7 @@ const AdminDashboard: React.FC = () => {
                             </div>
                         ) : recentItems.length > 0 ? (
                             recentItems.map(item => (
-                                <div key={item.id} className="flex items-center gap-4 p-4 rounded-xl hover:bg-slate-50 transition-colors border border-transparent hover:border-slate-100 group cursor-pointer" onClick={() => window.location.href = `/admin/blog/edit/${item.id}`}>
+                                <div key={item.id} role="button" tabIndex={0} className="flex items-center gap-4 p-4 rounded-xl hover:bg-slate-50 transition-colors border border-transparent hover:border-slate-100 group cursor-pointer" onClick={() => window.location.href = `/admin/blog/edit/${item.id}`} onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); window.location.href = `/admin/blog/edit/${item.id}`; } }}>
                                     <div className="w-12 h-12 rounded-lg bg-slate-200 overflow-hidden flex-shrink-0">
                                         {item.imageUrl && <img src={item.imageUrl} alt="" className="w-full h-full object-cover" />}
                                     </div>

@@ -42,9 +42,9 @@ const Footer: React.FC = () => {
                 {/* Links Column 1 */}
                 <div>
                     <ul className="space-y-3 text-xs md:text-sm">
-                        <li><a href="#" className="hover:text-blue-200">About SOKE</a></li>
-                        <li><a href="#" className="hover:text-blue-200">Our Services</a></li>
-                        <li><a href="#" className="hover:text-blue-200">Contact Us</a></li>
+                        <li><Link to="/about" className="hover:text-blue-200">About SOKE</Link></li>
+                        <li><Link to="/services" className="hover:text-blue-200">Our Services</Link></li>
+                        <li><Link to="/contact" className="hover:text-blue-200">Contact Us</Link></li>
                         <li><Link to="/case-studies" className="hover:text-blue-200">Case Studies</Link></li>
                         <li><Link to="/blog" className="hover:text-blue-200">Blog</Link></li>
 

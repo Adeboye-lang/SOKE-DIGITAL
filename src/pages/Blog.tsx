@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { collection, addDoc, getDocs, query, orderBy } from 'firebase/firestore';
 import { db } from '../firebase';
 import { useNavigate } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import PageTransition from '../components/PageTransition';
 
 // Note: Navbar is rendered in App.tsx layout for public pages, so we only need the content here.
@@ -50,7 +50,7 @@ const ArticleCard: React.FC<{
     onReadMore: () => void;
 }> = ({ category, readTime, title, description, imageSrc, authorName, onReadMore }) => {
     return (
-        <motion.div variants={fadeInUp} className="group cursor-pointer flex flex-col gap-4" onClick={onReadMore}>
+        <m.div variants={fadeInUp} className="group cursor-pointer flex flex-col gap-4" onClick={onReadMore}>
             <div className="overflow-hidden rounded-xl aspect-[4/3] relative">
                 <img
                     src={imageSrc}
@@ -79,7 +79,7 @@ const ArticleCard: React.FC<{
                     {authorName && <span className="text-xs font-semibold text-slate-900">By {authorName}</span>}
                 </div>
             </div>
-        </motion.div>
+        </m.div>
     );
 };
 
@@ -150,7 +150,7 @@ const Blog: React.FC = () => {
     if (!isRegistered) {
         return (
             <div className="bg-slate-950 min-h-screen flex items-center justify-center p-4">
-                <motion.div
+                <m.div
                     initial={{ scale: 0.9, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     transition={{ duration: 0.5 }}
@@ -170,8 +170,9 @@ const Blog: React.FC = () => {
 
                     <form onSubmit={handleGateSubmit} className="space-y-5">
                         <div className="space-y-1">
-                            <label className="text-[10px] font-bold text-slate-500 uppercase tracking-widest pl-1">Full Name</label>
+                            <label htmlFor="gate-name" className="text-[10px] font-bold text-slate-500 uppercase tracking-widest pl-1">Full Name</label>
                             <input
+                                id="gate-name"
                                 required
                                 value={gateData.name}
                                 onChange={e => setGateData({ ...gateData, name: e.target.value })}
@@ -180,8 +181,9 @@ const Blog: React.FC = () => {
                             />
                         </div>
                         <div className="space-y-1">
-                            <label className="text-[10px] font-bold text-slate-500 uppercase tracking-widest pl-1">Work Email</label>
+                            <label htmlFor="gate-email" className="text-[10px] font-bold text-slate-500 uppercase tracking-widest pl-1">Work Email</label>
                             <input
+                                id="gate-email"
                                 required
                                 type="email"
                                 value={gateData.email}
@@ -191,8 +193,9 @@ const Blog: React.FC = () => {
                             />
                         </div>
                         <div className="space-y-1">
-                            <label className="text-[10px] font-bold text-slate-500 uppercase tracking-widest pl-1">Role / Interest</label>
+                            <label htmlFor="gate-role" className="text-[10px] font-bold text-slate-500 uppercase tracking-widest pl-1">Role / Interest</label>
                             <input
+                                id="gate-role"
                                 required
                                 value={gateData.role}
                                 onChange={e => setGateData({ ...gateData, role: e.target.value })}
@@ -213,7 +216,7 @@ const Blog: React.FC = () => {
                             Professional insights for professional builders. No spam.
                         </p>
                     </form>
-                </motion.div>
+                </m.div>
             </div>
         );
     }
@@ -227,29 +230,29 @@ const Blog: React.FC = () => {
                    --------------------------------------------------------------------------- */}
 
                 {/* Header / Hero */}
-                <motion.div
+                <m.div
                     initial="hidden"
                     animate="visible"
                     variants={staggerContainer}
                     className="pt-32 pb-16 px-6 md:px-12 border-b border-slate-100"
                 >
                     <div className="max-w-7xl mx-auto">
-                        <motion.span variants={fadeInUp} className="block text-blue-600 font-bold tracking-widest text-xs uppercase mb-4">The Soke Journal</motion.span>
-                        <motion.h1 variants={fadeInUp} className="text-5xl md:text-7xl font-bold text-slate-900 mb-8 tracking-tighter max-w-4xl">
+                        <m.span variants={fadeInUp} className="block text-blue-600 font-bold tracking-widest text-xs uppercase mb-4">The Soke Journal</m.span>
+                        <m.h1 variants={fadeInUp} className="text-5xl md:text-7xl font-bold text-slate-900 mb-8 tracking-tighter max-w-4xl">
                             Insights for the <br className="hidden md:block" />
                             <span className="italic font-serif text-slate-600">modern African builder.</span>
-                        </motion.h1>
+                        </m.h1>
 
                         {/* Categories */}
-                        <motion.div variants={fadeInUp} className="flex flex-wrap gap-4 text-sm font-medium text-slate-500">
+                        <m.div variants={fadeInUp} className="flex flex-wrap gap-4 text-sm font-medium text-slate-500">
                             <button className="px-4 py-2 rounded-full bg-slate-100 text-slate-900 hover:bg-slate-200 transition-colors">All Stories</button>
                             <button className="px-4 py-2 rounded-full hover:bg-slate-50 transition-colors">Strategy</button>
                             <button className="px-4 py-2 rounded-full hover:bg-slate-50 transition-colors">Operations</button>
                             <button className="px-4 py-2 rounded-full hover:bg-slate-50 transition-colors">Marketing</button>
                             <button className="px-4 py-2 rounded-full hover:bg-slate-50 transition-colors">Technology</button>
-                        </motion.div>
+                        </m.div>
                     </div>
-                </motion.div>
+                </m.div>
 
                 {/* Content Area */}
                 <div className="max-w-7xl mx-auto px-6 md:px-12 py-16 min-h-[600px]">
@@ -260,7 +263,7 @@ const Blog: React.FC = () => {
                             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-slate-900"></div>
                         </div>
                     ) : posts.length > 0 ? (
-                        <motion.div
+                        <m.div
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true, margin: "-100px" }}
@@ -279,7 +282,7 @@ const Blog: React.FC = () => {
                                     onReadMore={() => handleReadMore(post.id)}
                                 />
                             ))}
-                        </motion.div>
+                        </m.div>
                     ) : (
                         <div className="flex flex-col items-center justify-center py-32 px-4 border border-dashed border-slate-200 rounded-3xl bg-slate-50/50 relative overflow-hidden group">
                             {/* Subtle Background Pattern */}

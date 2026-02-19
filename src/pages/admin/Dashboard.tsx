@@ -136,6 +136,40 @@ const AdminDashboard: React.FC = () => {
         }
     };
 
+    const handleExportSubscribers = async () => {
+        if (!window.confirm("Download all subscribers as CSV?")) return;
+
+        try {
+            const querySnapshot = await getDocs(collection(db, "subscribers"));
+            if (querySnapshot.empty) {
+                alert("No subscribers found to export.");
+                return;
+            }
+
+            const headers = ["Email", "Signed Up At"];
+            const rows = querySnapshot.docs.map(doc => {
+                const data = doc.data();
+                const date = data.createdAt?.toDate ? data.createdAt.toDate().toLocaleDateString() : 'N/A';
+                return [`"${data.email}"`, `"${date}"`].join(",");
+            });
+
+            const csvContent = [headers.join(","), ...rows].join("\n");
+            const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement("a");
+            link.setAttribute("href", url);
+            link.setAttribute("download", `soke_subscribers_${new Date().toISOString().split('T')[0]}.csv`);
+            link.style.visibility = "hidden";
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+
+        } catch (error) {
+            console.error("Error exporting subscribers:", error);
+            alert("Failed to export subscribers.");
+        }
+    };
+
     return (
         <div className="space-y-8 animate-in fade-in duration-500">
             {/* 1. Header Section with Gradient Card */}
@@ -160,7 +194,13 @@ const AdminDashboard: React.FC = () => {
                             onClick={handleExportLeads}
                             className="px-5 py-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/10 font-bold text-sm transition-colors flex items-center gap-2"
                         >
-                            <span>📥</span> Export Data
+                            <span>📥</span> Export Leads
+                        </button>
+                        <button
+                            onClick={handleExportSubscribers}
+                            className="px-5 py-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/10 font-bold text-sm transition-colors flex items-center gap-2"
+                        >
+                            <span>📬</span> Export Subs
                         </button>
                         {(stats.portfolio === 0 || stats.blog === 0) && !loading && (
                             <button

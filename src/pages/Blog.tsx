@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { collection, addDoc, getDocs, query, orderBy } from 'firebase/firestore';
+import { collection, getDocs, query, orderBy } from 'firebase/firestore';
 import { db } from '../firebase';
 import { useNavigate, Link } from 'react-router-dom';
 import { m } from 'framer-motion';
@@ -52,12 +52,16 @@ const ArticleCard: React.FC<{
 }> = ({ category, readTime, title, description, imageSrc, authorName, onReadMore }) => {
     return (
         <m.div variants={fadeInUp} className="group cursor-pointer flex flex-col gap-4" onClick={onReadMore}>
-            <div className="overflow-hidden rounded-xl aspect-[4/3] relative">
-                <img
-                    src={imageSrc}
-                    alt={title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
+            <div className="overflow-hidden rounded-xl aspect-[4/3] relative bg-slate-100 flex items-center justify-center">
+                {imageSrc ? (
+                    <img
+                        src={imageSrc}
+                        alt={title}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                ) : (
+                    <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at center, #64748b 2px, transparent 2px)', backgroundSize: '16px 16px' }}></div>
+                )}
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500"></div>
             </div>
 
@@ -113,114 +117,11 @@ const Blog: React.FC = () => {
     }, []);
 
     // ---------------------------------------------------------------------------
-    // STATE: Gating Logic (Lead Capture)
-    // ---------------------------------------------------------------------------
-    const [isRegistered, setIsRegistered] = useState(() => {
-        return localStorage.getItem('soke_blog_registered') === 'true';
-    });
-
-    const [gateData, setGateData] = useState({ name: '', email: '', role: '' });
-    const [submittingGate, setSubmittingGate] = useState(false);
-
-    // ---------------------------------------------------------------------------
     // HANDLERS
     // ---------------------------------------------------------------------------
-    const handleGateSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
-        setSubmittingGate(true);
-        try {
-            await addDoc(collection(db, "leads"), {
-                ...gateData,
-                date: new Date(),
-                source: 'blog_gate'
-            });
-            localStorage.setItem('soke_blog_registered', 'true');
-            setIsRegistered(true);
-        } catch (error) {
-            console.error("Error saving lead:", error);
-            alert("Something went wrong. Please try again.");
-        } finally {
-            setSubmittingGate(false);
-        }
-    };
-
     const handleReadMore = (postId: string) => {
         navigate(`/blog/${postId}`);
     };
-
-    if (!isRegistered) {
-        return (
-            <div className="bg-slate-950 min-h-screen flex items-center justify-center p-4">
-                <m.div
-                    initial={{ scale: 0.9, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 1 }}
-                    transition={{ duration: 0.5 }}
-                    className="max-w-md w-full"
-                >
-                    <div className="text-center mb-10">
-                        <span className="inline-block py-1 px-3 rounded-md bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] font-bold uppercase tracking-[0.2em] mb-6">
-                            Soke Insights
-                        </span>
-                        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">
-                            Unlock Strategic Intelligence.
-                        </h2>
-                        <p className="text-slate-400 text-sm leading-relaxed max-w-xs mx-auto">
-                            Join 5,000+ African founders accessing our premium operational frameworks and market analysis.
-                        </p>
-                    </div>
-
-                    <form onSubmit={handleGateSubmit} className="space-y-5">
-                        <div className="space-y-1">
-                            <label htmlFor="gate-name" className="text-[10px] font-bold text-slate-500 uppercase tracking-widest pl-1">Full Name</label>
-                            <input
-                                id="gate-name"
-                                required
-                                value={gateData.name}
-                                onChange={e => setGateData({ ...gateData, name: e.target.value })}
-                                className="w-full bg-slate-900 border border-slate-800 rounded-lg px-4 py-3 text-white placeholder-slate-600 focus:border-blue-500 focus:outline-none transition-colors"
-                                placeholder="e.g. Adeboye Bello"
-                            />
-                        </div>
-                        <div className="space-y-1">
-                            <label htmlFor="gate-email" className="text-[10px] font-bold text-slate-500 uppercase tracking-widest pl-1">Work Email</label>
-                            <input
-                                id="gate-email"
-                                required
-                                type="email"
-                                value={gateData.email}
-                                onChange={e => setGateData({ ...gateData, email: e.target.value })}
-                                className="w-full bg-slate-900 border border-slate-800 rounded-lg px-4 py-3 text-white placeholder-slate-600 focus:border-blue-500 focus:outline-none transition-colors"
-                                placeholder="name@company.com"
-                            />
-                        </div>
-                        <div className="space-y-1">
-                            <label htmlFor="gate-role" className="text-[10px] font-bold text-slate-500 uppercase tracking-widest pl-1">Role / Interest</label>
-                            <input
-                                id="gate-role"
-                                required
-                                value={gateData.role}
-                                onChange={e => setGateData({ ...gateData, role: e.target.value })}
-                                className="w-full bg-slate-900 border border-slate-800 rounded-lg px-4 py-3 text-white placeholder-slate-600 focus:border-blue-500 focus:outline-none transition-colors"
-                                placeholder="e.g. Founder, Investor"
-                            />
-                        </div>
-
-                        <button
-                            type="submit"
-                            disabled={submittingGate}
-                            className="w-full bg-white text-slate-950 font-bold py-4 rounded-lg hover:bg-slate-100 transition-all hover:scale-[1.01] active:scale-[0.99] mt-4 shadow-xl shadow-white/5"
-                        >
-                            {submittingGate ? 'Unlocking Access...' : 'Read Articles'}
-                        </button>
-
-                        <p className="text-center text-[10px] text-slate-600 mt-6">
-                            Professional insights for professional builders. No spam.
-                        </p>
-                    </form>
-                </m.div>
-            </div>
-        );
-    }
 
     return (
         <PageTransition>
@@ -278,7 +179,7 @@ const Blog: React.FC = () => {
                                     readTime={post.readTime || "5 min read"}
                                     title={post.title}
                                     description={post.summary || post.content.substring(0, 100) + "..."}
-                                    imageSrc={post.imageUrl || 'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=1000'}
+                                    imageSrc={post.imageUrl || ''}
                                     authorName={post.author}
                                     onReadMore={() => handleReadMore(post.id)}
                                 />

@@ -75,15 +75,19 @@ const BlogPost: React.FC = () => {
         <PageTransition>
             <div className="min-h-screen bg-white font-sans selection:bg-blue-100 pb-32">
                 {/* Header / Hero */}
-                <div className="relative h-[60vh] w-full overflow-hidden">
-                    <m.img
-                        initial={{ scale: 1.1 }}
-                        animate={{ scale: 1 }}
-                        transition={{ duration: 10, ease: "easeOut" as const }}
-                        src={post.imageUrl || 'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=1600'}
-                        alt={post.title}
-                        className="w-full h-full object-cover"
-                    />
+                <div className="relative h-[60vh] w-full overflow-hidden bg-slate-900">
+                    {post.imageUrl ? (
+                        <m.img
+                            initial={{ scale: 1.1 }}
+                            animate={{ scale: 1 }}
+                            transition={{ duration: 10, ease: "easeOut" as const }}
+                            src={post.imageUrl}
+                            alt={post.title}
+                            className="w-full h-full object-cover"
+                        />
+                    ) : (
+                        <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'radial-gradient(circle at center, #3b82f6 2px, transparent 2px)', backgroundSize: '24px 24px' }}></div>
+                    )}
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/60 to-transparent"></div>
 
                     <div className="absolute inset-0 flex items-end">
@@ -135,8 +139,31 @@ const BlogPost: React.FC = () => {
                     transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" as const }}
                     className="max-w-3xl mx-auto px-6 md:px-12 py-20"
                 >
-                    <article className="prose prose-lg prose-slate prose-headings:font-bold prose-headings:text-slate-900 prose-p:text-slate-600 prose-p:leading-relaxed prose-a:text-blue-600 prose-img:rounded-2xl prose-blockquote:border-l-4 prose-blockquote:border-blue-600 prose-blockquote:bg-blue-50 prose-blockquote:py-2 prose-blockquote:px-6 prose-blockquote:not-italic prose-blockquote:font-medium prose-blockquote:text-slate-700">
-                        <ReactMarkdown>{post.content}</ReactMarkdown>
+                    <article className="max-w-none">
+                        <div className="flex items-center gap-4 text-sm text-slate-500 mb-12 font-['Inter'] pb-8 border-b border-slate-100">
+                            <span className="uppercase tracking-widest font-bold text-blue-900">{post.category || 'Insight'}</span>
+                            <span className="w-1 h-1 rounded-full bg-slate-300"></span>
+                            <span>{post.date?.seconds ? new Date(post.date.seconds * 1000).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) : (post.date || 'Recently published')}</span>
+                        </div>
+
+                        <ReactMarkdown
+                            components={{
+                                h1: ({ node, ...props }) => <h1 className="font-['Playfair_Display'] text-3xl md:text-5xl font-bold text-slate-900 mt-16 mb-8 leading-tight" {...props} />,
+                                h2: ({ node, ...props }) => <h2 className="font-['Playfair_Display'] text-2xl md:text-3xl font-bold text-slate-900 mt-12 mb-6 leading-tight" {...props} />,
+                                h3: ({ node, ...props }) => <h3 className="font-['Playfair_Display'] text-xl md:text-2xl font-bold text-slate-900 mt-10 mb-4 leading-snug" {...props} />,
+                                p: ({ node, ...props }) => <p className="font-['Merriweather'] text-lg md:text-xl text-slate-700 leading-loose mb-8 font-light" {...props} />,
+                                ul: ({ node, ...props }) => <ul className="font-['Merriweather'] list-disc list-outside ml-6 mb-8 text-lg text-slate-700 space-y-3 leading-relaxed" {...props} />,
+                                ol: ({ node, ...props }) => <ol className="font-['Merriweather'] list-decimal list-outside ml-6 mb-8 text-lg text-slate-700 space-y-3 leading-relaxed" {...props} />,
+                                li: ({ node, ...props }) => <li className="pl-2" {...props} />,
+                                blockquote: ({ node, ...props }) => (
+                                    <blockquote className="font-['Playfair_Display'] border-l-4 border-blue-900 pl-6 my-10 text-2xl md:text-3xl italic text-slate-800 leading-relaxed" {...props} />
+                                ),
+                                a: ({ node, ...props }) => <a className="text-blue-700 hover:text-blue-900 underline decoration-blue-200 hover:decoration-blue-900 underline-offset-4 transition-all" {...props} />,
+                                strong: ({ node, ...props }) => <strong className="font-bold text-slate-900" {...props} />,
+                            }}
+                        >
+                            {post.content}
+                        </ReactMarkdown>
                     </article>
 
                     <div className="mt-20 pt-10 border-t border-slate-100">

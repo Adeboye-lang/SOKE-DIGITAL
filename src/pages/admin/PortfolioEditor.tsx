@@ -15,6 +15,7 @@ const PortfolioEditor: React.FC = () => {
     // Form State
     const [title, setTitle] = useState('');
     const [category, setCategory] = useState('');
+    const [client, setClient] = useState('');
     const [description, setDescription] = useState('');
     const [content, setContent] = useState('');
     const [imageUrl, setImageUrl] = useState('');
@@ -33,6 +34,7 @@ const PortfolioEditor: React.FC = () => {
                         const data = docSnap.data();
                         setTitle(data.title || '');
                         setCategory(data.category || '');
+                        setClient(data.client || '');
                         setDescription(data.description || '');
                         setImageUrl(data.imageUrl || '');
                         setPreviewUrl(data.imageUrl || '');
@@ -77,6 +79,7 @@ const PortfolioEditor: React.FC = () => {
             const projectData = {
                 title,
                 category,
+                client,
                 description,
                 content,
                 imageUrl: finalImageUrl,
@@ -150,6 +153,17 @@ const PortfolioEditor: React.FC = () => {
                                 placeholder="e.g. Fintech, Branding"
                             />
                         </div>
+                        <div className="space-y-2 md:col-span-2">
+                            <label htmlFor="portfolio-client" className="text-sm font-bold text-slate-700 uppercase tracking-wider">Client / Sub-Category (Optional)</label>
+                            <input
+                                id="portfolio-client"
+                                type="text"
+                                value={client}
+                                onChange={(e) => setClient(e.target.value)}
+                                className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-600 focus:bg-white transition-all"
+                                placeholder="e.g. Brand Development"
+                            />
+                        </div>
                     </div>
 
                     {/* Description */}
@@ -196,6 +210,20 @@ const PortfolioEditor: React.FC = () => {
                                         <input type="file" accept="image/*" onChange={handleImageChange} className="hidden" />
                                     </label>
                                 )}
+                                <div className="pt-2">
+                                    <label htmlFor="portfolio-image-url" className="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-1">Or enter image URL currently</label>
+                                    <input
+                                        id="portfolio-image-url"
+                                        type="text"
+                                        value={imageUrl}
+                                        onChange={(e) => {
+                                            setImageUrl(e.target.value);
+                                            setPreviewUrl(e.target.value);
+                                        }}
+                                        className="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-blue-600 focus:bg-white transition-all"
+                                        placeholder="https://... or /path/to/image.jpg"
+                                    />
+                                </div>
                             </div>
                         </div>
                     </div>

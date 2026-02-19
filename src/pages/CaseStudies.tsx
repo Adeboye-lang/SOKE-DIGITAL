@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { collection, getDocs, query } from 'firebase/firestore';
+import { collection, getDocs, query, orderBy } from 'firebase/firestore';
 import { db } from '../firebase';
 import { m } from 'framer-motion';
 import PageTransition from '../components/PageTransition';
@@ -12,6 +12,7 @@ interface Project {
     image: string;
     description: string;
     client?: string;
+    content?: string;
 }
 
 // Animation Variants
@@ -69,19 +70,38 @@ const CaseStudies: React.FC = () => {
     useEffect(() => {
         const fetchProjects = async () => {
             try {
-                // Fetch projects (optionally order by some field if added later)
-                const q = query(collection(db, "projects"));
+                // Fetch dynamic projects from 'portfolio' collection
+                const q = query(collection(db, "portfolio"));
                 const querySnapshot = await getDocs(q);
                 const items: Project[] = [];
+
                 querySnapshot.forEach((doc) => {
-                    items.push({ id: doc.id, ...doc.data() } as Project);
+                    const data = doc.data();
+                    // Avoid duplicates if a dynamic project has the same ID as a default one (e.g. 'ura')
+                    // Logic: Dynamic overrides default if ID matches
+                    items.push({
+                        id: doc.id,
+                        title: data.title,
+                        category: data.category,
+                        image: data.imageUrl || data.image || 'https://via.placeholder.com/800x600', // Handle naming difference
+                        description: data.description,
+                        client: data.client,
+                        content: data.content
+                    } as Project);
                 });
 
-                if (items.length > 0) {
-                    setProjects(items);
-                } else {
-                    setProjects(DEFAULT_PROJECTS);
-                }
+                // Merge: Filter out default projects that are already in fetched items (by ID OR Title)
+                const fetchedIds = new Set(items.map(p => p.id));
+                const fetchedTitles = new Set(items.map(p => p.title.toLowerCase()));
+
+                const uniqueDefaults = DEFAULT_PROJECTS.filter(p =>
+                    !fetchedIds.has(p.id) &&
+                    !fetchedTitles.has(p.title.toLowerCase())
+                );
+
+                // Combine: Dynamic first, then hardcoded
+                setProjects([...items, ...uniqueDefaults]);
+
             } catch (error) {
                 console.error("Error fetching projects:", error);
                 setProjects(DEFAULT_PROJECTS);
@@ -177,7 +197,7 @@ const CaseStudies: React.FC = () => {
                                             </p>
 
                                             <div className="pt-6">
-                                                <Link to={`/our-portfolio/${project.id}`} className="inline-flex items-center gap-3 text-white border-b border-transparent hover:border-blue-500 pb-1 transition-all text-sm font-bold uppercase tracking-widest group/btn">
+                                                <Link to={`/our-portfolio/${project.id}`} className="inline-flex items-center gap-3 text-white border-b border-transparent hover:border-blue-50 pb-1 transition-all text-sm font-bold uppercase tracking-widest group/btn">
                                                     View Case Study
                                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform">
                                                         <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />

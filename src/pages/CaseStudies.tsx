@@ -173,6 +173,7 @@ const CaseStudies: React.FC = () => {
                                             <img
                                                 src={project.image}
                                                 alt={project.title}
+                                                loading="lazy"
                                                 className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-active:grayscale-0 transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] scale-105 group-hover:scale-100 group-active:scale-100"
                                             />
                                         </div>

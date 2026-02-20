@@ -96,7 +96,7 @@ const AboutUs: React.FC = () => {
                             className="relative"
                         >
                             <div className="aspect-[4/5] bg-slate-100 rounded-2xl overflow-hidden relative">
-                                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200" alt="Modern corporate infrastructure" className="w-full h-full object-cover transition-all duration-700 hover:scale-105" />
+                                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200" alt="Modern corporate infrastructure" loading="lazy" className="w-full h-full object-cover transition-all duration-700 hover:scale-105" />
                             </div>
                             <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-xl shadow-xl border border-slate-100 max-w-xs hidden md:block">
                                 <p className="text-sm font-bold text-slate-900">"Talent is universal. Opportunity is not. We are bridging that gap."</p>
@@ -150,7 +150,7 @@ const AboutUs: React.FC = () => {
                             <m.div variants={fadeInUp} className="group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full">
                                 <div className="h-96 overflow-hidden bg-slate-200 relative">
                                     <div className="w-full h-full" style={{ transform: 'scale(1)', transformOrigin: 'top center' }}>
-                                        <img src="/Seamas.jpg" alt="Seamas Vincent Ideh" className="w-full h-full object-cover object-[50%_15%] transition-transform duration-700 group-hover:scale-105" />
+                                        <img src="/Seamas.jpg" alt="Seamas Vincent Ideh" loading="lazy" className="w-full h-full object-cover object-[50%_15%] transition-transform duration-700 group-hover:scale-105" />
                                     </div>
                                     <div className="absolute bottom-4 right-4 flex gap-2 translate-y-10 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
                                         <a href="https://www.linkedin.com/in/seamas-ideh-abb139236/" target="_blank" rel="noopener noreferrer" className="bg-white p-2 rounded-full text-blue-900 hover:text-blue-600 shadow-md"><svg className="w-4 h-4" fill="currentColor" viewBox="0 0 16 16"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.358 1.248zM6.348 6.169h2.352v1.08h.031c.327-.622 1.129-1.278 2.321-1.278 2.478 0 2.934 1.636 2.934 3.763v4.364H11.59v-3.957c0-.943-.017-2.155-1.31-2.155-1.311 0-1.512 1.026-1.512 2.086v4.026H6.348V6.169z" /></svg></a>
@@ -168,7 +168,7 @@ const AboutUs: React.FC = () => {
                             <m.div variants={fadeInUp} className="group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full">
                                 <div className="h-96 overflow-hidden bg-slate-200 relative">
                                     <div className="w-full h-full" style={{ transform: 'scale(1.35)', transformOrigin: 'top center' }}>
-                                        <img src="/Esosa.JPG" alt="Esosa Eghobamien" className="w-full h-full object-cover object-[50%_15%] transition-transform duration-700 group-hover:scale-105" />
+                                        <img src="/Esosa.JPG" alt="Esosa Eghobamien" loading="lazy" className="w-full h-full object-cover object-[50%_15%] transition-transform duration-700 group-hover:scale-105" />
                                     </div>
                                     <div className="absolute bottom-4 right-4 flex gap-2 translate-y-10 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
                                         <a href="https://www.linkedin.com/in/esosa-eghobamien-5269681b1/" target="_blank" rel="noopener noreferrer" className="bg-white p-2 rounded-full text-blue-900 hover:text-blue-600 shadow-md"><svg className="w-4 h-4" fill="currentColor" viewBox="0 0 16 16"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.358 1.248zM6.348 6.169h2.352v1.08h.031c.327-.622 1.129-1.278 2.321-1.278 2.478 0 2.934 1.636 2.934 3.763v4.364H11.59v-3.957c0-.943-.017-2.155-1.31-2.155-1.311 0-1.512 1.026-1.512 2.086v4.026H6.348V6.169z" /></svg></a>
@@ -186,7 +186,7 @@ const AboutUs: React.FC = () => {
                             <m.div variants={fadeInUp} className="group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full">
                                 <div className="h-96 overflow-hidden bg-slate-200 relative">
                                     <div className="w-full h-full" style={{ transform: 'scale(1)', transformOrigin: 'top center' }}>
-                                        <img src="/Terdo.jpeg" alt="Naze Terdoo" className="w-full h-full object-cover object-[50%_15%] transition-transform duration-700 group-hover:scale-105" />
+                                        <img src="/Terdo.jpeg" alt="Naze Terdoo" loading="lazy" className="w-full h-full object-cover object-[50%_15%] transition-transform duration-700 group-hover:scale-105" />
                                     </div>
                                     <div className="absolute bottom-4 right-4 flex gap-2 translate-y-10 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
                                         <a href="https://www.linkedin.com/in/terdoo-naze-1a18373a5" target="_blank" rel="noopener noreferrer" className="bg-white p-2 rounded-full text-blue-900 hover:text-blue-600 shadow-md"><svg className="w-4 h-4" fill="currentColor" viewBox="0 0 16 16"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.358 1.248zM6.348 6.169h2.352v1.08h.031c.327-.622 1.129-1.278 2.321-1.278 2.478 0 2.934 1.636 2.934 3.763v4.364H11.59v-3.957c0-.943-.017-2.155-1.31-2.155-1.311 0-1.512 1.026-1.512 2.086v4.026H6.348V6.169z" /></svg></a>
@@ -230,7 +230,7 @@ const AboutUs: React.FC = () => {
                             transition={{ duration: 0.8, ease: "easeOut" as const }}
                             className="group relative h-[500px] rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
                         >
-                            <img src="https://images.unsplash.com/photo-1573164574572-cb89e39749b4?auto=format&fit=crop&q=80&w=1200" alt="Founders with traction" className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 filter brightness-[0.7]" />
+                            <img src="https://images.unsplash.com/photo-1573164574572-cb89e39749b4?auto=format&fit=crop&q=80&w=1200" alt="Founders with traction" loading="lazy" className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 filter brightness-[0.7]" />
                             <div className="absolute inset-0 bg-gradient-to-t from-blue-950 via-blue-900/40 to-transparent"></div>
                             <div className="absolute inset-0 p-8 md:p-12 flex flex-col justify-end">
                                 <span className="inline-block py-1 px-3 bg-blue-500/20 backdrop-blur-sm border border-blue-400/30 text-blue-200 text-xs font-bold uppercase tracking-widest mb-4 rounded-lg w-fit">Growth Stage</span>
@@ -247,7 +247,7 @@ const AboutUs: React.FC = () => {
                             transition={{ duration: 0.8, ease: "easeOut" as const, delay: 0.2 }}
                             className="group relative h-[450px] md:h-[500px] rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
                         >
-                            <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&q=80&w=1200" alt="Structural Foundation" className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 filter brightness-[0.7]" />
+                            <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&q=80&w=1200" alt="Structural Foundation" loading="lazy" className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 filter brightness-[0.7]" />
                             <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent"></div>
                             <div className="absolute inset-0 p-8 md:p-12 flex flex-col justify-end">
                                 <span className="inline-block py-1 px-3 bg-slate-700/40 backdrop-blur-sm border border-slate-500/30 text-slate-300 text-xs font-bold uppercase tracking-widest mb-4 rounded-lg w-fit">Mindset</span>

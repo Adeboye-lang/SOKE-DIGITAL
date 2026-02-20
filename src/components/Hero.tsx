@@ -79,6 +79,7 @@ const Hero: React.FC = () => {
                         <img
                             src="/Meeting.png"
                             alt="Strategy Meeting"
+                            fetchPriority="high"
                             className="w-full h-full object-cover"
                         />
                         {/* Overlay Gradient */}

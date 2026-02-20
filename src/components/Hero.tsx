@@ -77,7 +77,7 @@ const Hero: React.FC = () => {
                 >
                     <div className="relative aspect-[4/5] md:aspect-square rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white">
                         <img
-                            src="/meeting.png"
+                            src="/Meeting.png"
                             alt="Strategy Meeting"
                             className="w-full h-full object-cover"
                         />

@@ -35,10 +35,10 @@ const TeamCard = ({ imageSrc, name, role, bio, socials, scale = 1, position = 'o
                 />
             </div>
 
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
 
-            {/* Socials Overlay on Hover / Touch */}
-            <div className="absolute bottom-4 right-4 flex gap-2 translate-y-10 group-hover:translate-y-0 group-active:translate-y-0 opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-all duration-300 delay-100 z-10">
+            {/* Socials Overlay on Hover (Desktop) / Visible (Mobile) */}
+            <div className="absolute bottom-4 right-4 flex gap-2 translate-y-0 lg:translate-y-10 lg:group-hover:translate-y-0 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-all duration-300 delay-100 z-10">
                 {socials && socials.map((social) => (
                     <a
                         key={social.platform}

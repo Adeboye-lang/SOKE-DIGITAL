@@ -77,8 +77,8 @@ const Hero: React.FC = () => {
                 >
                     <div className="relative aspect-[4/5] md:aspect-square rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white">
                         <img
-                            src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=1200"
-                            alt="Agency Team"
+                            src="/meeting.png"
+                            alt="Strategy Meeting"
                             className="w-full h-full object-cover"
                         />
                         {/* Overlay Gradient */}

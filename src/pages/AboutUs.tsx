@@ -232,10 +232,10 @@ const AboutUs: React.FC = () => {
                         >
                             <img src="https://images.unsplash.com/photo-1573164574572-cb89e39749b4?auto=format&fit=crop&q=80&w=1200" alt="Founders with traction" className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 filter brightness-[0.7]" />
                             <div className="absolute inset-0 bg-gradient-to-t from-blue-950 via-blue-900/40 to-transparent"></div>
-                            <div className="absolute inset-0 p-12 flex flex-col justify-end">
+                            <div className="absolute inset-0 p-8 md:p-12 flex flex-col justify-end">
                                 <span className="inline-block py-1 px-3 bg-blue-500/20 backdrop-blur-sm border border-blue-400/30 text-blue-200 text-xs font-bold uppercase tracking-widest mb-4 rounded-lg w-fit">Growth Stage</span>
-                                <h3 className="text-white text-3xl font-bold mb-4">Founders with traction<br />looking to <span className="text-blue-200">scale</span></h3>
-                                <p className="text-blue-50/90 text-lg leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-y-4 group-hover:translate-y-0">You have a product, you have sales. Now you need the systems to multiply by 10x without breaking.</p>
+                                <h3 className="text-white text-2xl md:text-3xl font-bold mb-4">Founders with traction<br />looking to <span className="text-blue-200">scale</span></h3>
+                                <p className="text-blue-50/90 text-sm md:text-lg leading-relaxed opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-all duration-500 translate-y-0 lg:translate-y-4 lg:group-hover:translate-y-0">You have a product, you have sales. Now you need the systems to multiply by 10x without breaking.</p>
                             </div>
                         </m.div>
 
@@ -245,14 +245,14 @@ const AboutUs: React.FC = () => {
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.8, ease: "easeOut" as const, delay: 0.2 }}
-                            className="group relative h-[500px] rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
+                            className="group relative h-[450px] md:h-[500px] rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
                         >
                             <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&q=80&w=1200" alt="Structural Foundation" className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 filter brightness-[0.7]" />
                             <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent"></div>
-                            <div className="absolute inset-0 p-12 flex flex-col justify-end">
+                            <div className="absolute inset-0 p-8 md:p-12 flex flex-col justify-end">
                                 <span className="inline-block py-1 px-3 bg-slate-700/40 backdrop-blur-sm border border-slate-500/30 text-slate-300 text-xs font-bold uppercase tracking-widest mb-4 rounded-lg w-fit">Mindset</span>
-                                <h3 className="text-white text-3xl font-bold mb-4">Entrepreneurs prepared<br />to <span className="text-blue-200">invest in quality</span></h3>
-                                <p className="text-slate-200/90 text-lg leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-y-4 group-hover:translate-y-0">We don't do shortcuts. We build foundations that last decades. If you want a quick fix, we aren't for you.</p>
+                                <h3 className="text-white text-2xl md:text-3xl font-bold mb-4">Entrepreneurs prepared<br />to <span className="text-blue-200">invest in quality</span></h3>
+                                <p className="text-slate-200/90 text-sm md:text-lg leading-relaxed opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-all duration-500 translate-y-0 lg:translate-y-4 lg:group-hover:translate-y-0">We don't do shortcuts. We build foundations that last decades. If you want a quick fix, we aren't for you.</p>
                             </div>
                         </m.div>
                     </div>

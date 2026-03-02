@@ -1,0 +1,247 @@
+import React, { useState, useEffect } from 'react';
+import { collection, getDocs, query, orderBy } from 'firebase/firestore';
+import { db } from '../firebase';
+import { useNavigate, Link } from 'react-router-dom';
+import { m } from 'framer-motion';
+import PageTransition from '../components/PageTransition';
+import SubscribeSection from '../components/SubscribeSection';
+import SEOHead from '../components/SEOHead';
+
+// Note: Navbar is rendered in App.tsx layout for public pages, so we only need the content here.
+
+interface BlogPost {
+    id: string;
+    title: string;
+    category: string;
+    imageUrl: string;
+    readTime: string; // "5 min read"
+    author?: string;
+    date: any;
+    content: string;
+    summary?: string; // Derived from content if missing
+}
+
+const fadeInUp = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.8, ease: "easeOut" as const }
+    }
+};
+
+const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.1,
+            delayChildren: 0.1
+        }
+    }
+};
+
+// Reusable Card Component - Modern Minimalist
+const ArticleCard: React.FC<{
+    category: string;
+    readTime: string;
+    title: string;
+    description: string;
+    imageSrc: string;
+    authorName?: string;
+    onReadMore: () => void;
+}> = ({ category, readTime, title, description, imageSrc, authorName, onReadMore }) => {
+    return (
+        <m.div variants={fadeInUp} className="group cursor-pointer flex flex-col gap-4" onClick={onReadMore}>
+            <div className="overflow-hidden rounded-xl aspect-[4/3] relative bg-slate-100 flex items-center justify-center">
+                {imageSrc ? (
+                    <img
+                        src={imageSrc}
+                        alt={title}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                ) : (
+                    <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at center, #64748b 2px, transparent 2px)', backgroundSize: '16px 16px' }}></div>
+                )}
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500"></div>
+            </div>
+
+            <div className="flex flex-col gap-3">
+                <div className="flex items-center gap-3 text-[10px] font-bold uppercase tracking-widest text-slate-500">
+                    <span className="text-blue-600">{category}</span>
+                    <span>•</span>
+                    <span>{readTime}</span>
+                </div>
+
+                <h3 className="text-xl font-bold text-slate-900 leading-tight group-hover:text-blue-900 transition-colors">
+                    {title}
+                </h3>
+
+                <p className="text-slate-500 text-sm leading-relaxed line-clamp-2">
+                    {description}
+                </p>
+
+                <div className="flex items-center gap-2 pt-1">
+                    {authorName && <span className="text-xs font-semibold text-slate-900">By {authorName}</span>}
+                </div>
+            </div>
+        </m.div>
+    );
+};
+
+const Blog: React.FC = () => {
+    const navigate = useNavigate();
+    // ---------------------------------------------------------------------------
+    // STATE: Posts & Loading
+    // ---------------------------------------------------------------------------
+    const [posts, setPosts] = useState<BlogPost[]>([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchPosts = async () => {
+            try {
+                const q = query(collection(db, 'blog_posts'), orderBy('createdAt', 'desc'));
+                const querySnapshot = await getDocs(q);
+                const fetchedPosts: BlogPost[] = querySnapshot.docs.map(doc => ({
+                    id: doc.id,
+                    ...doc.data()
+                } as BlogPost));
+                setPosts(fetchedPosts);
+            } catch (error) {
+                console.error("Error fetching posts:", error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchPosts();
+    }, []);
+
+    // ---------------------------------------------------------------------------
+    // HANDLERS
+    // ---------------------------------------------------------------------------
+    const handleReadMore = (postId: string) => {
+        navigate(`/blog/${postId}`);
+    };
+
+    return (
+        <PageTransition>
+            <SEOHead
+                title="Insights & Strategies | SOKE DIGITAL Blog"
+                description="Read our latest insights, strategies, and case studies on scaling African businesses, building world-class teams, and optimizing operations."
+                canonicalUrl="/blog"
+            />
+            <div className="bg-white pt-24 pb-16 min-h-screen flex flex-col relative font-sans selection:bg-blue-100">
+
+                {/* ---------------------------------------------------------------------------
+                   MAIN CONTENT
+                   --------------------------------------------------------------------------- */}
+
+                {/* Header / Hero */}
+                <m.div
+                    initial="hidden"
+                    animate="visible"
+                    variants={staggerContainer}
+                    className="pt-32 pb-16 px-6 md:px-12 border-b border-slate-100"
+                >
+                    <div className="max-w-7xl mx-auto">
+                        <m.span variants={fadeInUp} className="block text-blue-600 font-bold tracking-widest text-xs uppercase mb-4">The Soke Journal</m.span>
+                        <m.h1 variants={fadeInUp} className="text-5xl md:text-7xl font-bold text-slate-900 mb-8 tracking-tighter max-w-4xl">
+                            Insights for the <br className="hidden md:block" />
+                            <span className="italic font-serif text-slate-600">modern African builder.</span>
+                        </m.h1>
+
+                        {/* Categories */}
+                        <m.div variants={fadeInUp} className="flex flex-wrap gap-4 text-sm font-medium text-slate-500">
+                            <button className="px-4 py-2 rounded-full bg-slate-100 text-slate-900 hover:bg-slate-200 transition-colors">All Stories</button>
+                            <button className="px-4 py-2 rounded-full hover:bg-slate-50 transition-colors">Strategy</button>
+                            <button className="px-4 py-2 rounded-full hover:bg-slate-50 transition-colors">Operations</button>
+                            <button className="px-4 py-2 rounded-full hover:bg-slate-50 transition-colors">Marketing</button>
+                            <button className="px-4 py-2 rounded-full hover:bg-slate-50 transition-colors">Technology</button>
+                        </m.div>
+                    </div>
+                </m.div>
+
+                {/* Content Area */}
+                <div className="max-w-7xl mx-auto px-6 md:px-12 py-16 min-h-[600px]">
+
+                    {/* Featured / Grid */}
+                    {loading ? (
+                        <div className="flex justify-center py-20">
+                            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-slate-900"></div>
+                        </div>
+                    ) : posts.length > 0 ? (
+                        <m.div
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, margin: "-100px" }}
+                            variants={staggerContainer}
+                            className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12"
+                        >
+                            {posts.map(post => (
+                                <ArticleCard
+                                    key={post.id}
+                                    category={post.category || 'Opinion'}
+                                    readTime={post.readTime || "5 min read"}
+                                    title={post.title}
+                                    description={post.summary || post.content.substring(0, 100) + "..."}
+                                    imageSrc={post.imageUrl || ''}
+                                    authorName={post.author}
+                                    onReadMore={() => handleReadMore(post.id)}
+                                />
+                            ))}
+                        </m.div>
+                    ) : (
+                        <div className="flex flex-col items-center justify-center py-32 px-4 border border-dashed border-slate-200 rounded-3xl bg-slate-50/50 relative overflow-hidden group">
+                            {/* Subtle Background Pattern */}
+                            <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(#64748b 1px, transparent 1px)', backgroundSize: '16px 16px' }}></div>
+
+                            <div className="relative z-10 bg-white p-4 rounded-full shadow-lg mb-6 group-hover:scale-110 transition-transform duration-500">
+                                <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                                </svg>
+                            </div>
+
+                            <h3 className="text-2xl font-bold text-slate-900 mb-2 relative z-10">Editorial in Progress</h3>
+                            <p className="text-slate-500 max-w-md text-center relative z-10 leading-relaxed">
+                                Our team is currently researching and drafting the next set of strategic insights. Check back soon for deep dives into African market dynamics.
+                            </p>
+                        </div>
+                    )}
+
+                    {/* Permanent Bottom Section: Subscribe & CTA */}
+                    <div className="mt-24 border-t border-slate-100 pt-16">
+                        {/* 1. Subscribe Section */}
+                        <SubscribeSection />
+
+                        {/* 2. Book Call CTA */}
+                        <div className="flex flex-col md:flex-row items-center justify-between gap-8 bg-blue-600 rounded-3xl p-8 md:p-16 text-white shadow-2xl shadow-blue-900/30 relative overflow-hidden">
+                            <div className="relative z-10">
+                                <h3 className="text-3xl md:text-4xl font-bold mb-4">Ready to scale your systems?</h3>
+                                <p className="text-blue-100 max-w-xl text-lg leading-relaxed">
+                                    Stop guessing. Let's design the strategy and infrastructure that takes your business to the next level of growth.
+                                </p>
+                            </div>
+                            <div className="relative z-10">
+                                <Link
+                                    to="/book-call"
+                                    className="inline-block px-10 py-5 bg-white text-blue-900 font-bold text-lg rounded-full hover:bg-blue-50 transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1"
+                                >
+                                    Book a Discovery Call
+                                </Link>
+                            </div>
+
+                            {/* Decorative Circles */}
+                            <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none"></div>
+                            <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-400/20 rounded-full blur-3xl -ml-16 -mb-16 pointer-events-none"></div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </PageTransition>
+    );
+};
+
+export default Blog;

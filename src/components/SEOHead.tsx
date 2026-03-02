@@ -13,13 +13,14 @@ const SEOHead: React.FC<SEOHeadProps> = ({
     title,
     description,
     canonicalUrl,
-    ogImage = 'https://sokedigital.com.ng/Logo.png', // Default fallback image for sharing
+    ogImage = '/Logo.png', // Default fallback image for sharing
     ogType = 'website'
 }) => {
     const siteName = 'SOKE DIGITAL';
     const fullTitle = `${title} | ${siteName}`;
     const baseUrl = 'https://sokedigital.com.ng';
     const currentUrl = canonicalUrl ? `${baseUrl}${canonicalUrl}` : baseUrl;
+    const resolvedOgImage = ogImage.startsWith('http') ? ogImage : `${baseUrl}${ogImage}`;
 
     return (
         <Helmet>
@@ -40,7 +41,32 @@ const SEOHead: React.FC<SEOHeadProps> = ({
             <meta name="twitter:card" content="summary_large_image" />
             <meta name="twitter:title" content={fullTitle} />
             <meta name="twitter:description" content={description} />
-            <meta name="twitter:image" content={ogImage.startsWith('http') ? ogImage : `${baseUrl}${ogImage}`} />
+            <meta name="twitter:image" content={resolvedOgImage} />
+
+            {/* JSON-LD Structured Data */}
+            <script type="application/ld+json">
+                {JSON.stringify({
+                    "@context": "https://schema.org",
+                    "@type": "Organization",
+                    "name": "SOKE DIGITAL",
+                    "url": baseUrl,
+                    "logo": `${baseUrl}/Logo.png`,
+                    "sameAs": [
+                        "https://www.linkedin.com/in/soke-digital-studio-686793364",
+                        "https://x.com/sokestudio?s=21",
+                        "https://www.instagram.com/workwith.soke/"
+                    ]
+                })}
+            </script>
+            <script type="application/ld+json">
+                {JSON.stringify({
+                    "@context": "https://schema.org",
+                    "@type": "WebSite",
+                    "url": baseUrl,
+                    "name": "SOKE DIGITAL",
+                    "description": "Business Development Firm for Founder-Led Companies"
+                })}
+            </script>
         </Helmet>
     );
 };

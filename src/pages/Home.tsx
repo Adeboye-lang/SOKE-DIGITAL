@@ -16,7 +16,7 @@ const Home: React.FC = () => {
                 description="SOKE DIGITAL is a business development firm helping founder-led companies design and execute strategies and systems that drive scalable growth."
                 canonicalUrl="/"
             />
-            <div className="bg-white">
+            <main className="bg-white">
                 <Hero />
 
 
@@ -62,7 +62,7 @@ const Home: React.FC = () => {
                 <PartnershipSection />
 
                 <CTASection />
-            </div>
+            </main>
         </PageTransition>
     );
 };

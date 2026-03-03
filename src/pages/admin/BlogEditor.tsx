@@ -97,9 +97,13 @@ const BlogEditor: React.FC = () => {
             }
 
             navigate('/admin/blog');
-        } catch (error) {
+        } catch (error: any) {
             console.error("Error saving post:", error);
-            alert("Failed to save post.");
+            if (error.code && String(error.code).includes('storage')) {
+                alert("Image upload failed (likely due to Firebase Storage Security Rules). Please use the 'Image URL' fallback input instead!");
+            } else {
+                alert("Failed to save post. Please check console for details.");
+            }
         } finally {
             setIsSaving(false);
         }
@@ -224,6 +228,32 @@ const BlogEditor: React.FC = () => {
                                     Change Image
                                     <input type="file" accept="image/*" onChange={handleImageChange} className="hidden" />
                                 </label>
+                            </div>
+
+                            <div className="flex-1 space-y-4">
+                                <p className="text-sm text-slate-500">
+                                    Upload an image, or directly paste an image URL below.
+                                </p>
+                                {!imageFile && !imageUrl && (
+                                    <label className="inline-block bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold px-4 py-2 rounded-lg cursor-pointer transition-colors text-sm">
+                                        Select Image
+                                        <input type="file" accept="image/*" onChange={handleImageChange} className="hidden" />
+                                    </label>
+                                )}
+                                <div className="pt-2">
+                                    <label htmlFor="blog-image-url" className="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-1">Image URL</label>
+                                    <input
+                                        id="blog-image-url"
+                                        type="text"
+                                        value={imageUrl}
+                                        onChange={(e) => {
+                                            setImageUrl(e.target.value);
+                                            setPreviewUrl(e.target.value);
+                                        }}
+                                        className="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-blue-600 focus:bg-white transition-all"
+                                        placeholder="https://... or /path/to/image.jpg"
+                                    />
+                                </div>
                             </div>
                         </div>
                     </div>

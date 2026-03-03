@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { doc, getDoc, addDoc, updateDoc, collection } from 'firebase/firestore';
-import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { db, storage } from '../../firebase';
+import { db } from '../../firebase';
 
 const BlogEditor: React.FC = () => {
     const { id } = useParams();
@@ -20,7 +19,6 @@ const BlogEditor: React.FC = () => {
     const [author, setAuthor] = useState('');
     const [readTime, setReadTime] = useState('');
     const [imageUrl, setImageUrl] = useState('');
-    const [imageFile, setImageFile] = useState<File | null>(null);
     const [previewUrl, setPreviewUrl] = useState<string | null>(null);
 
     useEffect(() => {
@@ -54,27 +52,11 @@ const BlogEditor: React.FC = () => {
         fetchData();
     }, [id, isEditing, navigate]);
 
-    const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        if (e.target.files && e.target.files[0]) {
-            const file = e.target.files[0];
-            setImageFile(file);
-            setPreviewUrl(URL.createObjectURL(file));
-        }
-    };
-
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsSaving(true);
 
         try {
-            let finalImageUrl = imageUrl;
-
-            if (imageFile) {
-                const storageRef = ref(storage, `blog/${Date.now()}_${imageFile.name}`);
-                const snapshot = await uploadBytes(storageRef, imageFile);
-                finalImageUrl = await getDownloadURL(snapshot.ref);
-            }
-
             const postData = {
                 title,
                 category,
@@ -82,7 +64,7 @@ const BlogEditor: React.FC = () => {
                 content,
                 author,
                 readTime,
-                imageUrl: finalImageUrl,
+                imageUrl: imageUrl,
                 updatedAt: new Date(),
             };
 
@@ -99,11 +81,7 @@ const BlogEditor: React.FC = () => {
             navigate('/admin/blog');
         } catch (error: any) {
             console.error("Error saving post:", error);
-            if (error.code && String(error.code).includes('storage')) {
-                alert("Image upload failed (likely due to Firebase Storage Security Rules). Please use the 'Image URL' fallback input instead!");
-            } else {
-                alert("Failed to save post. Please check console for details.");
-            }
+            alert("Failed to save post. Please check console for details.");
         } finally {
             setIsSaving(false);
         }
@@ -221,30 +199,21 @@ const BlogEditor: React.FC = () => {
                                     <img src={previewUrl} alt="Preview" className="w-full h-full object-cover" />
                                 ) : (
                                     <div className="text-center text-slate-400 p-4">
-                                        <p className="text-sm">No image selected</p>
+                                        <p className="text-sm">No image provided</p>
                                     </div>
                                 )}
-                                <label className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center cursor-pointer text-white font-bold text-sm">
-                                    Change Image
-                                    <input type="file" accept="image/*" onChange={handleImageChange} className="hidden" />
-                                </label>
                             </div>
 
                             <div className="flex-1 space-y-4">
                                 <p className="text-sm text-slate-500">
-                                    Upload an image, or directly paste an image URL below.
+                                    Paste an image URL below. You can use hosted image links (like from Unsplash or Imgur) or local paths (like `/chefima.jpeg`).
                                 </p>
-                                {!imageFile && !imageUrl && (
-                                    <label className="inline-block bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold px-4 py-2 rounded-lg cursor-pointer transition-colors text-sm">
-                                        Select Image
-                                        <input type="file" accept="image/*" onChange={handleImageChange} className="hidden" />
-                                    </label>
-                                )}
                                 <div className="pt-2">
-                                    <label htmlFor="blog-image-url" className="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-1">Image URL</label>
+                                    <label htmlFor="blog-image-url" className="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-1">Image URL (Required)</label>
                                     <input
                                         id="blog-image-url"
                                         type="text"
+                                        required
                                         value={imageUrl}
                                         onChange={(e) => {
                                             setImageUrl(e.target.value);

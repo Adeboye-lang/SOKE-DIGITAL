@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { doc, getDoc, addDoc, updateDoc, collection } from 'firebase/firestore';
-import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { db, storage } from '../../firebase';
+import { db } from '../../firebase';
 
 const PortfolioEditor: React.FC = () => {
     const { id } = useParams(); // If ID exists, we are editing
@@ -19,7 +18,6 @@ const PortfolioEditor: React.FC = () => {
     const [description, setDescription] = useState('');
     const [content, setContent] = useState('');
     const [imageUrl, setImageUrl] = useState('');
-    const [imageFile, setImageFile] = useState<File | null>(null);
     const [previewUrl, setPreviewUrl] = useState<string | null>(null);
 
     // Fetch existing data if editing
@@ -53,36 +51,18 @@ const PortfolioEditor: React.FC = () => {
         fetchData();
     }, [id, isEditing, navigate]);
 
-    // Handle Image Selection
-    const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        if (e.target.files && e.target.files[0]) {
-            const file = e.target.files[0];
-            setImageFile(file);
-            setPreviewUrl(URL.createObjectURL(file));
-        }
-    };
-
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsSaving(true);
 
         try {
-            let finalImageUrl = imageUrl;
-
-            // Upload Image if a new file is selected
-            if (imageFile) {
-                const storageRef = ref(storage, `portfolio/${Date.now()}_${imageFile.name}`);
-                const snapshot = await uploadBytes(storageRef, imageFile);
-                finalImageUrl = await getDownloadURL(snapshot.ref);
-            }
-
             const projectData = {
                 title,
                 category,
                 client,
                 description,
                 content,
-                imageUrl: finalImageUrl,
+                imageUrl: imageUrl,
                 updatedAt: new Date(),
             };
 
@@ -189,32 +169,22 @@ const PortfolioEditor: React.FC = () => {
                                     <img src={previewUrl} alt="Preview" className="w-full h-full object-cover" />
                                 ) : (
                                     <div className="text-center text-slate-400 p-4">
-                                        <p className="text-sm">No image selected</p>
+                                        <p className="text-sm">No image provided</p>
                                     </div>
                                 )}
-
-                                <label className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center cursor-pointer text-white font-bold text-sm">
-                                    Change Image
-                                    <input type="file" accept="image/*" onChange={handleImageChange} className="hidden" />
-                                </label>
                             </div>
 
                             <div className="flex-1 space-y-4">
                                 <p className="text-sm text-slate-500">
-                                    Upload a high-quality cover image for the project grid.
-                                    Recommended size: 800x600px or larger.
+                                    Paste a high-quality image URL for the project cover.
+                                    You can use hosted image links (like from Unsplash or Imgur) or local paths (like `/portfolio1.jpg`).
                                 </p>
-                                {!imageFile && !imageUrl && (
-                                    <label className="inline-block bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold px-4 py-2 rounded-lg cursor-pointer transition-colors text-sm">
-                                        Select Image
-                                        <input type="file" accept="image/*" onChange={handleImageChange} className="hidden" />
-                                    </label>
-                                )}
                                 <div className="pt-2">
-                                    <label htmlFor="portfolio-image-url" className="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-1">Or enter image URL currently</label>
+                                    <label htmlFor="portfolio-image-url" className="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-1">Image URL (Required)</label>
                                     <input
                                         id="portfolio-image-url"
                                         type="text"
+                                        required
                                         value={imageUrl}
                                         onChange={(e) => {
                                             setImageUrl(e.target.value);

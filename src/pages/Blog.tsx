@@ -41,7 +41,7 @@ const staggerContainer = {
     }
 };
 
-// Reusable Card Component - Modern Minimalist
+// Reusable Card Component - Editorial Style
 const ArticleCard: React.FC<{
     category: string;
     readTime: string;
@@ -52,37 +52,44 @@ const ArticleCard: React.FC<{
     onReadMore: () => void;
 }> = ({ category, readTime, title, description, imageSrc, authorName, onReadMore }) => {
     return (
-        <m.div variants={fadeInUp} className="group cursor-pointer flex flex-col gap-4" onClick={onReadMore}>
-            <div className="overflow-hidden rounded-xl aspect-[4/3] relative bg-slate-100 flex items-center justify-center">
+        <m.div variants={fadeInUp} className="group cursor-pointer flex flex-col gap-5" onClick={onReadMore}>
+            {/* Image Container with precise aspect ratio and subtle hover zoom */}
+            <div className="overflow-hidden aspect-[4/3] w-full bg-slate-100 flex items-center justify-center relative">
                 {imageSrc ? (
                     <img
                         src={imageSrc}
                         alt={title}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                     />
                 ) : (
                     <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at center, #64748b 2px, transparent 2px)', backgroundSize: '16px 16px' }}></div>
                 )}
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500"></div>
+                {/* Subtle overlay on hover */}
+                <div className="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/5 transition-colors duration-500"></div>
             </div>
 
-            <div className="flex flex-col gap-3">
-                <div className="flex items-center gap-3 text-[10px] font-bold uppercase tracking-widest text-slate-500">
-                    <span className="text-blue-600">{category}</span>
-                    <span>•</span>
-                    <span>{readTime}</span>
+            {/* Content Container - No background, purely whitespace driven */}
+            <div className="flex flex-col gap-3 px-1">
+                {/* Meta */}
+                <div className="flex items-center gap-3 text-[11px] font-bold uppercase tracking-widest text-slate-500">
+                    <span className="text-blue-600 font-sans">{category}</span>
+                    <span className="opacity-50">•</span>
+                    <span className="font-sans">{readTime}</span>
                 </div>
 
-                <h3 className="text-xl font-bold text-slate-900 leading-tight group-hover:text-blue-900 transition-colors">
+                {/* Title using Playfair Display */}
+                <h3 className="text-2xl font-serif font-bold text-slate-900 leading-snug group-hover:text-blue-800 transition-colors duration-300">
                     {title}
                 </h3>
 
-                <p className="text-slate-500 text-sm leading-relaxed line-clamp-2">
+                {/* Excerpt using standard readable font */}
+                <p className="text-slate-600 text-sm leading-relaxed line-clamp-3 font-sans">
                     {description}
                 </p>
 
-                <div className="flex items-center gap-2 pt-1">
-                    {authorName && <span className="text-xs font-semibold text-slate-900">By {authorName}</span>}
+                {/* Author Info */}
+                <div className="flex items-center gap-2 pt-2 mt-auto">
+                    {authorName && <span className="text-xs font-semibold text-slate-900 font-sans uppercase tracking-wider">By {authorName}</span>}
                 </div>
             </div>
         </m.div>
@@ -96,6 +103,7 @@ const Blog: React.FC = () => {
     // ---------------------------------------------------------------------------
     const [posts, setPosts] = useState<BlogPost[]>([]);
     const [loading, setLoading] = useState(true);
+    const [activeCategory, setActiveCategory] = useState<string>('All Stories');
 
     useEffect(() => {
         const fetchPosts = async () => {
@@ -118,11 +126,25 @@ const Blog: React.FC = () => {
     }, []);
 
     // ---------------------------------------------------------------------------
-    // HANDLERS
+    // HANDLERS & COMPUTED
     // ---------------------------------------------------------------------------
     const handleReadMore = (postId: string) => {
         navigate(`/blog/${postId}`);
     };
+
+    const categories = ['All Stories', 'Strategy', 'Operations', 'Marketing', 'Technology'];
+
+    // Filter posts
+    const filteredPosts = activeCategory === 'All Stories'
+        ? posts
+        : posts.filter(post => post.category?.toLowerCase() === activeCategory.toLowerCase());
+
+    // Separate Featured (Newest overall) vs Grid Posts 
+    // We only show a featured post if 'All Stories' is selected and there is at least 1 post
+    const showFeatured = activeCategory === 'All Stories' && posts.length > 0;
+    const featuredPost = showFeatured ? posts[0] : null;
+    const gridPosts = showFeatured ? filteredPosts.slice(1) : filteredPosts;
+
 
     return (
         <PageTransition>
@@ -134,109 +156,187 @@ const Blog: React.FC = () => {
             <div className="bg-white pt-24 pb-16 min-h-screen flex flex-col relative font-sans selection:bg-blue-100">
 
                 {/* ---------------------------------------------------------------------------
-                   MAIN CONTENT
+                   HEADER SECTION
                    --------------------------------------------------------------------------- */}
-
-                {/* Header / Hero */}
                 <m.div
                     initial="hidden"
                     animate="visible"
                     variants={staggerContainer}
-                    className="pt-32 pb-16 px-6 md:px-12 border-b border-slate-100"
+                    className="pt-24 pb-12 px-6 md:px-12 border-b border-slate-200"
                 >
-                    <div className="max-w-7xl mx-auto">
-                        <m.span variants={fadeInUp} className="block text-blue-600 font-bold tracking-widest text-xs uppercase mb-4">The Soke Journal</m.span>
-                        <m.h1 variants={fadeInUp} className="text-5xl md:text-7xl font-bold text-slate-900 mb-8 tracking-tighter max-w-4xl">
-                            Insights for the <br className="hidden md:block" />
-                            <span className="italic font-serif text-slate-600">modern African builder.</span>
+                    <div className="max-w-7xl mx-auto flex flex-col items-center text-center">
+                        <m.span variants={fadeInUp} className="block text-blue-600 font-bold tracking-widest text-xs uppercase mb-6">The Soke Journal</m.span>
+                        <m.h1 variants={fadeInUp} className="text-5xl md:text-7xl lg:text-[5rem] font-bold text-slate-900 mb-8 tracking-tighter max-w-4xl font-serif">
+                            Insights for the <span className="italic font-serif text-slate-600">modern African builder.</span>
                         </m.h1>
-
-                        {/* Categories */}
-                        <m.div variants={fadeInUp} className="flex flex-wrap gap-4 text-sm font-medium text-slate-500">
-                            <button className="px-4 py-2 rounded-full bg-slate-100 text-slate-900 hover:bg-slate-200 transition-colors">All Stories</button>
-                            <button className="px-4 py-2 rounded-full hover:bg-slate-50 transition-colors">Strategy</button>
-                            <button className="px-4 py-2 rounded-full hover:bg-slate-50 transition-colors">Operations</button>
-                            <button className="px-4 py-2 rounded-full hover:bg-slate-50 transition-colors">Marketing</button>
-                            <button className="px-4 py-2 rounded-full hover:bg-slate-50 transition-colors">Technology</button>
-                        </m.div>
                     </div>
                 </m.div>
 
-                {/* Content Area */}
-                <div className="max-w-7xl mx-auto px-6 md:px-12 py-16 min-h-[600px]">
+                {/* ---------------------------------------------------------------------------
+                   MAIN CONTENT AREA
+                   --------------------------------------------------------------------------- */}
+                <div className="max-w-[90rem] mx-auto px-6 md:px-12 py-16 w-full min-h-[600px]">
 
-                    {/* Featured / Grid */}
                     {loading ? (
-                        <div className="flex justify-center py-20">
+                        <div className="flex justify-center py-32">
                             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-slate-900"></div>
                         </div>
-                    ) : posts.length > 0 ? (
-                        <m.div
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true, margin: "-100px" }}
-                            variants={staggerContainer}
-                            className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12"
-                        >
-                            {posts.map(post => (
-                                <ArticleCard
-                                    key={post.id}
-                                    category={post.category || 'Opinion'}
-                                    readTime={post.readTime || "5 min read"}
-                                    title={post.title}
-                                    description={post.summary || post.content.substring(0, 100) + "..."}
-                                    imageSrc={post.imageUrl || ''}
-                                    authorName={post.author}
-                                    onReadMore={() => handleReadMore(post.id)}
-                                />
-                            ))}
-                        </m.div>
-                    ) : (
-                        <div className="flex flex-col items-center justify-center py-32 px-4 border border-dashed border-slate-200 rounded-3xl bg-slate-50/50 relative overflow-hidden group">
-                            {/* Subtle Background Pattern */}
+                    ) : posts.length === 0 ? (
+                        <div className="flex flex-col items-center justify-center py-32 px-4 border border-dashed border-slate-200 rounded-3xl bg-slate-50/50 relative overflow-hidden group max-w-4xl mx-auto">
                             <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(#64748b 1px, transparent 1px)', backgroundSize: '16px 16px' }}></div>
-
                             <div className="relative z-10 bg-white p-4 rounded-full shadow-lg mb-6 group-hover:scale-110 transition-transform duration-500">
                                 <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
                                 </svg>
                             </div>
-
-                            <h3 className="text-2xl font-bold text-slate-900 mb-2 relative z-10">Editorial in Progress</h3>
-                            <p className="text-slate-500 max-w-md text-center relative z-10 leading-relaxed">
+                            <h3 className="text-2xl font-bold text-slate-900 mb-2 relative z-10 font-serif">Editorial in Progress</h3>
+                            <p className="text-slate-500 max-w-md text-center relative z-10 leading-relaxed font-sans">
                                 Our team is currently researching and drafting the next set of strategic insights. Check back soon for deep dives into African market dynamics.
                             </p>
                         </div>
+                    ) : (
+                        <>
+                            {/* FEATURED ARTICLE HERO (Only on 'All Stories' tab) */}
+                            {featuredPost && (
+                                <m.div
+                                    initial="hidden"
+                                    animate="visible"
+                                    variants={fadeInUp}
+                                    className="mb-20 group cursor-pointer"
+                                    onClick={() => handleReadMore(featuredPost.id)}
+                                >
+                                    <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+                                        {/* Large Feature Image */}
+                                        <div className="overflow-hidden rounded-2xl aspect-[16/10] bg-slate-100 relative order-2 lg:order-1">
+                                            {featuredPost.imageUrl ? (
+                                                <img
+                                                    src={featuredPost.imageUrl}
+                                                    alt={featuredPost.title}
+                                                    className="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
+                                                />
+                                            ) : (
+                                                <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at center, #64748b 2px, transparent 2px)', backgroundSize: '16px 16px' }}></div>
+                                            )}
+                                            <div className="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/5 transition-colors duration-500"></div>
+                                        </div>
+
+                                        {/* Feature Content */}
+                                        <div className="flex flex-col gap-6 order-1 lg:order-2 lg:pr-12">
+                                            <div className="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-slate-500">
+                                                <span className="text-blue-600 bg-blue-50 px-3 py-1 rounded-full">{featuredPost.category}</span>
+                                                <span className="opacity-50">•</span>
+                                                <span>{featuredPost.readTime || "5 min read"}</span>
+                                            </div>
+
+                                            <h2 className="text-4xl lg:text-5xl font-bold font-serif text-slate-900 leading-[1.1] group-hover:text-blue-800 transition-colors duration-300">
+                                                {featuredPost.title}
+                                            </h2>
+
+                                            <p className="text-slate-600 text-lg leading-relaxed font-sans line-clamp-3">
+                                                {featuredPost.summary || featuredPost.content.substring(0, 200) + "..."}
+                                            </p>
+
+                                            <div className="flex items-center gap-3 pt-4 border-t border-slate-100 mt-2">
+                                                <div className="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center font-bold text-slate-500 text-xs">
+                                                    {featuredPost.author ? featuredPost.author.charAt(0) : 'S'}
+                                                </div>
+                                                <div className="flex flex-col">
+                                                    {featuredPost.author && <span className="text-sm font-bold text-slate-900">{featuredPost.author}</span>}
+                                                    <span className="text-xs text-slate-500">{featuredPost.date || 'Recent'}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </m.div>
+                            )}
+
+                            {/* EDITORIAL GRID + SIDEBAR */}
+                            <div className="grid lg:grid-cols-[240px_1fr] gap-12 lg:gap-20 items-start border-t border-slate-200 pt-16">
+
+                                {/* Sticky Sidebar (Desktop) / Horizontal Scroll (Mobile) */}
+                                <div className="lg:sticky lg:top-32 w-full pt-2">
+                                    <h3 className="hidden lg:block text-xs font-bold uppercase tracking-widest text-slate-400 mb-6">Explore Topics</h3>
+
+                                    <div className="flex lg:flex-col gap-2 overflow-x-auto pb-4 lg:pb-0 scrollbar-hide -mx-6 px-6 lg:mx-0 lg:px-0">
+                                        {categories.map(cat => (
+                                            <button
+                                                key={cat}
+                                                onClick={() => setActiveCategory(cat)}
+                                                className={`whitespace-nowrap flex-shrink-0 text-left px-5 py-3 rounded-xl font-medium transition-all duration-300 ${activeCategory === cat
+                                                        ? 'bg-slate-900 text-white shadow-md'
+                                                        : 'text-slate-500 hover:bg-slate-100 hover:text-slate-900'
+                                                    }`}
+                                            >
+                                                {cat}
+                                            </button>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                {/* Article Grid */}
+                                <div>
+                                    <h3 className="text-3xl font-serif font-bold text-slate-900 mb-10 pb-4 border-b border-slate-100">
+                                        {activeCategory === 'All Stories' && showFeatured ? 'Latest Articles' : activeCategory}
+                                    </h3>
+
+                                    {gridPosts.length > 0 ? (
+                                        <m.div
+                                            initial="hidden"
+                                            whileInView="visible"
+                                            viewport={{ once: true, margin: "-100px" }}
+                                            variants={staggerContainer}
+                                            className="grid md:grid-cols-2 xl:grid-cols-3 gap-x-8 gap-y-16"
+                                        >
+                                            {gridPosts.map(post => (
+                                                <ArticleCard
+                                                    key={post.id}
+                                                    category={post.category || 'Opinion'}
+                                                    readTime={post.readTime || "5 min read"}
+                                                    title={post.title}
+                                                    description={post.summary || post.content.substring(0, 100) + "..."}
+                                                    imageSrc={post.imageUrl || ''}
+                                                    authorName={post.author}
+                                                    onReadMore={() => handleReadMore(post.id)}
+                                                />
+                                            ))}
+                                        </m.div>
+                                    ) : (
+                                        <div className="py-20 text-center">
+                                            <p className="text-slate-500 text-lg">No articles found in this category.</p>
+                                        </div>
+                                    )}
+                                </div>
+
+                            </div>
+                        </>
                     )}
 
-                    {/* Permanent Bottom Section: Subscribe & CTA */}
-                    <div className="mt-24 border-t border-slate-100 pt-16">
-                        {/* 1. Subscribe Section */}
+                    {/* ---------------------------------------------------------------------------
+                       BOTTOM CTA SECTIONS
+                       --------------------------------------------------------------------------- */}
+                    <div className="mt-32 border-t border-slate-200 pt-20">
                         <SubscribeSection />
 
-                        {/* 2. Book Call CTA */}
-                        <div className="flex flex-col md:flex-row items-center justify-between gap-8 bg-blue-600 rounded-3xl p-8 md:p-16 text-white shadow-2xl shadow-blue-900/30 relative overflow-hidden">
-                            <div className="relative z-10">
-                                <h3 className="text-3xl md:text-4xl font-bold mb-4">Ready to scale your systems?</h3>
-                                <p className="text-blue-100 max-w-xl text-lg leading-relaxed">
+                        <div className="flex flex-col md:flex-row items-center justify-between gap-8 bg-slate-900 rounded-3xl p-8 md:p-16 text-white shadow-2xl relative overflow-hidden mt-12">
+                            <div className="relative z-10 max-w-2xl">
+                                <h3 className="text-3xl md:text-5xl font-bold mb-6 font-serif">Ready to scale your systems?</h3>
+                                <p className="text-slate-300 text-lg leading-relaxed font-sans">
                                     Stop guessing. Let's design the strategy and infrastructure that takes your business to the next level of growth.
                                 </p>
                             </div>
-                            <div className="relative z-10">
+                            <div className="relative z-10 shrink-0">
                                 <Link
                                     to="/book-call"
-                                    className="inline-block px-10 py-5 bg-white text-blue-900 font-bold text-lg rounded-full hover:bg-blue-50 transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1"
+                                    className="inline-block px-10 py-5 bg-white text-slate-900 font-bold tracking-wide uppercase text-sm rounded-full hover:bg-slate-100 transition-all shadow-xl hover:-translate-y-1"
                                 >
                                     Book a Discovery Call
                                 </Link>
                             </div>
 
-                            {/* Decorative Circles */}
-                            <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none"></div>
-                            <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-400/20 rounded-full blur-3xl -ml-16 -mb-16 pointer-events-none"></div>
+                            {/* Minimalist Graphic */}
+                            <div className="absolute top-0 right-0 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl pointer-events-none -translate-x-10 translate-y-10"></div>
                         </div>
                     </div>
-
 
                 </div>
             </div>

@@ -136,7 +136,7 @@ const ProjectDetail: React.FC = () => {
                 ogImage={project.imageUrl}
                 ogType="article"
             />
-            <div className="bg-white min-h-screen font-sans selection:bg-blue-100 pb-32 pt-24">
+            <div className="bg-slate-950 min-h-screen font-sans selection:bg-blue-900 selection:text-white pb-32 pt-24">
                 {/* Header / Hero */}
                 <div className="relative h-[70vh] w-full overflow-hidden">
                     <m.img

@@ -165,18 +165,18 @@ const BlogPost: React.FC = () => {
 
                         <ReactMarkdown
                             components={{
-                                h1: ({ node, ...props }) => <h1 className="font-['Playfair_Display'] text-3xl md:text-5xl font-bold text-slate-900 mt-16 mb-8 leading-tight" {...props} />,
-                                h2: ({ node, ...props }) => <h2 className="font-['Playfair_Display'] text-2xl md:text-3xl font-bold text-slate-900 mt-12 mb-6 leading-tight" {...props} />,
-                                h3: ({ node, ...props }) => <h3 className="font-['Playfair_Display'] text-xl md:text-2xl font-bold text-slate-900 mt-10 mb-4 leading-snug" {...props} />,
-                                p: ({ node, ...props }) => <p className="font-['Merriweather'] text-lg md:text-xl text-slate-700 leading-loose mb-8 font-light" {...props} />,
-                                ul: ({ node, ...props }) => <ul className="font-['Merriweather'] list-disc list-outside ml-6 mb-8 text-lg text-slate-700 space-y-3 leading-relaxed" {...props} />,
-                                ol: ({ node, ...props }) => <ol className="font-['Merriweather'] list-decimal list-outside ml-6 mb-8 text-lg text-slate-700 space-y-3 leading-relaxed" {...props} />,
-                                li: ({ node, ...props }) => <li className="pl-2" {...props} />,
-                                blockquote: ({ node, ...props }) => (
+                                h1: ({ node, ...props }: any) => <h1 className="font-['Playfair_Display'] text-3xl md:text-5xl font-bold text-slate-900 mt-16 mb-8 leading-tight" {...props} />,
+                                h2: ({ node, ...props }: any) => <h2 className="font-['Playfair_Display'] text-2xl md:text-3xl font-bold text-slate-900 mt-12 mb-6 leading-tight" {...props} />,
+                                h3: ({ node, ...props }: any) => <h3 className="font-['Playfair_Display'] text-xl md:text-2xl font-bold text-slate-900 mt-10 mb-4 leading-snug" {...props} />,
+                                p: ({ node, ...props }: any) => <p className="font-['Merriweather'] text-lg md:text-xl text-slate-700 leading-loose mb-8 font-light" {...props} />,
+                                ul: ({ node, ...props }: any) => <ul className="font-['Merriweather'] list-disc list-outside ml-6 mb-8 text-lg text-slate-700 space-y-3 leading-relaxed" {...props} />,
+                                ol: ({ node, ...props }: any) => <ol className="font-['Merriweather'] list-decimal list-outside ml-6 mb-8 text-lg text-slate-700 space-y-3 leading-relaxed" {...props} />,
+                                li: ({ node, ...props }: any) => <li className="pl-2" {...props} />,
+                                blockquote: ({ node, ...props }: any) => (
                                     <blockquote className="font-['Playfair_Display'] border-l-4 border-blue-900 pl-6 my-10 text-2xl md:text-3xl italic text-slate-800 leading-relaxed" {...props} />
                                 ),
-                                a: ({ node, ...props }) => <a className="text-blue-700 hover:text-blue-900 underline decoration-blue-200 hover:decoration-blue-900 underline-offset-4 transition-all" {...props} />,
-                                strong: ({ node, ...props }) => <strong className="font-bold text-slate-900" {...props} />,
+                                a: ({ node, ...props }: any) => <a className="text-blue-700 hover:text-blue-900 underline decoration-blue-200 hover:decoration-blue-900 underline-offset-4 transition-all" {...props} />,
+                                strong: ({ node, ...props }: any) => <strong className="font-bold text-slate-900" {...props} />,
                             }}
                         >
                             {post.content}

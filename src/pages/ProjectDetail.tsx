@@ -217,19 +217,17 @@ const ProjectDetail: React.FC = () => {
                             </div>
                         </div>
                     </div>
+                    {/* CTA */}
+                    <div className="mt-20 md:mt-32 p-8 md:p-12 bg-blue-900/20 rounded-3xl border border-blue-900/50 text-center">
+                        <h3 className="text-3xl font-bold text-white mb-6">Inspired by this project?</h3>
+                        <p className="text-slate-400 mb-8 max-w-lg mx-auto">Let's collaborate to build something extraordinary for your brand.</p>
+                        <Link to="/book-call" className="inline-block bg-white text-blue-950 px-8 py-4 rounded-full font-bold uppercase tracking-widest hover:bg-blue-50 transition-all hover:scale-105">
+                            Start Your Project
+                        </Link>
+                    </div>
+                </m.div>
             </div>
-
-            {/* CTA */}
-            <div className="mt-20 md:mt-32 p-8 md:p-12 bg-blue-900/20 rounded-3xl border border-blue-900/50 text-center">
-                <h3 className="text-3xl font-bold text-white mb-6">Inspired by this project?</h3>
-                <p className="text-slate-400 mb-8 max-w-lg mx-auto">Let's collaborate to build something extraordinary for your brand.</p>
-                <Link to="/book-call" className="inline-block bg-white text-blue-950 px-8 py-4 rounded-full font-bold uppercase tracking-widest hover:bg-blue-50 transition-all hover:scale-105">
-                    Start Your Project
-                </Link>
-            </div>
-        </m.div>
-            </div >
-        </PageTransition >
+        </PageTransition>
     );
 };
 

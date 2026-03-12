@@ -213,22 +213,23 @@ const ProjectDetail: React.FC = () => {
                         {/* Main Content */}
                         <div className="md:col-span-8">
                             <div className="space-y-6 [&_p]:text-slate-300 [&_p]:leading-relaxed [&_h1]:text-white [&_h1]:text-3xl [&_h1]:font-bold [&_h1]:mb-6 [&_h2]:text-white [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:mt-8 [&_h2]:mb-4 [&_h3]:text-white [&_h3]:text-xl [&_h3]:font-bold [&_h3]:mt-6 [&_h3]:mb-3 [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:mb-6 [&_li]:text-slate-300 [&_li]:mb-2 [&_strong]:text-white [&_strong]:font-bold [&_a]:text-blue-400 [&_a]:hover:text-blue-300 [&_blockquote]:border-l-4 [&_blockquote]:border-blue-500 [&_blockquote]:bg-blue-900/20 [&_blockquote]:pl-6 [&_blockquote]:py-4 [&_blockquote]:text-blue-200 [&_blockquote]:italic [&_blockquote]:rounded-r-lg">
-                                <ReactMarkdown>{project.content || project.description}</ReactMarkdown>
+                                <ReactMarkdown>{project.content || project.description || ''}</ReactMarkdown>
                             </div>
                         </div>
                     </div>
-
-                    {/* CTA */}
-                    <div className="mt-20 md:mt-32 p-8 md:p-12 bg-blue-900/20 rounded-3xl border border-blue-900/50 text-center">
-                        <h3 className="text-3xl font-bold text-white mb-6">Inspired by this project?</h3>
-                        <p className="text-slate-400 mb-8 max-w-lg mx-auto">Let's collaborate to build something extraordinary for your brand.</p>
-                        <Link to="/book-call" className="inline-block bg-white text-blue-950 px-8 py-4 rounded-full font-bold uppercase tracking-widest hover:bg-blue-50 transition-all hover:scale-105">
-                            Start Your Project
-                        </Link>
-                    </div>
-                </m.div>
             </div>
-        </PageTransition>
+
+            {/* CTA */}
+            <div className="mt-20 md:mt-32 p-8 md:p-12 bg-blue-900/20 rounded-3xl border border-blue-900/50 text-center">
+                <h3 className="text-3xl font-bold text-white mb-6">Inspired by this project?</h3>
+                <p className="text-slate-400 mb-8 max-w-lg mx-auto">Let's collaborate to build something extraordinary for your brand.</p>
+                <Link to="/book-call" className="inline-block bg-white text-blue-950 px-8 py-4 rounded-full font-bold uppercase tracking-widest hover:bg-blue-50 transition-all hover:scale-105">
+                    Start Your Project
+                </Link>
+            </div>
+        </m.div>
+            </div >
+        </PageTransition >
     );
 };
 

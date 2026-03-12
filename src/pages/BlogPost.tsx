@@ -136,7 +136,7 @@ const BlogPost: React.FC = () => {
                                 {post.author && (
                                     <div className="flex items-center gap-3">
                                         <div className="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-sm">
-                                            {post.author.charAt(0)}
+                                            {post.author ? post.author.charAt(0) : 'S'}
                                         </div>
                                         <div>
                                             <p className="text-white font-bold text-sm">{post.author}</p>

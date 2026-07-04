@@ -42,14 +42,14 @@ const Hero: React.FC = () => {
                 >
                     <m.div variants={fadeInUp} className="inline-block mb-6 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-100">
                         <span className="text-blue-700 text-xs font-bold tracking-widest uppercase">
-                            Business Development Firm
+                            SÓKÈ AFRICA
                         </span>
                     </m.div>
                     <m.h1 variants={fadeInUp} className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.1] mb-8 tracking-tight">
-                        Can Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Business Model</span> Handle Growth?
+                        A Catalyst For <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Business Growth</span> In Africa.
                     </m.h1>
                     <m.p variants={fadeInUp} className="text-lg md:text-xl text-slate-600 mb-10 max-w-xl mx-auto md:mx-0 font-light leading-relaxed">
-                        We help founder-led companies design and execute strategies and systems that drive scalable growth.
+                        Bridging the gap between vision and scale through Go-to-Market strategy, practical business education, and tailored capital deployment.
                     </m.p>
 
                     <m.div variants={fadeInUp} className="flex flex-col sm:flex-row items-center gap-4 justify-center md:justify-start">
@@ -57,7 +57,7 @@ const Hero: React.FC = () => {
                             to="/book-call"
                             className="w-full sm:w-auto px-8 py-4 bg-blue-900 text-white rounded-full font-bold hover:bg-blue-800 transition-all hover:shadow-lg hover:-translate-y-1 text-center"
                         >
-                            Book Discovery Call
+                            Book a Strategy Call
                         </Link>
                         <Link
                             to="/services"

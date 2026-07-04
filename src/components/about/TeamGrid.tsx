@@ -106,7 +106,7 @@ const TeamGrid: React.FC = () => {
                     imageSrc="/Terdo.jpeg"
                     name="Naze Terdoo"
                     role="Client Success Manager"
-                    bio="Ensures all Soke Digital Clients and Partners are properly and efficiently served. Dedicated to client satisfaction."
+                    bio="Ensures all Soke Africa Clients and Partners are properly and efficiently served. Dedicated to client satisfaction."
                     scale={1.2}
                     position="object-[50%_25%]"
                     socials={[

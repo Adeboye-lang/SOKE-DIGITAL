@@ -35,8 +35,8 @@ const ServiceTiers: React.FC = () => {
                     variants={fadeInUp}
                     className="text-center mb-20"
                 >
-                    <h2 className="text-sm font-bold tracking-widest text-blue-600 uppercase mb-3">Engagement Models</h2>
-                    <h3 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">Choose how we build together.</h3>
+                    <h2 className="text-sm font-bold tracking-widest text-blue-600 uppercase mb-3">ENGAGEMENT MODELS</h2>
+                    <h3 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">Choose how we break ground together.</h3>
                     <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 mx-auto rounded-full"></div>
                 </m.div>
 
@@ -59,10 +59,10 @@ const ServiceTiers: React.FC = () => {
                         </div>
                         <h3 className="text-xs font-bold uppercase tracking-widest mb-4 text-blue-600/80">Advisory</h3>
                         <h2 className="text-2xl font-bold text-slate-900 mb-4 leading-tight group-hover:text-blue-600 transition-colors">
-                            Strategy & Frameworks
+                            Strategy Focus
                         </h2>
                         <p className="text-slate-500 leading-relaxed text-sm mb-8">
-                            We guide, you execute. Get the blueprint, strategy, and accountability you need to build with confidence.
+                            We guide, you execute. Get the market entry blueprint, GTM frameworks, and high-level strategy you need to build with confidence.
                         </p>
                     </m.div>
 
@@ -84,10 +84,10 @@ const ServiceTiers: React.FC = () => {
 
                             <h3 className="text-xs font-bold uppercase tracking-widest mb-4 text-blue-400">Collaborative</h3>
                             <h2 className="text-3xl font-bold text-white mb-6 leading-tight">
-                                Co-Execution
+                                Planning & Co-Execution
                             </h2>
                             <p className="text-slate-300 leading-relaxed text-sm mb-8 font-light">
-                                We execute together. You stay involved in key decisions while we handle the heavy lifting, systems, and optimization.
+                                We execute together. You stay involved in key decisions and oversight, while we handle the heavy lifting, operational planning, and initial ground movement.
                             </p>
                             <ul className="space-y-4 text-sm text-slate-300 mb-8 border-t border-white/10 pt-8">
                                 <li className="flex items-center gap-3">
@@ -97,7 +97,7 @@ const ServiceTiers: React.FC = () => {
                                     <span className="flex-shrink-0 w-5 h-5 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center text-[10px]">✓</span> Faster feedback loops
                                 </li>
                                 <li className="flex items-center gap-3">
-                                    <span className="flex-shrink-0 w-5 h-5 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center text-[10px]">✓</span> Dedicated growth team
+                                    <span className="flex-shrink-0 w-5 h-5 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center text-[10px]">✓</span> Dedicated GTM team
                                 </li>
                             </ul>
                         </div>
@@ -115,10 +115,10 @@ const ServiceTiers: React.FC = () => {
                         </div>
                         <h3 className="text-xs font-bold uppercase tracking-widest mb-4 text-blue-600/80">Turnkey</h3>
                         <h2 className="text-2xl font-bold text-slate-900 mb-4 leading-tight group-hover:text-blue-600 transition-colors">
-                            End-to-End Ownership
+                            End-to-End GTM
                         </h2>
                         <p className="text-slate-500 leading-relaxed text-sm mb-8">
-                            We build and run it. You set the vision, we deliver the business. Strategy, execution, and ops from one place.
+                            We build and run the market entry. You set the vision, we deliver the market. Strategy, planning, and full on-ground execution managed under one roof.
                         </p>
                     </m.div>
                 </m.div>

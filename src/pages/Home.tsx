@@ -13,7 +13,7 @@ const Home: React.FC = () => {
         <PageTransition>
             <SEOHead
                 title="Business Development & Growth Agency"
-                description="SOKE DIGITAL is a business development firm helping founder-led companies design and execute strategies and systems that drive scalable growth."
+                description="SOKE AFRICA is a business development firm helping founder-led companies design and execute strategies and systems that drive scalable growth."
                 canonicalUrl="/"
             />
             <main className="bg-white">
@@ -26,9 +26,9 @@ const Home: React.FC = () => {
 
                 <div className="space-y-0">
                     <GapSection
-                        category="THE REALITY"
-                        title={<>The gap between <span className="text-blue-600">vision</span> and<br />execution</>}
-                        description="You have the vision, the heart, and the drive. But somewhere between the idea and the execution, things get lost. We bridge that divide with actionable strategy."
+                        category="THE MARKET GAP"
+                        title={<>Strategy Without<br /><span className="text-blue-600">On-Ground</span> Execution.</>}
+                        description="Breaking into a new market requires more than a strong vision. We bridge the divide with end-to-end Go-to-Market (GTM) Strategy Planning & Execution—taking you from high-level planning to relentless, on-ground reality."
                         imageSrc="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=1200"
                         imageAlt="Strategy Session"
                         overlayTitle="Strategy without teeth"
@@ -36,10 +36,10 @@ const Home: React.FC = () => {
                     />
 
                     <GapSection
-                        category="THE NOISE"
+                        category="THE INFORMAL CEILING"
                         reverse={true}
-                        title={<>Great <span className="text-blue-600">Ideas</span> Don't<br /><span className="text-blue-600">Sell</span> Themselves</>}
-                        description="The best product in the world will fail if no one knows about it. We turn noise into signal and browsers into buyers with targeted marketing."
+                        title={<>Growth Stops<br />Without <span className="text-blue-600">Systems.</span></>}
+                        description="The informal business sector holds massive potential but often hits a ceiling. We provide accessible and practical business education to help founders build scalable infrastructure, preparing them for formal capital deployment."
                         imageSrc="https://images.unsplash.com/photo-1532619675605-1ede6c2ed2b0?auto=format&fit=crop&q=80&w=1200"
                         imageAlt="Billboards"
                         overlayTitle="Marketing that whispers"
@@ -47,9 +47,9 @@ const Home: React.FC = () => {
                     />
 
                     <GapSection
-                        category="THE SCALE"
-                        title={<>The Gap Between<br /><span className="text-blue-600">Vision</span> and<br /><span className="text-blue-600">Infrastructure</span></>}
-                        description="Growth breaks things. If your systems aren't ready, success can destroy you. We build the rails for your train to run on."
+                        category="THE CAPITAL DISCONNECT"
+                        title={<>Funding That<br /><span className="text-blue-600">Doesn't Fit.</span></>}
+                        description="Traditional funding models frequently misalign with how African businesses actually operate. Growth requires capital that understands the terrain. We are creating unique capital deployment models designed specifically for the African market."
                         imageSrc="https://images.unsplash.com/photo-1562564055-71e051d33c19?auto=format&fit=crop&q=80&w=1200"
                         imageAlt="Infrastructure"
                         overlayTitle="Systems That Sweat"

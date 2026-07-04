@@ -132,7 +132,7 @@ const Privacy: React.FC = () => {
 
                             <div className="mb-12">
                                 <p className="text-slate-600 leading-relaxed">
-                                    Sókè Digital ("Sókè", "we", "our", or "us") is committed to protecting your privacy and handling your personal information responsibly. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you interact with us through our website, social media platforms, services, and any other digital or offline touchpoints.
+                                    Sókè Africa ("Sókè", "we", "our", or "us") is committed to protecting your privacy and handling your personal information responsibly. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you interact with us through our website, social media platforms, services, and any other digital or offline touchpoints.
                                 </p>
                                 <p className="text-slate-600 font-medium">By accessing or using our services, you agree to the terms of this Privacy Policy.</p>
                             </div>
@@ -144,8 +144,8 @@ const Privacy: React.FC = () => {
                                     <span className="bg-blue-100 text-blue-800 text-sm font-bold px-3 py-1 rounded">1</span>
                                     Who We Are
                                 </h2>
-                                <p className="text-slate-600">Sókè Digital is a business development firm that helps African founders and businesses build profitable, sustainable, and digitally integrated businesses through Strategy, Marketing, and Infrastructure.</p>
-                                <p className="text-slate-600 mt-4">For the purposes of applicable data protection laws, Sókè Digital is the data controller of the personal information you provide to us.</p>
+                                <p className="text-slate-600">Sókè Africa is a business development firm that helps African founders and businesses build profitable, sustainable, and digitally integrated businesses through Strategy, Marketing, and Infrastructure.</p>
+                                <p className="text-slate-600 mt-4">For the purposes of applicable data protection laws, Sókè Africa is the data controller of the personal information you provide to us.</p>
                             </section>
 
                             <div className="w-full h-px bg-gray-100 mb-16"></div>
@@ -352,12 +352,12 @@ const Privacy: React.FC = () => {
                             <div className="bg-blue-900 text-white p-8 rounded-2xl text-center" id="contact">
                                 <h2 className="text-2xl font-bold mb-4">13. Contact Us</h2>
                                 <p className="mb-6 opacity-90">If you have any questions, concerns, or requests regarding this Privacy Policy or how we handle your data, please contact us at:</p>
-                                <p className="text-xl font-bold">Sókè Digital</p>
+                                <p className="text-xl font-bold">Sókè Africa</p>
                                 <div className="space-y-1 mt-4">
-                                    <p><a href="mailto:clientservice@sokedigital.com.ng" className="underline hover:text-blue-200">clientservice@sokedigital.com.ng</a></p>
+                                    <p><a href="mailto:clientservice@sokeafrica.com" className="underline hover:text-blue-200">clientservice@sokeafrica.com</a></p>
                                 </div>
                                 <div className="mt-8 pt-8 border-t border-blue-800 opacity-75 text-sm">
-                                    <p>By engaging with Sókè Digital, you acknowledge that you have read and understood this Privacy Policy.</p>
+                                    <p>By engaging with Sókè Africa, you acknowledge that you have read and understood this Privacy Policy.</p>
                                 </div>
                             </div>
 

@@ -131,7 +131,7 @@ const ProjectDetail: React.FC = () => {
         <PageTransition>
             <SEOHead
                 title={`${project.title} | Case Study`}
-                description={project.description || `Read the SOKE DIGITAL case study for ${project.title}.`}
+                description={project.description || `Read the SOKE AFRICA case study for ${project.title}.`}
                 canonicalUrl={`/our-portfolio/${project.id}`}
                 ogImage={project.imageUrl}
                 ogType="article"

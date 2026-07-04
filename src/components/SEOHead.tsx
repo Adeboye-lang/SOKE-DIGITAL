@@ -16,9 +16,9 @@ const SEOHead: React.FC<SEOHeadProps> = ({
     ogImage = '/Logo.png', // Default fallback image for sharing
     ogType = 'website'
 }) => {
-    const siteName = 'SOKE DIGITAL';
+    const siteName = 'SOKE AFRICA';
     const fullTitle = `${title} | ${siteName}`;
-    const baseUrl = 'https://sokedigital.com.ng';
+    const baseUrl = 'https://sokeafrica.com';
     const currentUrl = canonicalUrl ? `${baseUrl}${canonicalUrl}` : baseUrl;
     const resolvedOgImage = ogImage.startsWith('http') ? ogImage : `${baseUrl}${ogImage}`;
 
@@ -48,7 +48,7 @@ const SEOHead: React.FC<SEOHeadProps> = ({
                 {JSON.stringify({
                     "@context": "https://schema.org",
                     "@type": "Organization",
-                    "name": "SOKE DIGITAL",
+                    "name": "SOKE AFRICA",
                     "url": baseUrl,
                     "logo": `${baseUrl}/Logo.png`,
                     "sameAs": [
@@ -63,7 +63,7 @@ const SEOHead: React.FC<SEOHeadProps> = ({
                     "@context": "https://schema.org",
                     "@type": "WebSite",
                     "url": baseUrl,
-                    "name": "SOKE DIGITAL",
+                    "name": "SOKE AFRICA",
                     "description": "Business Development Firm for Founder-Led Companies"
                 })}
             </script>

@@ -134,7 +134,7 @@ const Terms: React.FC = () => {
 
                             <section id="welcome" className="mb-16 scroll-mt-32">
                                 <h2 className="text-2xl font-bold text-slate-900 mb-6">Welcome</h2>
-                                <p className="text-slate-600 leading-relaxed">Thank you for considering Sókè Digital for your business development needs.</p>
+                                <p className="text-slate-600 leading-relaxed">Thank you for considering Sókè Africa for your business development needs.</p>
                                 <p className="text-slate-600 leading-relaxed">These Terms and Conditions outline how we work together, what you can expect from us, and what we need from you to deliver excellent results.</p>
                                 <div className="mt-6 p-4 bg-blue-50 border-l-4 border-blue-500 rounded-r text-blue-900 font-medium">
                                     Please read these Terms carefully. By engaging our services, you agree to these terms.
@@ -151,7 +151,7 @@ const Terms: React.FC = () => {
 
                                 <div className="mb-8">
                                     <h3 className="text-lg font-bold text-slate-900 mb-3">What We Do</h3>
-                                    <p className="text-slate-600 mb-4">Sókè Digital is a business development firm that helps African founders turn their vision into profitable, lasting businesses.</p>
+                                    <p className="text-slate-600 mb-4">Sókè Africa is a business development firm that helps African founders turn their vision into profitable, lasting businesses.</p>
                                     <div className="grid md:grid-cols-3 gap-4">
                                         {['Strategy', 'Marketing', 'Infrastructure'].map((item) => (
                                             <div key={item} className="bg-gray-50 p-4 rounded-lg border border-gray-100">
@@ -428,7 +428,7 @@ const Terms: React.FC = () => {
                                 <h2 className="text-2xl font-bold mb-4">14. Questions?</h2>
                                 <p className="mb-6 opacity-90">We're happy to discuss any part of these terms.</p>
                                 <div className="space-y-1">
-                                    <p><a href="mailto:clientservice@sokedigital.com.ng" className="underline hover:text-blue-200">clientservice@sokedigital.com.ng</a></p>
+                                    <p><a href="mailto:clientservice@sokeafrica.com" className="underline hover:text-blue-200">clientservice@sokeafrica.com</a></p>
                                     <p><a href="tel:09118172903" className="hover:text-blue-200">09118172903</a></p>
                                 </div>
                                 <div className="mt-8 pt-8 border-t border-blue-800 opacity-75 text-sm">

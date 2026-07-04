@@ -37,7 +37,7 @@ const AdminLayout: React.FC = () => {
                     <div className="flex items-center gap-3">
                         <img src="/Soke Web Icon.png" alt="Soke" className="h-8 w-auto" />
                         <div>
-                            <h1 className="text-sm font-bold tracking-widest uppercase">Soke Digital</h1>
+                            <h1 className="text-sm font-bold tracking-widest uppercase">Soke Africa</h1>
                             <p className="text-[10px] text-slate-500 uppercase tracking-wider font-medium">Control Center</p>
                         </div>
                     </div>
@@ -67,7 +67,7 @@ const AdminLayout: React.FC = () => {
                         </div>
                         <div className="flex-1">
                             <p className="text-xs font-bold text-white">Admin User</p>
-                            <p className="text-xs text-slate-500 truncate w-32">admin@sokedigital.com</p>
+                            <p className="text-xs text-slate-500 truncate w-32">admin@sokeafrica.com</p>
                         </div>
                     </div>
 

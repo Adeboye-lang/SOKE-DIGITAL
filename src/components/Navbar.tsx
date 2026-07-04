@@ -34,7 +34,7 @@ const Navbar: React.FC = () => {
     <header className="sticky top-0 z-50">
       <nav aria-label="Main Navigation" className="flex justify-between items-center px-6 md:px-12 py-4 bg-slate-900 shadow-sm border-b border-gray-800">
         <Link to="/" className="flex items-center relative z-50">
-          <img src="/Soke Web Icon.png" alt="SOKE DIGITAL" className="h-10 md:h-12 w-auto object-contain" />
+          <img src="/Soke Web Icon.png" alt="SOKE AFRICA" className="h-10 md:h-12 w-auto object-contain" />
         </Link>
 
         {/* Desktop Menu */}
@@ -110,7 +110,7 @@ const Navbar: React.FC = () => {
                 className="mt-12 pt-8 border-t border-slate-900"
               >
                 <p className="text-slate-500 text-sm mb-4">Get in touch</p>
-                <a href="mailto:clientservice@sokedigital.com.ng" className="block text-lg text-white mb-2">clientservice@sokedigital.com.ng</a>
+                <a href="mailto:clientservice@sokeafrica.com" className="block text-lg text-white mb-2">clientservice@sokeafrica.com</a>
                 <a href="tel:09118172903" className="block text-lg text-white">0911 817 2903</a>
               </m.div>
             </m.div>

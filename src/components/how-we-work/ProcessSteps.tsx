@@ -34,23 +34,23 @@ const ProcessSteps: React.FC = () => {
                             Phase 1
                         </span>
                         <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 leading-tight">
-                            <span className="text-blue-900">Discover</span> what<br />actually <span className="text-blue-900">matters</span>
+                            Map the<br /><span className="text-blue-900">Market Reality</span>
                         </h2>
                         <p className="text-slate-600 leading-relaxed text-lg mb-8 font-light max-w-lg">
-                            "We dig deep. We don't just look at what you want. We look at what you need. And we find the gap between the two."
+                            "We don't just look at where you want to go. We analyze the terrain, identify the barriers, and find the exact gap in the market."
                         </p>
                         <ul className="space-y-4 text-sm text-slate-700 font-medium">
                             <li className="flex items-center gap-3">
                                 <span className="w-2 h-2 rounded-full bg-blue-500 ring-4 ring-blue-50"></span>
-                                Market Research & Audit
+                                Market Research & Feasibility
                             </li>
                             <li className="flex items-center gap-3">
                                 <span className="w-2 h-2 rounded-full bg-blue-500 ring-4 ring-blue-50"></span>
-                                Stakeholder Interviews
+                                Positioning & Entry Strategy
                             </li>
                             <li className="flex items-center gap-3">
                                 <span className="w-2 h-2 rounded-full bg-blue-500 ring-4 ring-blue-50"></span>
-                                Core Values Definition
+                                Stakeholder Alignment
                             </li>
                         </ul>
                     </div>
@@ -85,23 +85,23 @@ const ProcessSteps: React.FC = () => {
                             Phase 2
                         </span>
                         <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 leading-tight">
-                            <span className="text-purple-900">Design</span> the<br />complete <span className="text-purple-900">blueprint</span>
+                            Build the<br /><span className="text-purple-900">Blueprint</span>
                         </h2>
                         <p className="text-slate-600 leading-relaxed text-lg mb-8 font-light max-w-lg">
-                            "Action without a plan is chaos. We build a clear roadmap, identifying every milestone, every resource, and every risk."
+                            "Action without a plan is chaos. We translate high-level strategy into a clear operational roadmap—allocating resources, timelines, and risks."
                         </p>
                         <ul className="space-y-4 text-sm text-slate-700 font-medium">
                             <li className="flex items-center gap-3">
                                 <span className="w-2 h-2 rounded-full bg-purple-500 ring-4 ring-purple-50"></span>
-                                Strategy Deck
+                                GTM Action Plan
                             </li>
                             <li className="flex items-center gap-3">
                                 <span className="w-2 h-2 rounded-full bg-purple-500 ring-4 ring-purple-50"></span>
-                                Operational Roadmap
+                                Resource & Capital Allocation
                             </li>
                             <li className="flex items-center gap-3">
                                 <span className="w-2 h-2 rounded-full bg-purple-500 ring-4 ring-purple-50"></span>
-                                Resource Allocation
+                                Infrastructure & SOP Design
                             </li>
                         </ul>
                     </div>
@@ -136,23 +136,23 @@ const ProcessSteps: React.FC = () => {
                             Phase 3
                         </span>
                         <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 leading-tight">
-                            <span className="text-emerald-900">Deliver</span> the business<br />into <span className="text-emerald-900">market</span>
+                            Break into the<br /><span className="text-emerald-900">Market</span>
                         </h2>
                         <p className="text-slate-600 leading-relaxed text-lg mb-8 font-light max-w-lg">
-                            "Launch is just the beginning. We execute the strategy, manage the teams, and ensure the product hits the market with impact."
+                            "A strategy is only as good as its execution. We move from the boardroom to the streets, managing the teams and driving the actual market launch."
                         </p>
                         <ul className="space-y-4 text-sm text-slate-700 font-medium">
                             <li className="flex items-center gap-3">
                                 <span className="w-2 h-2 rounded-full bg-emerald-500 ring-4 ring-emerald-50"></span>
-                                Go-to-Market Execution
+                                On-Ground Rollout
                             </li>
                             <li className="flex items-center gap-3">
                                 <span className="w-2 h-2 rounded-full bg-emerald-500 ring-4 ring-emerald-50"></span>
-                                Marketing Campaigns
+                                Vendor & Partner Management
                             </li>
                             <li className="flex items-center gap-3">
                                 <span className="w-2 h-2 rounded-full bg-emerald-500 ring-4 ring-emerald-50"></span>
-                                Full Launch Management
+                                Direct Market Penetration
                             </li>
                         </ul>
                     </div>
@@ -187,10 +187,10 @@ const ProcessSteps: React.FC = () => {
                             Phase 4
                         </span>
                         <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 leading-tight">
-                            <span className="text-indigo-900">Scale</span> and sustain<br />the <span className="text-indigo-900">growth</span>
+                            Sustain the<br /><span className="text-indigo-900">Growth</span>
                         </h2>
                         <p className="text-slate-600 leading-relaxed text-lg mb-8 font-light max-w-lg">
-                            "It's not about one win. It's about winning repeatedly. We optimize, iterate, and build the systems for long-term dominance."
+                            "Breaking in is phase one. Staying there is phase two. We optimize the systems we built to ensure long-term market dominance."
                         </p>
                         <ul className="space-y-4 text-sm text-slate-700 font-medium">
                             <li className="flex items-center gap-3">
@@ -199,11 +199,11 @@ const ProcessSteps: React.FC = () => {
                             </li>
                             <li className="flex items-center gap-3">
                                 <span className="w-2 h-2 rounded-full bg-indigo-500 ring-4 ring-indigo-50"></span>
-                                Optimization Cycle
+                                Systems Optimization
                             </li>
                             <li className="flex items-center gap-3">
                                 <span className="w-2 h-2 rounded-full bg-indigo-500 ring-4 ring-indigo-50"></span>
-                                Expansion Strategy
+                                Expansion Planning
                             </li>
                         </ul>
                     </div>

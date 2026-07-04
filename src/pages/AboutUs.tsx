@@ -47,21 +47,21 @@ const AboutUs: React.FC = () => {
                             variants={fadeInUp}
                             className="inline-block py-2 px-6 rounded-full bg-slate-50 border border-slate-100 text-xs font-bold uppercase tracking-[0.2em] mb-8 text-slate-900 shadow-sm"
                         >
-                            About Soke
+                            ABOUT SÓKÈ
                         </m.span>
                         <m.h1
                             variants={fadeInUp}
                             className="text-5xl md:text-8xl font-bold text-slate-900 mb-8 tracking-tighter leading-[0.9]"
                         >
-                            Building the Africa <br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-900 to-blue-600">we believe in.</span>
+                            Engineered for <br />
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-900 to-blue-600">Market Dominance.</span>
                         </m.h1>
                         <m.div
                             variants={fadeInUp}
                             className="grid md:grid-cols-2 gap-12 mt-16"
                         >
                             <p className="text-xl text-slate-600 leading-relaxed font-light">
-                                We are not just a digital agency. We are an infrastructure for growth, designed to help African founders scale their vision into reality.
+                                We are an execution powerhouse. We build the strategy, deploy the operations, and provide the ground-level infrastructure for businesses entering and scaling across African markets.
                             </p>
                             <div className="flex items-center gap-4">
                                 <div className="h-px bg-slate-200 flex-1"></div>
@@ -83,10 +83,9 @@ const AboutUs: React.FC = () => {
                 >
                     <div className="max-w-5xl mx-auto text-center relative z-10">
                         <h2 className="text-3xl md:text-5xl font-bold leading-tight mb-12">
-                            "We believe that the future of Africa belongs to those who build it.
-                            Not with hope alone, but with <span className="text-blue-500">strategy</span>, <span className="text-blue-500">systems</span>, and <span className="text-blue-500">scale</span>."
+                            "The future of African commerce belongs to those who execute. We don't just bridge the gap between vision and reality; we pave it with robust <span className="text-blue-500">strategy</span> and relentless ground <span className="text-blue-500">operations</span>."
                         </h2>
-                        <p className="text-slate-500 uppercase tracking-[0.2em] text-sm font-bold">The Soke Philosophy</p>
+                        <p className="text-slate-500 uppercase tracking-[0.2em] text-sm font-bold">THE SÓKÈ ECOSYSTEM</p>
                     </div>
                     <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.2\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")' }}></div>
                 </m.div>
@@ -114,17 +113,14 @@ const AboutUs: React.FC = () => {
                             viewport={{ once: true }}
                             transition={{ duration: 0.8, ease: "easeOut" as const, delay: 0.2 }}
                         >
-                            <h3 className="text-sm font-bold uppercase tracking-widest text-blue-600 mb-6">Our Approach</h3>
-                            <h2 className="text-4xl font-bold text-slate-900 mb-8">Not your typical agency.</h2>
+                            <h3 className="text-sm font-bold uppercase tracking-widest text-blue-600 mb-6">OUR ORIGIN</h3>
+                            <h2 className="text-4xl font-bold text-slate-900 mb-8">Execution over Advisory.</h2>
                             <div className="space-y-6 text-slate-600 text-lg leading-relaxed">
                                 <p>
-                                    Most agencies deliver "assets"—a logo, a website, a slide deck. We deliver outcomes.
+                                    SÓKÈ was born from a frustration with the traditional advisory model. We saw brilliant businesses fail to enter new markets not because they lacked vision, but because they lacked the on-ground infrastructure to execute that vision.
                                 </p>
                                 <p>
-                                    Soke Digital was born from a frustration with the status quo. We saw brilliant African founders struggling not because they lacked vision, but because they lacked the infrastructure to execute that vision at scale.
-                                </p>
-                                <p>
-                                    We partner with you to build the engine, not just paint the car.
+                                    We built SÓKÈ to be the execution engine that foreign and local enterprises need. We don't just hand you a strategy deck; we put boots on the ground and build the operational reality.
                                 </p>
                             </div>
                         </m.div>
@@ -141,8 +137,8 @@ const AboutUs: React.FC = () => {
                             variants={fadeInUp}
                             className="text-center mb-16"
                         >
-                            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-4">The Builders</h2>
-                            <p className="text-slate-500 max-w-xl mx-auto">Meet the leadership team driving the vision.</p>
+                            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-4">The Execution Core</h2>
+                            <p className="text-slate-500 max-w-xl mx-auto">Meet the leadership team driving the operations.</p>
                         </m.div>
 
                         <m.div
@@ -202,7 +198,7 @@ const AboutUs: React.FC = () => {
                                 <div className="p-8 flex-1 flex flex-col">
                                     <h3 className="text-xl font-bold text-slate-900 mb-1">Naze Terdoo</h3>
                                     <p className="text-xs font-bold uppercase tracking-widest text-blue-600 mb-4">Client Success Manager</p>
-                                    <p className="text-slate-500 text-sm leading-relaxed">Ensures all Soke Digital Clients and Partners are properly and efficiently served.</p>
+                                    <p className="text-slate-500 text-sm leading-relaxed">Ensures all Soke Africa Clients and Partners are properly and efficiently served.</p>
                                 </div>
                             </m.div>
 
@@ -220,10 +216,10 @@ const AboutUs: React.FC = () => {
                         className="text-center mb-16 max-w-4xl mx-auto"
                     >
                         <span className="inline-block py-1 px-3 rounded-full bg-blue-50 text-blue-900 border border-blue-100 text-xs font-bold uppercase tracking-widest mb-4">
-                            Ideal Partners
+                            IDEAL PARTNERS
                         </span>
                         <h2 className="text-4xl md:text-5xl font-bold text-slate-900 leading-tight">
-                            The <span className="text-blue-900">Founders</span> We Partner With
+                            The <span className="text-blue-900">Enterprises</span> We Partner With
                         </h2>
                     </m.div>
 
@@ -239,9 +235,9 @@ const AboutUs: React.FC = () => {
                             <img src="https://images.unsplash.com/photo-1573164574572-cb89e39749b4?auto=format&fit=crop&q=80&w=1200" alt="Founders with traction" loading="lazy" className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 filter brightness-[0.7]" />
                             <div className="absolute inset-0 bg-gradient-to-t from-blue-950 via-blue-900/40 to-transparent"></div>
                             <div className="absolute inset-0 p-8 md:p-12 flex flex-col justify-end">
-                                <span className="inline-block py-1 px-3 bg-blue-500/20 backdrop-blur-sm border border-blue-400/30 text-blue-200 text-xs font-bold uppercase tracking-widest mb-4 rounded-lg w-fit">Growth Stage</span>
-                                <h3 className="text-white text-2xl md:text-3xl font-bold mb-4">Founders with traction<br />looking to <span className="text-blue-200">scale</span></h3>
-                                <p className="text-blue-50/90 text-sm md:text-lg leading-relaxed opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-all duration-500 translate-y-0 lg:translate-y-4 lg:group-hover:translate-y-0">You have a product, you have sales. Now you need the systems to multiply by 10x without breaking.</p>
+                                <span className="inline-block py-1 px-3 bg-blue-500/20 backdrop-blur-sm border border-blue-400/30 text-blue-200 text-xs font-bold uppercase tracking-widest mb-4 rounded-lg w-fit">Market Entry</span>
+                                <h3 className="text-white text-2xl md:text-3xl font-bold mb-4">Organizations looking to expand<br />into <span className="text-blue-200">new territories</span></h3>
+                                <p className="text-blue-50/90 text-sm md:text-lg leading-relaxed opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-all duration-500 translate-y-0 lg:translate-y-4 lg:group-hover:translate-y-0">You have the capital and the product. Now you need the local strategy and the operational team to establish your footprint.</p>
                             </div>
                         </m.div>
 
@@ -256,9 +252,9 @@ const AboutUs: React.FC = () => {
                             <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&q=80&w=1200" alt="Structural Foundation" loading="lazy" className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 filter brightness-[0.7]" />
                             <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent"></div>
                             <div className="absolute inset-0 p-8 md:p-12 flex flex-col justify-end">
-                                <span className="inline-block py-1 px-3 bg-slate-700/40 backdrop-blur-sm border border-slate-500/30 text-slate-300 text-xs font-bold uppercase tracking-widest mb-4 rounded-lg w-fit">Mindset</span>
-                                <h3 className="text-white text-2xl md:text-3xl font-bold mb-4">Entrepreneurs prepared<br />to <span className="text-blue-200">invest in quality</span></h3>
-                                <p className="text-slate-200/90 text-sm md:text-lg leading-relaxed opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-all duration-500 translate-y-0 lg:translate-y-4 lg:group-hover:translate-y-0">We don't do shortcuts. We build foundations that last decades. If you want a quick fix, we aren't for you.</p>
+                                <span className="inline-block py-1 px-3 bg-slate-700/40 backdrop-blur-sm border border-slate-500/30 text-slate-300 text-xs font-bold uppercase tracking-widest mb-4 rounded-lg w-fit">Scale</span>
+                                <h3 className="text-white text-2xl md:text-3xl font-bold mb-4">Enterprises ready to formalize<br />their <span className="text-blue-200">operations</span></h3>
+                                <p className="text-slate-200/90 text-sm md:text-lg leading-relaxed opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-all duration-500 translate-y-0 lg:translate-y-4 lg:group-hover:translate-y-0">You are growing rapidly but lacking the internal systems to sustain it. We build the operational infrastructure to support 10x scale.</p>
                             </div>
                         </m.div>
                     </div>
@@ -274,13 +270,13 @@ const AboutUs: React.FC = () => {
                         className="max-w-4xl mx-auto"
                     >
                         <h2 className="text-4xl md:text-6xl font-bold text-slate-900 mb-8">
-                            Built to <span className="text-blue-900">last.</span>
+                            Engineered to <span className="text-blue-900">Scale.</span>
                         </h2>
                         <p className="text-xl text-slate-600 mb-12 font-light">
-                            We are not here for a quick exit. We are here to build the institutions that will define the next century of African business.
+                            We don't just advise on market entry. We execute it. Let's build your operational footprint.
                         </p>
                         <Link to="/contact" className="inline-block bg-slate-900 text-white px-10 py-5 rounded-full font-bold uppercase tracking-widest hover:bg-blue-900 transition-all hover:scale-105 shadow-xl">
-                            Partner With Us
+                            Engage Our Services
                         </Link>
                     </m.div>
                 </div>

@@ -14,7 +14,7 @@ const OriginStory: React.FC = () => {
                             Our Origin
                         </span>
                         <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-8 leading-tight">
-                            How <span className="text-blue-900">Sókè Digital</span><br />came to be
+                            How <span className="text-blue-900">Sókè Africa</span><br />came to be
                         </h2>
 
                         <div className="prose prose-lg text-slate-600 mb-8">
@@ -34,7 +34,7 @@ const OriginStory: React.FC = () => {
                         <div className="relative">
                             <div className="absolute -inset-4 bg-blue-900/5 rounded-3xl -rotate-2"></div>
                             <div className="bg-white p-12 lg:p-16 rounded-3xl shadow-xl flex items-center justify-center min-h-[400px] border border-slate-100 relative transform transition-transform hover:-translate-y-2 duration-500">
-                                <img src="/Logo.png" alt="SOKE Digital Logo" className="w-full max-w-[320px] h-auto object-contain" />
+                                <img src="/Logo.png" alt="SOKE Africa Logo" className="w-full max-w-[320px] h-auto object-contain" />
                             </div>
                         </div>
                     </div>

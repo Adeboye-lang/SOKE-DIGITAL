@@ -7,7 +7,7 @@ const Footer: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
                 {/* Brand */}
                 <div className="col-span-1 md:col-span-1">
-                    <img src="/Soke Web Icon.png" alt="SOKE DIGITAL" className="h-10 mb-8" />
+                    <img src="/Soke Web Icon.png" alt="SOKE AFRICA" className="h-10 mb-8" />
                     <div className="text-sm text-blue-200 space-y-4 mb-8">
                         <p>
                             B10 Maj Gen Iliya Street,<br />Abuja, Nigeria
@@ -16,7 +16,7 @@ const Footer: React.FC = () => {
                             <a href="tel:+2349118172903" className="hover:text-white transition-colors">+234 911 817 2903</a>
                         </p>
                         <p>
-                            <a href="mailto:clientservice@sokedigital.com.ng" className="hover:text-white transition-colors underline">clientservice@sokedigital.com.ng</a>
+                            <a href="mailto:clientservice@sokeafrica.com" className="hover:text-white transition-colors underline">clientservice@sokeafrica.com</a>
                         </p>
                     </div>
 
@@ -65,7 +65,7 @@ const Footer: React.FC = () => {
 
             <div className="flex flex-col md:flex-row justify-between items-center text-xs text-blue-300 border-t border-blue-800 pt-8">
                 <div>
-                    &copy; 2025 SOKE Digital. All rights reserved.
+                    &copy; 2025 SOKE Africa. All rights reserved.
                 </div>
                 <div className="flex gap-6 mt-4 md:mt-0">
                     <Link to="/privacy" className="hover:text-white">Privacy Policy</Link>

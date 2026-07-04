@@ -47,15 +47,15 @@ const SubdomainRedirect = () => {
 
     // Admin Route Check
     if (pathname.startsWith('/admin') || hostname.startsWith('admin.')) {
-      document.title = 'Soke Digital | Admin Portal';
+      document.title = 'Soke Africa | Admin Portal';
       // Optionally update favicon here if you had a separate admin icon
       // const link = document.querySelector("link[rel~='icon']") as HTMLLinkElement;
       // if (link) link.href = '/admin-icon.png'; 
     } else {
-      document.title = 'SOKE DIGITAL';
+      document.title = 'SOKE AFRICA';
     }
 
-    // Check if subdomain is 'admin' (e.g., admin.sokedigital.com.ng)
+    // Check if subdomain is 'admin' (e.g., admin.sokeafrica.com)
     // If so, redirect to admin login if not already on an admin route
     if (hostname.startsWith('admin.') && !pathname.startsWith('/admin')) {
       navigate('/admin/login');

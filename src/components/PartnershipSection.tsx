@@ -21,13 +21,13 @@ const PartnershipSection: React.FC = () => {
                 className="text-center mb-20 relative z-10"
             >
                 <span className="inline-block py-1 px-3 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-300 text-xs font-bold uppercase tracking-widest mb-6">
-                    Partnership Models
+                    PARTNERSHIP MODELS
                 </span>
                 <h2 className="text-4xl md:text-5xl font-bold mb-4">
-                    Three ways to <span className="text-blue-500">work</span> with us.
+                    Three ways to <span className="text-blue-500">engage</span> our GTM Services.
                 </h2>
                 <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-                    Whether you need advice, execution, or a full-scale partner, we have a model that fits your growth stage.
+                    Whether you need market entry advice, specific operational planning, or a full on ground execution team, we have a model that fits your growth stage.
                 </p>
             </m.div>
 
@@ -50,7 +50,7 @@ const PartnershipSection: React.FC = () => {
                         </div>
                         <h3 className="text-2xl font-bold mb-3">Consulting</h3>
                         <p className="text-slate-400 text-sm mb-8 leading-relaxed">
-                            Strategic advice and audits for teams who need direction but have the capacity to execute internally.
+                            Strategic GTM advice and market audits for teams who need direction but have the internal capacity to execute on the ground.
                         </p>
                         {/* Link Removed */}
 
@@ -69,7 +69,7 @@ const PartnershipSection: React.FC = () => {
                         </div>
                         <h3 className="text-2xl font-bold mb-3">Project Builds</h3>
                         <p className="text-slate-400 text-sm mb-8 leading-relaxed">
-                            Specific, high-impact deliverables. We build the website, the funnel, or the campaign, then hand you the keys.
+                            Specific, high-impact deliverables. We build your market entry strategy, map the operational plan, establish the initial footprint, and hand you the keys.
                         </p>
                         {/* Link Removed */}
                     </div>
@@ -88,7 +88,7 @@ const PartnershipSection: React.FC = () => {
                         </div>
                         <h3 className="text-2xl font-bold mb-3 text-white">Full Partnership</h3>
                         <p className="text-slate-300 text-sm mb-8 leading-relaxed">
-                            We become your growth department. Full ownership of strategy, marketing, and systems. We win when you win.
+                            We become your external growth department. Full ownership of your Go-to-Market strategy, planning, and on-ground execution. We win when you win.
                         </p>
                         <div className="mt-auto">
                             <Link to="/how-we-work" className="text-white font-semibold text-sm flex items-center gap-2 group-hover:gap-4 transition-all">

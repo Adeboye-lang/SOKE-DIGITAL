@@ -41,15 +41,15 @@ const ServicesHero: React.FC = () => {
                 className="relative z-10 max-w-5xl"
             >
                 <m.div variants={fadeInUp} className="inline-block px-4 py-1.5 border border-blue-100 rounded-full bg-blue-50/80 backdrop-blur-sm text-xs font-bold tracking-[0.2em] uppercase mb-8 text-blue-900 shadow-sm">
-                    Our Expertise
+                    CORE CAPABILITIES
                 </m.div>
                 <m.h1 variants={fadeInUp} className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight tracking-tight text-slate-900">
-                    Everything Your <br className="hidden md:block" />
-                    <span className="text-blue-900">Business Needs to Scale</span>
+                    Acquisition & Growth <br className="hidden md:block" />
+                    <span className="text-blue-900">Campaigns</span>
                 </m.h1>
                 <m.div variants={fadeInUp} className="h-1 w-24 bg-blue-900 mx-auto mb-8 rounded-full"></m.div>
                 <m.p variants={fadeInUp} className="text-sm md:text-base text-slate-600 font-bold tracking-[0.3em] uppercase">
-                    Strategy &bull; Marketing &bull; Infrastructure
+                    STRATEGY &bull; DEPLOYMENT &bull; CAPITAL
                 </m.p>
             </m.div>
         </section>

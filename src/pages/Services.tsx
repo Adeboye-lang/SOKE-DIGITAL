@@ -19,75 +19,55 @@ const Services: React.FC = () => {
 
     const strategyServices = [
         {
-            title: "Business Model Design",
-            subtitle: "Define how the business creates, delivers, and captures value.",
-            description: "We work with you to clarify your revenue streams, cost structures, and value propositions to ensure long-term viability."
+            title: "Market Research & Audits",
+            subtitle: "Evaluate viability before deployment.",
+            description: "Deep-dive analysis of your target market to ensure your entry strategy is backed by data, not just intuition."
         },
         {
-            title: "Product & Service Structure",
-            subtitle: "Codify what you sell into scalable products.",
-            description: "Moving from ad-hoc services to defined products allows for scale. We help structure your offerings for maximum clarity."
+            title: "Operational Roadmaps",
+            subtitle: "Step-by-step blueprints for market entry.",
+            description: "Translating high-level goals into tactical, actionable steps with clear resource allocation."
         },
         {
-            title: "Market Positioning Strategy",
-            subtitle: "Define where the business sits in the market.",
-            description: "We analyze the competition and find your unique space. Pricing, messaging, and targeting align to own this space."
-        },
-        {
-            title: "Growth Planning",
-            subtitle: "Establish a structured approach to growth.",
-            description: "Growth shouldn't be accidental. We build a roadmap with clear KPIs and milestones to measure progress."
+            title: "Risk Mitigation",
+            subtitle: "Identify and neutralize threats early.",
+            description: "Proactive assessment of regulatory, competitive, and operational risks in your new territory."
         }
     ];
 
     const marketingServices = [
         {
-            title: "Brand Strategy & Identity",
-            subtitle: "Define how the brand looks, speaks, and feels.",
-            description: "We build a cohesive brand system that communicates trust and authority across all channels."
+            title: "Sales & Pitch Decks",
+            subtitle: "Arm your ground team with the right tools.",
+            description: "Persuasive, high-conversion collateral designed specifically for B2B acquisition and investor relations."
         },
         {
-            title: "Digital Marketing Campaigns",
-            subtitle: "Visibility, traffic, and leads across digital channels.",
-            description: "We build and manage campaigns on Meta, LinkedIn, Google, and TikTok to drive results that matter."
+            title: "Video Production",
+            subtitle: "Show, don't just tell.",
+            description: "High-impact video assets that communicate your value proposition clearly and professionally."
         },
         {
-            title: "Product Marketing",
-            subtitle: "Positioning and packaging products for the market.",
-            description: "We help you articulate the value of your specific products to the right audience to drive adoption."
-        },
-        {
-            title: "Growth Marketing",
-            subtitle: "Full funnel acquisition and revenue growth.",
-            description: "Data-driven marketing that focuses on the entire customer journey, from awareness to retention."
-        },
-        {
-            title: "Content Production",
-            subtitle: "High-quality assets that tell your story.",
-            description: "From video production to copywriting, we create compelling content that engages your audience and drives action across all platforms."
+            title: "Digital Presence Build-Out",
+            subtitle: "Establish immediate authority.",
+            description: "Rapid deployment of localized websites, landing pages, and digital touchpoints for your new market."
         }
     ];
 
     const infrastructureServices = [
         {
-            title: "Digital Platform Development",
-            subtitle: "Build the user-facing technology platforms.",
-            description: "Websites, apps, and client portals that deliver a seamless experience for your customers."
+            title: "Local Vendor Management",
+            subtitle: "We handle the ground network.",
+            description: "Sourcing, vetting, and managing the local partners required for your business to function."
         },
         {
-            title: "Technology Stack Setup",
-            subtitle: "Select and implement the right tools for the business.",
-            description: "CRM, ERP, Project Management—we help you choose and configure the software effectively."
+            title: "SOP Development",
+            subtitle: "Standardize your success.",
+            description: "Creating robust Standard Operating Procedures so your new branch operates with the same efficiency as HQ."
         },
         {
-            title: "Operations & Workflow Design",
-            subtitle: "Optimize internal business operations.",
-            description: "We map out your processes and find efficiencies to save time and reduce errors."
-        },
-        {
-            title: "Team & Governance Structure",
-            subtitle: "Structure teams and operations for scalable growth.",
-            description: "Who does what? We help define roles, responsibilities, and reporting lines for clarity."
+            title: "Performance Dashboards",
+            subtitle: "Real-time visibility into ground ops.",
+            description: "Setting up the tech stack and reporting structures so you have full oversight from anywhere."
         }
     ];
 
@@ -97,17 +77,17 @@ const Services: React.FC = () => {
                 <ServicesHero />
 
                 <ServiceCategory
-                    title={<>Strategy <span className="text-blue-900">Services</span></>}
+                    title={<>Go-to-Market <span className="text-blue-900">Strategy</span></>}
                     services={strategyServices}
                 />
 
                 <ServiceCategory
-                    title={<>Marketing <span className="text-blue-900">Services</span></>}
+                    title={<>Execution Collateral <span className="text-blue-900">& Content</span></>}
                     services={marketingServices}
                 />
 
                 <ServiceCategory
-                    title={<>Infrastructure <span className="text-blue-900">Services</span></>}
+                    title={<>Operational <span className="text-blue-900">Infrastructure</span></>}
                     services={infrastructureServices}
                 />
 
@@ -120,17 +100,17 @@ const Services: React.FC = () => {
                     className="py-32 bg-white text-center border-t border-slate-100"
                 >
                     <m.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
-                        Ready to Build a Business
+                        Ready to Establish Your
                     </m.h2>
                     <m.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-bold text-blue-900 mb-8">
-                        That Scales?
+                        Market Presence?
                     </m.h2>
                     <m.p variants={fadeInUp} className="text-sm font-bold uppercase tracking-widest text-slate-500 mb-10 max-w-md mx-auto">
-                        Schedule a consultation to discuss your specific needs.
+                        Deploy your strategy with precision.
                     </m.p>
                     <m.div variants={fadeInUp}>
                         <Link to="/book-call" className="bg-blue-900 text-white px-10 py-4 rounded-full font-bold uppercase tracking-wide hover:bg-blue-800 transition-all inline-block shadow-xl hover:shadow-2xl hover:shadow-blue-900/20 hover:-translate-y-1">
-                            Book a Discovery Call
+                            Schedule a Strategy Session
                         </Link>
                     </m.div>
                 </m.div>

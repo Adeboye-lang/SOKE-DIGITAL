@@ -50,16 +50,16 @@ const MethodologyHero: React.FC = () => {
                 <div className="flex flex-col items-center">
                     <m.div variants={fadeInUp} className="inline-block p-[1px] rounded-full bg-gradient-to-r from-blue-500/50 via-purple-500/50 to-blue-500/50 mb-8 backdrop-blur-md">
                         <span className="block py-2 px-6 rounded-full bg-slate-900/80 text-blue-100 text-xs font-bold uppercase tracking-[0.2em] shadow-lg">
-                            Our Methodology
+                            OUR METHODOLOGY
                         </span>
                     </m.div>
 
                     <m.h1 variants={fadeInUp} className="text-6xl md:text-7xl lg:text-8xl font-black mb-8 leading-[1.1] tracking-tight drop-shadow-2xl">
-                        Vision to <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-300 to-white">Reality.</span>
+                        Vision to <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-300 to-white">Market Reality.</span>
                     </m.h1>
 
                     <m.p variants={fadeInUp} className="max-w-2xl text-lg md:text-xl text-slate-300 font-light leading-relaxed mb-12 drop-shadow-md">
-                        We don't just advise. We build. Bridging the gap between ambitious strategy and flawless execution with precision and speed.
+                        We don't just advise on market entry. We build the strategy, map the operations, and drive the on-ground execution. Bridging the gap between ambitious goals and market dominance.
                     </m.p>
 
                     <m.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4">

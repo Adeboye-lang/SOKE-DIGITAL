@@ -85,7 +85,7 @@ const BlogPost: React.FC = () => {
         <PageTransition>
             <SEOHead
                 title={post.title}
-                description={post.summary || `Read ${post.title} by ${post.author || 'SOKE DIGITAL'}`}
+                description={post.summary || `Read ${post.title} by ${post.author || 'SOKE AFRICA'}`}
                 canonicalUrl={`/blog/${post.id}`}
                 ogImage={post.imageUrl}
                 ogType="article"

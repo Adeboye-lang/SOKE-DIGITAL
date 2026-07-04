@@ -51,9 +51,9 @@ const AdminLogin: React.FC = () => {
 
                 <div className="w-full max-w-md bg-white p-10 rounded-3xl shadow-xl shadow-slate-200/50 relative z-10 border border-slate-100/50">
                     <div className="text-center mb-10">
-                        <img src="/Soke Web Icon.png" alt="Soke Digital" className="h-16 mx-auto mb-6" />
+                        <img src="/Soke Web Icon.png" alt="Soke Africa" className="h-16 mx-auto mb-6" />
                         <h1 className="text-2xl font-bold text-slate-900 tracking-tight">Admin Portal</h1>
-                        <p className="text-slate-500 text-sm mt-2">Secure access for Soke Digital staff.</p>
+                        <p className="text-slate-500 text-sm mt-2">Secure access for Soke Africa staff.</p>
                     </div>
 
                     <form onSubmit={handleLogin} className="space-y-5">
@@ -72,7 +72,7 @@ const AdminLogin: React.FC = () => {
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3.5 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-blue-600 focus:bg-white transition-all"
-                                placeholder="admin@sokedigital.com"
+                                placeholder="admin@sokeafrica.com"
                             />
                         </div>
 
@@ -111,7 +111,7 @@ const AdminLogin: React.FC = () => {
                 </div>
 
                 <p className="absolute bottom-8 text-center text-xs text-slate-400 font-medium">
-                    &copy; {new Date().getFullYear()} Soke Digital. Authorized personnel only.
+                    &copy; {new Date().getFullYear()} Soke Africa. Authorized personnel only.
                 </p>
             </div>
         </PageTransition>

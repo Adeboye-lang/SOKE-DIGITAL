@@ -149,7 +149,7 @@ const Blog: React.FC = () => {
     return (
         <PageTransition>
             <SEOHead
-                title="Insights & Strategies | SOKE DIGITAL Blog"
+                title="Insights & Strategies | SOKE AFRICA Blog"
                 description="Read our latest insights, strategies, and case studies on scaling African businesses, building world-class teams, and optimizing operations."
                 canonicalUrl="/blog"
             />

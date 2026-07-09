@@ -65,7 +65,7 @@ const Contact: React.FC = () => {
 
         const templateParams = {
             to_name: "Adeboye",
-            to_email: "sokestudiong@gmail.com, clientservice@sokeafrica.com", // Fallback for recipient mapping
+            to_email: "sokestudiong@gmail.com, clientservices@sokeafrica.com", // Fallback for recipient mapping
             email: "sokestudiong@gmail.com",    // Fallback if mapped to {{email}}
             from_name: formData.name,
             from_email: formData.email,
@@ -90,8 +90,8 @@ const Contact: React.FC = () => {
                 ...templateParams,
                 subject: `New Contact Inquiry: ${formData.service}`,
                 form_title: "New Contact Form Submission",
-                to_email: "clientservice@sokeafrica.com",
-                email: "clientservice@sokeafrica.com"
+                to_email: "clientservices@sokeafrica.com",
+                email: "clientservices@sokeafrica.com"
             }, PUBLIC_KEY);
 
             await Promise.all([p1, p2]);
@@ -356,8 +356,8 @@ const Contact: React.FC = () => {
                                     <div>
                                         <h3 className="text-lg font-bold text-slate-900 mb-1">Email</h3>
                                         <p className="text-slate-500 text-sm mb-2">General inquiries & support</p>
-                                        <a href="mailto:clientservice@sokeafrica.com" className="text-lg font-bold text-blue-600 hover:text-blue-800 transition-colors break-all">
-                                            clientservice@sokeafrica.com
+                                        <a href="mailto:clientservices@sokeafrica.com" className="text-lg font-bold text-blue-600 hover:text-blue-800 transition-colors break-all">
+                                            clientservices@sokeafrica.com
                                         </a>
                                     </div>
                                 </div>

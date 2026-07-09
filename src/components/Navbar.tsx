@@ -110,7 +110,7 @@ const Navbar: React.FC = () => {
                 className="mt-12 pt-8 border-t border-slate-900"
               >
                 <p className="text-slate-500 text-sm mb-4">Get in touch</p>
-                <a href="mailto:clientservice@sokeafrica.com" className="block text-lg text-white mb-2">clientservice@sokeafrica.com</a>
+                <a href="mailto:clientservices@sokeafrica.com" className="block text-lg text-white mb-2">clientservices@sokeafrica.com</a>
                 <a href="tel:09118172903" className="block text-lg text-white">0911 817 2903</a>
               </m.div>
             </m.div>

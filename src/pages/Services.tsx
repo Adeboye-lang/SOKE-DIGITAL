@@ -42,9 +42,9 @@ const Services: React.FC = () => {
             description: "Persuasive, high-conversion collateral designed specifically for B2B acquisition and investor relations."
         },
         {
-            title: "Video Production",
+            title: "Creative Production",
             subtitle: "Show, don't just tell.",
-            description: "High-impact video assets that communicate your value proposition clearly and professionally."
+            description: "High-impact creative assets that communicate your value proposition clearly and professionally."
         },
         {
             title: "Digital Presence Build-Out",

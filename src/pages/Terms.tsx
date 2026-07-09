@@ -428,7 +428,7 @@ const Terms: React.FC = () => {
                                 <h2 className="text-2xl font-bold mb-4">14. Questions?</h2>
                                 <p className="mb-6 opacity-90">We're happy to discuss any part of these terms.</p>
                                 <div className="space-y-1">
-                                    <p><a href="mailto:clientservice@sokeafrica.com" className="underline hover:text-blue-200">clientservice@sokeafrica.com</a></p>
+                                    <p><a href="mailto:clientservices@sokeafrica.com" className="underline hover:text-blue-200">clientservices@sokeafrica.com</a></p>
                                     <p><a href="tel:09118172903" className="hover:text-blue-200">09118172903</a></p>
                                 </div>
                                 <div className="mt-8 pt-8 border-t border-blue-800 opacity-75 text-sm">

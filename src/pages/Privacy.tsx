@@ -354,7 +354,7 @@ const Privacy: React.FC = () => {
                                 <p className="mb-6 opacity-90">If you have any questions, concerns, or requests regarding this Privacy Policy or how we handle your data, please contact us at:</p>
                                 <p className="text-xl font-bold">Sókè Africa</p>
                                 <div className="space-y-1 mt-4">
-                                    <p><a href="mailto:clientservice@sokeafrica.com" className="underline hover:text-blue-200">clientservice@sokeafrica.com</a></p>
+                                    <p><a href="mailto:clientservices@sokeafrica.com" className="underline hover:text-blue-200">clientservices@sokeafrica.com</a></p>
                                 </div>
                                 <div className="mt-8 pt-8 border-t border-blue-800 opacity-75 text-sm">
                                     <p>By engaging with Sókè Africa, you acknowledge that you have read and understood this Privacy Policy.</p>

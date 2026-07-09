@@ -45,7 +45,7 @@ const Footer: React.FC = () => {
                         <li><Link to="/about" className="hover:text-blue-200">About SOKE</Link></li>
                         <li><Link to="/services" className="hover:text-blue-200">Our Services</Link></li>
                         <li><Link to="/contact" className="hover:text-blue-200">Contact Us</Link></li>
-                        <li><Link to="/case-studies" className="hover:text-blue-200">Case Studies</Link></li>
+                        <li><Link to="/our-portfolio" className="hover:text-blue-200">Portfolio</Link></li>
                         <li><Link to="/blog" className="hover:text-blue-200">Blog</Link></li>
 
 
